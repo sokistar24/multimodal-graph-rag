@@ -18,7 +18,7 @@ runs from before and after a change can be compared):
   compare_all_<qset>_detail_<timestamp>.csv - per-question scores and answers
 
 Metrics: Recall@k and MRR (retrieval); answer accuracy, faithfulness, relevancy
-(generation, judged by gpt-4o). Retrieval is modality-aware: figure questions
+(generation, judged by gpt-4.1). Retrieval is modality-aware: figure questions
 (.png source) are scored over the image ranking, text questions over the text ranking.
 """
 import sys
@@ -37,7 +37,7 @@ from rag_full import generate_full
 load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-JUDGE_MODEL = "gpt-4o"      # judge differs from the gpt-4o-mini generator, to avoid self-grading
+JUDGE_MODEL = "gpt-4.1"      # judge differs from the gpt-4o-mini generator, to avoid self-grading
 K = 3                      # chunks/images retrieved per question
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)

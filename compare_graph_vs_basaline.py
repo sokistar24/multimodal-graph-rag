@@ -10,7 +10,7 @@ Usage:
     python compare_graph_vs_baseline.py questions_publaynet_text.json   # control: should tie
 
 Metrics: Recall@k and MRR (retrieval); answer accuracy, faithfulness, relevancy
-(generation, judged by gpt-4o). Both systems share the same retriever, so their
+(generation, judged by gpt-4.1). Both systems share the same retriever, so their
 retrieval metrics are identical; the KG only changes what reaches the generator.
 
 Writes two timestamped CSVs into results/ (nothing overwritten):
@@ -31,7 +31,7 @@ from graph_aware import build_triples, build_graph, graph_facts_for_query, gener
 load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-JUDGE_MODEL = "gpt-4o"      # judge differs from the gpt-4o-mini generator, to avoid self-grading
+JUDGE_MODEL = "gpt-4.1"      # judge differs from the gpt-4o generator, to avoid self-grading
 K = 3
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)

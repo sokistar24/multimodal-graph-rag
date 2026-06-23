@@ -13,7 +13,7 @@ the difference in answer accuracy isolates "reading the caption" vs "reading the
 image pixels".
 
 Metrics: Recall@k and MRR (retrieval); answer accuracy, faithfulness, relevancy
-(generation, judged by gpt-4o).
+(generation, judged by gpt-4.1).
 
 Usage:
     python compare_multimodal.py questions_publaynet_figures.json
@@ -35,7 +35,7 @@ from rag_vlm import ask_vlm
 load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-JUDGE_MODEL = "gpt-4o"      # judge differs from the gpt-4o-mini generator, to avoid self-grading
+JUDGE_MODEL = "gpt-4.1"      # judge differs from the gpt-4o generator, to avoid self-grading
 K = 3
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)

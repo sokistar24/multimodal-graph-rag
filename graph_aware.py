@@ -36,7 +36,7 @@ from explainability import format_explanation, text_evidence, parse_level
 load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-EXTRACT_MODEL = "gpt-4o-mini"
+EXTRACT_MODEL = "gpt-4o"
 CACHE_FILE = "triples_cache.json"
 
 

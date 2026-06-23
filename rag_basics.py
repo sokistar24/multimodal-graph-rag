@@ -32,7 +32,7 @@ load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 EMBED_MODEL = "text-embedding-3-small"
-CHAT_MODEL  = "gpt-4o-mini"
+CHAT_MODEL  = "gpt-4o"
 CORPUS_DIR  = "publaynet_corpus"
 
 
