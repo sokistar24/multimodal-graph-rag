@@ -1,0 +1,233 @@
+[
+
+  {
+    "q": "What demographic and lifestyle factors are categorized in relation to mean BMI and waist circumference?",
+    "source": "PMC4537884_00002_table0.png",
+    "answer": "age, education, income, smoking status, alcohol intake, fruit consumption, sedentary leisure time, and season of survey",
+    "type": "figure"
+  },
+
+  {
+    "q": "How many genes are included in the Retinitis Pigmentosa panel?",
+    "source": "PMC5592712_00002_table0.png",
+    "answer": "132 genes",
+    "type": "figure"
+  },
+  {
+    "q": "What are the statistical methods used to estimate incremental cost, incremental QALYs, and incremental net benefit (INB)?",
+    "source": "PMC5763423_00016_table0.png",
+    "answer": "ITT, two-stage least squares, three-stage least squares, uBN, uBGN, and BFL",
+    "type": "figure"
+  },
+  {
+    "q": "What genetic variants are analyzed for allele frequency in the NLGN3 and NLGN4X genes?",
+    "source": "PMC3120659_00004_table0.png",
+    "answer": "various SNPs",
+    "type": "figure"
+  },
+  {
+    "q": "What types of microorganisms are distributed in the saturated zone during baseflow and an event?",
+    "source": "PMC5947618_00010_figure0.png",
+    "answer": "protozoa, bacteria, archaea, and bacteriophages",
+    "type": "figure"
+  },
+  {
+    "q": "What are the concentrations of TGFβ1, IL-1β, and IL-6 across the three groups?",
+    "source": "PMC5986835_00005_figure0.png",
+    "answer": "The concentrations are measured in pg/ml and show significant differences among the groups.",
+    "type": "figure"
+  },
+  {
+    "q": "What are the key considerations for bariatric intervention in type 1 diabetes?",
+    "source": "PMC4936488_00011_table0.png",
+    "answer": "individualized decision-making, multidisciplinary care, and further research on long-term outcomes",
+    "type": "figure"
+  },
+
+  {
+    "q": "What are the categories compared for the duration and display percentages of alcohol cues and responsible drinking statements?",
+    "source": "PMC5467671_00004_table0.png",
+    "answer": "Drinkaware, Heineken responsibility, and Heineken",
+    "type": "figure"
+  },
+
+
+  {
+    "q": "What does the phylogenetic tree illustrate about genetic relationships?",
+    "source": "PMC4366372_00020_figure0.png",
+    "answer": "genetic relationships among different strains",
+    "type": "figure"
+  },
+
+
+
+
+  {
+    "q": "What opportunities for additional funding are available for undergraduate medical education at Radboud University Medical Center?",
+    "source": "PMC5579150_00007_table0.png",
+    "answer": "SIRPME grants",
+    "type": "figure"
+  },
+  {
+    "q": "What are the matrix factor percentages for DMEM/F12 and Fetal M199 at concentrations of 0.01 and 10.0 µg/mL?",
+    "source": "PMC6035002_00013_table0.png",
+    "answer": "the matrix factor percentages for DMEM/F12 and Fetal M199 at those concentrations",
+    "type": "figure"
+  },
+
+  {
+    "q": "What images are used for the go trials in the task setup?",
+    "source": "PMC4596151_00004_figure0.png",
+    "answer": "grapes and socks",
+    "type": "figure"
+  },
+
+  {
+    "q": "How are synthetic microbial communities categorized based on the type of mix and the number of FMG strains missing?",
+    "source": "PMC6061470_00004_table0.png",
+    "answer": "by types A, B, C and the presence of specific FMG strain IDs across groups I-IV",
+    "type": "figure"
+  },
+
+  {
+    "q": "What genetic mutations are associated with ovarian cancer development?",
+    "source": "PMC3537528_00006_figure0.png",
+    "answer": "various genetic mutations affecting tumor formation",
+    "type": "figure"
+  },
+
+  {
+    "q": "What measurements are compared between the right and left conchae bullosa?",
+    "source": "PMC3541255_00002_table1.png",
+    "answer": "R.M, L.M, R.A.E, L.A.E, R.P.E, L.P.E, R.F, L.F, R.S, L.S, R.OMC, and L.OMC",
+    "type": "figure"
+  },
+  {
+    "q": "What metrics are related to fast gait speed conditions?",
+    "source": "PMC5397518_00006_table0.png",
+    "answer": "duration, displacement, velocity range, and root mean square (RMS) values of acceleration and angular velocity",
+    "type": "figure"
+  },
+
+  {
+    "q": "What descriptive statistics are provided for healthcare-related input and output variables?",
+    "source": "PMC5423988_00002_table0.png",
+    "answer": "mean, median, standard deviation, minimum, and maximum",
+    "type": "figure"
+  },
+  {
+    "q": "What treatments affect NF-κB p65 nuclear localization?",
+    "source": "PMC5228585_00006_figure0.png",
+    "answer": "different treatments have varying effects on NF-κB p65 nuclear localization",
+    "type": "figure"
+  },
+  {
+    "q": "What metrics decline over time during enzyme replacement therapy over 10 years?",
+    "source": "PMC5760608_00003_figure0.png",
+    "answer": "PVC% and 6-minute walk test distance",
+    "type": "figure"
+  },
+
+
+  {
+    "q": "What information is provided about genes associated with MODY?",
+    "source": "PMC4934136_00003_table0.png",
+    "answer": "the number of subjects with MODY, the number of VUS-determined pathogenic cases, and specific mutation descriptions",
+    "type": "figure"
+  },
+  {
+    "q": "What clinical characteristic shows a significant difference between MODY-negative and MODY-positive groups at diabetes onset?",
+    "source": "PMC4934136_00003_table1.png",
+    "answer": "age, HbA1c levels, initial blood glucose, and pharmacologic treatment",
+    "type": "figure"
+  },
+
+  {
+    "q": "What are the effects of control and leptin antibody + leptin treatments on the average number of large luteal cells per area?",
+    "source": "PMC5791151_00005_table0.png",
+    "answer": "significant differences in cell counts between treatments",
+    "type": "figure"
+  },
+  {
+    "q": "What treatments are compared for their effects on fluorescence ratios in the samples?",
+    "source": "PMC5839695_00013_figure0.png",
+    "answer": "untreated, DTT-treated, and AT-2-treated samples",
+    "type": "figure"
+  },
+  {
+    "q": "What clinical and demographic characteristics are compared between patients with and without disease progression?",
+    "source": "PMC3211193_00002_table0.png",
+    "answer": "age, gender, stage, symptoms, and follow-up time",
+    "type": "figure"
+  },
+
+
+
+  {
+    "q": "What topics are discussed in the dialogue transcript between S05-P and S07-H?",
+    "source": "PMC4895853_00003_figure2.png",
+    "answer": "medical advice and preferences regarding C-sections",
+    "type": "figure"
+  },
+  {
+    "q": "What is the relationship between erythema or dryness and lotion transfer index across different pads?",
+    "source": "PMC4802086_00006_figure0.png",
+    "answer": "Erythema and dryness are represented by bars, while lotion transfer index is represented by a line.",
+    "type": "figure"
+  },
+  {
+    "q": "What are the overall survival rates for dental implants at 1, 5, and 10 years?",
+    "source": "PMC5906482_00007_table0.png",
+    "answer": "The overall survival rates are detailed for 1, 5, and 10 years.",
+    "type": "figure"
+  },
+  {
+    "q": "What are the mechanisms of action for lipid-lowering drugs in cholesterol metabolism?",
+    "source": "PMC5874549_00003_figure0.png",
+    "answer": "statins, fibrates, and PCSK9 inhibitors",
+    "type": "figure"
+  },
+  {
+    "q": "What are the expression levels of Sbno2 and Socs3 mRNA in astrocytes under different cytokine treatments?",
+    "source": "PMC4676294_00007_figure0.png",
+    "answer": "The expression levels vary depending on the treatment: control, hyper-IL-6, IL-1β, and TNFα.",
+    "type": "figure"
+  },
+  {
+    "q": "What information is provided about the primers and probes for RT-PCR and qRT-PCR?",
+    "source": "PMC5004774_00016_table0.png",
+    "answer": "their sequences, product sizes in base pairs, and sources",
+    "type": "figure"
+  },
+
+  {
+    "q": "What pathways are included for determining funding and support needs for patients deemed fit for discharge?",
+    "source": "PMC4180984_00001_figure0.png",
+    "answer": "social care, joint funding, or healthcare funding",
+    "type": "figure"
+  },
+  {
+    "q": "What is the role of Serine residue at position 411 in p70S6K activation?",
+    "source": "PMC5928379_00005_figure0.png",
+    "answer": "It is crucial for phosphorylation.",
+    "type": "figure"
+  },
+  {
+    "q": "What effects does stress have on tactile and cold sensitivity over time post-injury in male and female subjects?",
+    "source": "PMC5999418_00004_figure0.png",
+    "answer": "Significant differences in sensitivity between control and stressed groups.",
+    "type": "figure"
+  },
+  {
+    "q": "What are the activity levels of fungal strains against HEPG2, CA, AS, and MRSA?",
+    "source": "PMC4205895_00005_table0.png",
+    "answer": "indicated by plus signs",
+    "type": "figure"
+  },
+  {
+    "q": "What do the color-coded labels in the dendrogram represent in relation to the samples?",
+    "source": "PMC4205895_00005_figure1.png",
+    "answer": "different stages or types of fermentation",
+    "type": "figure"
+  }
+]

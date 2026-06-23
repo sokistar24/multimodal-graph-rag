@@ -1,0 +1,15 @@
+
+name: rag
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - faiss-cpu
+  - tesseract
+  - pip
+  - pip:
+      - -r requirements.txt
+

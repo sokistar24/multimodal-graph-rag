@@ -1,0 +1,229 @@
+[
+  {
+    "q": "What percentage of orphans from previously enrolled households were tested for HIV, and how did the odds of testing compare for children with male guardians versus female guardians?",
+    "source": "PMC4991227_00003.txt",
+    "answer": "49% of orphans from previously enrolled households were tested, and children with male guardians had 68% lower odds of being tested compared to those with female guardians.",
+    "type": "multihop"
+  },
+  {
+    "q": "What medium was selected for enhancing the production of active SMa, and which resin produced more biomass in Penicillium sp. strain CF-210988?",
+    "source": "PMC4205895_00005.txt",
+    "answer": "YES medium was selected, and the XAD-16 resin produced more biomass.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What are the two main subtypes that macrophages can be polarized into, and what is one of their functions in the immune system?",
+    "source": "PMC5828319_00000.txt",
+    "answer": "macrophages can be polarized into 'classical' and 'alternative' subtypes, and one of their functions is phagocytosis.",
+    "type": "multihop"
+  },
+
+
+ 
+  {
+    "q": "What is the relationship between nerve sparing surgery and continence outcomes, and what technique has been reported to improve continence rates?",
+    "source": "PMC3649202_00011.txt",
+    "answer": "There is no convincing relationship between nerve sparing surgery and continence outcomes, while the van Velthoven stitch technique has been reported to improve continence rates.",
+    "type": "multihop"
+  },
+
+
+  {
+    "q": "What components are part of the fear extinction network, and which sex hormone is suggested to modulate neural plasticity within this network?",
+    "source": "PMC3384233_00000.txt",
+    "answer": "The components include the amygdala, hippocampus, and medial prefrontal cortex, and estrogen is suggested to modulate neural plasticity.",
+    "type": "multihop"
+  },
+  {
+    "q": "What percentage of variance in QoL scores was explained by the models, and what was linked to poor SCRQoL?",
+    "source": "PMC5573976_00005.txt",
+    "answer": "The models explained 37% of the variance in QoL scores, and poor SCRQoL was linked to reporting moderate pain discomfort.",
+    "type": "multihop"
+  },
+
+
+  {
+    "q": "What percentage of patients had concha bullosa on the left side, and what was the total number of patients analyzed in the study?",
+    "source": "PMC3541255_00002.txt",
+    "answer": "16.0% of patients had concha bullosa on the left side, and a total of 465 cases were analyzed.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What software was used to run DEA models, and what was the model strength reported?",
+    "source": "PMC5423988_00002.txt",
+    "answer": "MaxDEA 6.6 software was used, and the model strength was 0.92.",
+    "type": "multihop"
+  },
+  {
+    "q": "What was the incidence of rheumatic fever reduction attributed to antibiotic use, and what was the primary infection being treated?",
+    "source": "PMC3388424_00000.txt",
+    "answer": "The incidence of rheumatic fever reduction was only 0.5 cases per 100,000, and the primary infection being treated was GABHS pharyngitis.",
+    "type": "multihop"
+  },
+  {
+    "q": "What gene expression was significantly elevated in the brain after LPS injection, and which type of cells predominantly showed this elevation?",
+    "source": "PMC4676294_00007.txt",
+    "answer": "Sox2 mRNA was significantly elevated, predominantly in astrocytes.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What was the prevalence of GDM among women in Palau, and what increased risks did women with GDM face compared to those without?",
+    "source": "PMC5605591_00000.txt",
+    "answer": "The prevalence of GDM was 5.5%, and women with GDM were five times more likely to have a neonatal death compared to women without GDM.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What cytokines were analyzed for their role in BM-MSC migration, and what was the effect of MCP-1 blocking antibodies on BM-MSC chemotaxis?",
+    "source": "PMC5928379_00005.txt",
+    "answer": "GRO-2, MCP-1, and TGF-β were analyzed, and MCP-1 blocking antibodies significantly reduced BM-MSC migration by about 80%.",
+    "type": "multihop"
+  },
+
+ 
+
+  {
+    "q": "What protective role does PPARy play in liver injury, and what substance was shown to enhance its effects?",
+    "source": "PMC5733955_00001.txt",
+    "answer": "PPARy protects against cyclophosphamide-induced liver injury, and the substance that enhances its effects is gamma-glutamylcysteine.",
+    "type": "multihop"
+  },
+  {
+    "q": "What is the interspecific divergence percentage between Hepatozoon species, and how many well-supported monophyletic clades were formed within the African clade?",
+    "source": "PMC6084435_00008.txt",
+    "answer": "The interspecific divergence is 10%, and three well-supported monophyletic clades were formed within the African clade.",
+    "type": "multihop"
+  },
+
+ 
+  {
+    "q": "What percentage decrease was observed in the phosphorylated form of RA-1 at Ser238, and what role does Raf Kinase play in cell survival?",
+    "source": "PMC4125699_00003.txt",
+    "answer": "A decrease of 20.45% was observed in the phosphorylated form of RA-1 at Ser238, and Raf Kinase promotes cell survival by phosphorylating and inactivating Bad protein.",
+    "type": "multihop"
+  },
+
+
+  {
+    "q": "What was the effect of propranolol on liver glycogen content, and what did immunohistochemistry reveal about TH presence in the liver?",
+    "source": "PMC5706999_00003.txt",
+    "answer": "Propranolol preserved liver glycogen content, while immunohistochemistry showed that sympathetic ganglionectomized animals with GOHDA had limited TH presence in the liver.",
+    "type": "multihop"
+  },
+  {
+    "q": "What cytokines were found to correlate inversely with grip strength in older men, and what growth factor is thought to play an important role in muscle hypertrophy?",
+    "source": "PMC4983298_00016.txt",
+    "answer": "TNF and IL-6 correlate inversely with grip strength, while insulin-like growth factor (IGF) is thought to play an important role in muscle hypertrophy.",
+    "type": "multihop"
+  },
+  {
+    "q": "What percentage of MODY-positive subjects were prescribed only oral agents, and what percentage of MODY-negative subjects were taking insulin?",
+    "source": "PMC4934136_00003.txt",
+    "answer": "27% of MODY-positive subjects were prescribed only oral agents, while 82% of MODY-negative subjects were taking insulin.",
+    "type": "multihop"
+  },
+  {
+    "q": "What was the difference in HMO concentrations between severely tested mothers and those who were feeding weight infants, and what condition was hypothesized to be influenced by these HMO concentrations?",
+    "source": "PMC5402033_00010.txt",
+    "answer": "Severely tested mothers had higher HMO concentrations than those feeding weight infants, and it was hypothesized that these concentrations might be particularly important in the context of HIV.",
+    "type": "multihop"
+  },
+  {
+    "q": "What is the age range of women with the highest incidence of breast cancer, and what specific biological characteristic do young breast cancer patients tend to present with?",
+    "source": "PMC5050233_00001.txt",
+    "answer": "The highest incidence is in the 35-39 years age range, and young breast cancer patients tend to present with more aggressive biological characteristics.",
+    "type": "multihop"
+  },
+  {
+    "q": "What method was used to analyze the cost-effectiveness of Inperoscopy, and what patient condition was it evaluated for?",
+    "source": "PMC5763423_00016.txt",
+    "answer": "The analysis used causal cost-effectiveness estimates for RCTs with non-compliance, evaluated for patients suffering from gastro-oesophageal reflux disease.",
+    "type": "multihop"
+  },
+  {
+    "q": "What is one challenge in designing substrate-based imaging agents, and what is a successful application of such probes?",
+    "source": "PMC5613853_00002.txt",
+    "answer": "One challenge is selectivity for the target enzyme, and a successful application is the imaging of kinases using phosphorylated products.",
+    "type": "multihop"
+  },
+  {
+    "q": "What are the two types of fluorescent proteins mentioned, and what do the abbreviations ECFP and DR stand for?",
+    "source": "PMC5580807_00019.txt",
+    "answer": "The two types of fluorescent proteins mentioned are enhanced cyan fluorescent protein (ECFP) and Discosoma red fluorescent protein (DR).",
+    "type": "multihop"
+  },
+
+
+  {
+    "q": "What is the statistical significance of the findings regarding LEE and dud locus carriage, and what method was used to calculate it?",
+    "source": "PMC4366372_00020.txt",
+    "answer": "The statistical significance was calculated using a Fisher's exact test (p<0.0001).",
+    "type": "multihop"
+  },
+  {
+    "q": "What was the concentration of CF-CHP used for staining, and what temperature was the solution heated to before use?",
+    "source": "PMC5462463_00004.txt",
+    "answer": "The concentration of CF-CHP was 15 uM, and the solution was heated to 80°C before use.",
+    "type": "multihop"
+  },
+  {
+    "q": "What phenotype was observed in the ADPKD mice, and what was the significant finding related to gender in disease progression?",
+    "source": "PMC5543471_00003.txt",
+    "answer": "The phenotype observed in the ADPKD mice was cystic, and it was found that the disease progresses more quickly in males than in females.",
+    "type": "multihop"
+  },
+  {
+    "q": "What is the thickness range of commercial plasma-sprayed HA coatings, and what is the primary mechanism involved in the adhesion of calcium orthophosphate coatings?",
+    "source": "PMC5120666_00022.txt",
+    "answer": "The thickness range is between 50 and 200 micrometers, and the primary mechanism involved in adhesion is mechanical anchorage.",
+    "type": "multihop"
+  },
+  {
+    "q": "What is the recommended dose for Bexafibrate, and what effect did it have on cardiovascular events in patients with high triglycerides?",
+    "source": "PMC5874549_00003.txt",
+    "answer": "The recommended dose for Bexafibrate is 200 mg three times a day, and it prevented cardiovascular events in the subgroup of coronary artery disease patients with high triglycerides.",
+    "type": "multihop"
+  },
+  {
+    "q": "What method was used to control organic additive content, and what was the estimated reduction in carbon emissions compared to previous methods?",
+    "source": "PMC5434938_00006.txt",
+    "answer": "A mild, rapid, and scalable method was used, producing orders of magnitude lower carbon emissions.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What percentage of psychotherapy treatments were provided within the NHS framework, and what was the likelihood of using NHS psychotherapy for individuals in the highest income quintile?",
+    "source": "PMC5559774_00001.txt",
+    "answer": "Approximately 78% of all psychotherapy treatments were provided within the NHS framework, and individuals in the highest income quintile were less likely to use NHS psychotherapy (OR = 0.43).",
+    "type": "multihop"
+  },
+  {
+    "q": "What risk factor was identified related to smartphone use during breastfeeding, and what was the trend in the incidence of SUPC in Spain after the introduction of early skin-to-skin care?",
+    "source": "PMC3709122_00007.txt",
+    "answer": "Using smartphones during breastfeeding was identified as a risk factor, and the incidence of SUPC in Spain increased from 0.06/1000 to 0.74/1000 live births after the introduction of early skin-to-skin care.",
+    "type": "multihop"
+  },
+  {
+    "q": "What was the main focus of the study regarding visuomotor fluency, and what unintended discovery was made concerning RT measures and ENG activation?",
+    "source": "PMC4743617_00001.txt",
+    "answer": "The study primarily aimed to examine how visuomotor fluency influenced subsequent ratings of a person's characteristics, and it serendipitously discovered a double association between RT measures and ENG activation.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What are the two clinical candidates that bear structural resemblance to MK-0731, and what is one of the reasons for the poor activity of many ES inhibitors in the clinic?",
+    "source": "PMC4896392_00010.txt",
+    "answer": "ARRY-520 and LY2523355 bear structural resemblance to MK-0731; the reasons for the poor activity are unclear.",
+    "type": "multihop"
+  },
+
+  {
+    "q": "What was the primary immunosuppressive drug used in the renal transplant patients, and what was the average dose of steroids by the end of three months?",
+    "source": "PMC4219614_00001.txt",
+    "answer": "Cyclosporine was the primary immunosuppressive drug, and the average dose of steroids was reduced to 7.5-10 mg/day.",
+    "type": "multihop"
+  }
+]

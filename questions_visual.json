@@ -1,0 +1,8 @@
+[
+  {"q": "In the volcano cross-section diagram, what is shown beneath the cone?", "source": "volcano_diagram.png", "answer": "the magma chamber"},
+  {"q": "What does the photosynthesis bar chart compare?", "source": "photosynthesis_chart.png", "answer": "carbon dioxide taken in and oxygen released"},
+  {"q": "In the bee colony pie chart, which group is the largest share?", "source": "bee_colony_pie.png", "answer": "workers"},
+  {"q": "What does the planet sizes diagram compare?", "source": "planet_sizes.png", "answer": "the relative sizes of Mercury, Earth, and Jupiter"},
+  {"q": "Which river is shown as longest in the river length chart?", "source": "river_lengths.png", "answer": "the Nile"},
+  {"q": "What time period does the Roman Empire map depict?", "source": "roman_map.png", "answer": "around 117 AD"}
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "q": "What is the atomic number of Carbon?",
+    "source": "elements.csv",
+    "answer": "6"
+  },
+  {
+    "q": "What are the three types of bee in a honeybee colony?",
+    "source": "honeybees.docx",
+    "answer": "A single queen, female workers, and male drones."
+  },
+  {
+    "q": "What do plants take in from the air during photosynthesis?",
+    "source": "photosynthesis.txt",
+    "answer": "carbon dioxide"
+  },
+  {
+    "q": "What is the diameter of Mercury in kilometers?",
+    "source": "planets.csv",
+    "answer": "4879"
+  },
+  {
+    "q": "What is the length of the Nile river in kilometers?",
+    "source": "rivers.csv",
+    "answer": "6650"
+  },
+  {
+    "q": "Who was the first emperor of the Roman Empire?",
+    "source": "roman_empire.docx",
+    "answer": "Augustus"
+  },
+  {
+    "q": "What is called lava once it reaches the surface?",
+    "source": "volcanoes.txt",
+    "answer": "Lava"
+  }
+]

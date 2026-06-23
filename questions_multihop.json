@@ -1,0 +1,8 @@
+[
+  {"q": "What did the structure that Romans used to carry water over long distances enable?", "source": "roman_empire.docx", "answer": "aqueducts carried water over long distances"},
+  {"q": "Who came to power in 27 BC and what was their role?", "source": "roman_empire.docx", "answer": "Augustus, the first Roman emperor"},
+  {"q": "Which insect transfers pollen between flowers and what does that allow?", "source": "honeybees.docx", "answer": "bees; it allows plants to reproduce"},
+  {"q": "What is the largest planet and how many moons does it have?", "source": "planets.csv", "answer": "Jupiter, with 95 moons"},
+  {"q": "What process turns carbon dioxide and water into glucose, and what does it release?", "source": "photosynthesis.txt", "answer": "photosynthesis; it releases oxygen"},
+  {"q": "What is lava before it reaches the surface, and where does it come from?", "source": "volcanoes.txt", "answer": "magma, from beneath the Earth's surface"}
+]

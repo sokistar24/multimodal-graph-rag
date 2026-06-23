@@ -1,0 +1,7 @@
+.env
+__pycache__/
+publaynet_corpus/
+publaynet_images/
+results/
+triples_cache.json
+full_freeze.txt
