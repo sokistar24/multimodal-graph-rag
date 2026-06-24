@@ -6,8 +6,8 @@ for scientific document question answering.
 ```markdown
 The project uses the Hugging Face `lhoestq/small-publaynet-wds` dataset and compares text retrieval, 
 knowledge-graph retrieval, multimodal retrieval, and a combined system. 
-A detailed technical report covering the model architecture, 
-data preprocessing, experimental evaluation, results, [report.pdf](report.pdf).
+A detailed report covering the problem formulation, 
+data preprocessing, experimental evaluation and can be found in the report.pdf.
 ```
 
 
