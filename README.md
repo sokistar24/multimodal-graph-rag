@@ -2,7 +2,11 @@
 
 This repository implements and evaluates several retrieval-augmented generation systems for scientific document question answering.
 
-The project uses the Hugging Face `lhoestq/small-publaynet-wds` dataset and compares text retrieval, knowledge-graph retrieval, multimodal retrieval and a combined system.
+```markdown
+The project uses the Hugging Face `lhoestq/small-publaynet-wds` dataset and compares text retrieval, knowledge-graph retrieval, multimodal retrieval, and a combined system. 
+A detailed technical report covering the model architecture, data preprocessing, experimental evaluation, results, limitations, and future work is available in [report.pdf](report.pdf).
+```
+
 
 ## Systems evaluated
 
