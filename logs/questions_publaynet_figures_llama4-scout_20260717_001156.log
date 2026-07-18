@@ -1,0 +1,35 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_figures.json --model llama4-scout
+# started 20260717_001156
+
+Loading CLIP...
+
+Ablation — questions_publaynet_figures (35 questions)
+Generator : llama4-scout  (Meta/Groq, open, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|██████████| 7307/7307 [00:00<00:00, 365389.55it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    1. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    1/35  At 40 months of analysis time, what is the approximate per
+    2. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    2. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    2/35  What is the residual deviance value for the model with 2 d
+    3. [+KG] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    3. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    3. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    3/35  At the 3 hour timepoint, which PBS/EICH concentration cond
+    4. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    4. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    4/35  At the apical region, what is the approximate difference i
+    5. [+KG] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    5. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org

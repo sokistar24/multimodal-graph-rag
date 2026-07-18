@@ -1,0 +1,1 @@
+Compilers: Principles, Techniques, and Tools is a computer science textbook by Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman about compiler construction. First published in 1986, it is widely regarded as the classic definitive compiler technology text.

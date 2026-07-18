@@ -1,0 +1,5 @@
+run_id,question_set,question_type,model,vendor,access,n_questions,system,recall,mrr,acc,faith,rel,mean_in_tok,mean_out_tok,mean_latency_ms,total_cost_usd,cost_per_100q_usd
+2026-07-16_00:16:54,questions_publaynet_multihop,multihop,llama-70b,Meta/Groq,open,30,baseline,0.9,0.883,0.5,0.467,0.867,521.7,71.2,413.4,0.010921,0.0364
+2026-07-16_00:16:54,questions_publaynet_multihop,multihop,llama-70b,Meta/Groq,open,30,+KG,0.9,0.883,0.4,0.433,0.867,572.3,71.8,378.7,0.011833,0.0394
+2026-07-16_00:16:54,questions_publaynet_multihop,multihop,llama-70b,Meta/Groq,open,30,+multimodal,0.9,0.883,0.433,0.467,0.9,584.7,90.5,510.3,0.012495,0.0416
+2026-07-16_00:16:54,questions_publaynet_multihop,multihop,llama-70b,Meta/Groq,open,30,+both,0.9,0.883,0.433,0.5,0.767,639.4,81.5,419.7,0.013248,0.0442

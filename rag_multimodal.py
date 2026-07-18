@@ -59,17 +59,71 @@ def embed_text_clip(text):
         vec = clip_model.encode_text(tokens)
     return vec[0].cpu().numpy().astype("float32")
 
-def build_image_index(image_dir=IMAGE_DIR):
+def _image_fingerprint(image_dir):
+    """
+    Hash of the image directory: filenames + sizes + mtimes.
+
+    Keys the CLIP cache so it invalidates when the crops change — pointing the
+    pipeline at DocLayNet must not silently reuse PubLayNet's image index.
+    """
+    import hashlib
+    h = hashlib.md5()
+    for path in sorted(glob.glob(os.path.join(image_dir, "*.png"))):
+        st = os.stat(path)
+        h.update(f"{os.path.basename(path)}:{st.st_size}:{int(st.st_mtime)}".encode())
+    return h.hexdigest()[:16]
+
+
+def build_image_index(image_dir=IMAGE_DIR, rebuild=False):
+    """
+    Build (or load) the CLIP image index.
+
+    CLIP-embedding ~600 crops is local compute — no API cost, but slow on CPU,
+    and it is IDENTICAL on every run (only the generator varies across runs).
+    Caching it saves that work on each of the 12 planned runs.
+
+    rebuild=True forces a fresh build.
+    """
+    import pickle
+
     with open(os.path.join(image_dir, "captions.json"), encoding="utf-8") as f:
         captions = json.load(f)
 
+    fp = _image_fingerprint(image_dir)
+    cache_path = f".clip_cache_{os.path.basename(image_dir)}_{fp}.pkl"
+
+    if not rebuild and os.path.exists(cache_path):
+        try:
+            with open(cache_path, "rb") as f:
+                data = pickle.load(f)
+            vectors, img_names = data["vectors"], data["img_names"]
+            index = faiss.IndexFlatIP(vectors.shape[1])
+            index.add(vectors)
+            print(f"Loaded cached image index: {len(img_names)} images")
+            return index, img_names, captions
+        except Exception as e:
+            print(f"  CLIP cache unreadable ({str(e)[:40]}); rebuilding")
+
+    paths = sorted(glob.glob(os.path.join(image_dir, "*.png")))
+    print(f"CLIP-embedding {len(paths)} images (one-off; cached after this)...")
+
     img_names, vectors = [], []
-    for path in sorted(glob.glob(os.path.join(image_dir, "*.png"))):
+    for i, path in enumerate(paths, 1):
         img_names.append(os.path.basename(path))
         vectors.append(embed_image(path))
+        if i % 100 == 0:
+            print(f"  [clip] {i}/{len(paths)}")
 
     vectors = np.array(vectors, dtype="float32")
     faiss.normalize_L2(vectors)
+
+    try:
+        with open(cache_path, "wb") as f:
+            pickle.dump({"vectors": vectors, "img_names": img_names}, f)
+        print(f"Image index cached -> {cache_path}")
+    except Exception as e:
+        print(f"  could not cache image index ({str(e)[:40]}); continuing")
+
     index = faiss.IndexFlatIP(vectors.shape[1])
     index.add(vectors)
     print(f"Image index: {len(img_names)} images")
@@ -77,7 +131,7 @@ def build_image_index(image_dir=IMAGE_DIR):
 
 
 # ---------- 2. retrieve images for a text query ----------
-def retrieve_images(query, img_index, img_names, captions, k=1):
+def retrieve_images(query, img_index, img_names, captions, k=3):
     query_vec = embed_text_clip(query).reshape(1, -1)
     faiss.normalize_L2(query_vec)
     scores, idxs = img_index.search(query_vec, k)
@@ -88,31 +142,71 @@ def retrieve_images(query, img_index, img_names, captions, k=1):
     return results
 
 
-# ---------- 3. fuse text chunks + image captions ----------
-def generate_multimodal(query, text_retrieved, image_retrieved):
-    context = "\n\n".join(f"[{source}] {chunk}" for _, source, chunk in text_retrieved)
-    img_block = "\n".join(f"- ({name}) {caption}" for _, name, caption in image_retrieved)
-    resp = client.chat.completions.create(
-        model=CHAT_MODEL,
-        temperature=0,
-        messages=[
-            {"role": "system",
-             "content": "Answer using only the provided text context and image descriptions. "
-                        "If the answer isn't there, say you don't know."},
-            {"role": "user",
-             "content": (
-                 f"Text context:\n{context}\n\n"
-                 f"Relevant images (described):\n{img_block}\n\n"
-                 f"Question: {query}"
-             )},
-        ],
-    )
-    return resp.choices[0].message.content
+# ---------- 3. fuse text chunks + images ----------
+def generate_multimodal(query, text_retrieved, image_retrieved,
+                        model="gpt4o-mini", vlm=True, image_dir=IMAGE_DIR):
+    """
+    +multimodal generation. Returns GenResult.
 
-def ask_multimodal(query, text_index, chunks, sources, img_index, img_names, captions, k=3):
+    Two variants, per the paper's Method section:
+
+      vlm=True  (default) — the retrieved figure is passed as PIXELS to the
+                 generator for direct visual reasoning.
+      vlm=False — only the figure's caption is passed as text.
+
+    Both share identical CLIP retrieval, so any accuracy gap between them
+    isolates what the caption loses relative to reading the image.
+
+    Text-only models cannot take pixels. llm_client drops images for
+    them automatically, so we must supply the caption or they get nothing at all.
+    That fallback is not a bug: it is the caption-mediated variant, and the
+    paper reports it as such.
+    """
+    from llm_client import call, MODELS
+
+    context   = "\n\n".join(f"[{source}] {chunk}" for _, source, chunk in text_retrieved)
+    img_block = "\n".join(f"- ({name}) {caption}" for _, name, caption in image_retrieved)
+
+    can_see   = MODELS[model]["vision"]
+    use_pixels = vlm and can_see and bool(image_retrieved)
+
+    if use_pixels:
+        paths = [os.path.join(image_dir, name) for _, name, _ in image_retrieved]
+        paths = [p for p in paths if os.path.exists(p)]
+        return call(
+            model,
+            system="Answer using only the provided text context and the attached "
+                   "image(s). If the answer isn't there, say you don't know.",
+            user=(f"Text context:\n{context}\n\n"
+                  f"Question: {query}"),
+            images=paths,
+        )
+
+    # Caption-mediated: text-only model, or vlm=False explicitly.
+    return call(
+        model,
+        system="Answer using only the provided text context and image descriptions. "
+               "If the answer isn't there, say you don't know.",
+        user=(f"Text context:\n{context}\n\n"
+              f"Relevant images (described):\n{img_block}\n\n"
+              f"Question: {query}"),
+    )
+
+def ask_multimodal(query, text_index, chunks, sources, img_index, img_names,
+                   captions, k=3, model="gpt4o-mini", vlm=True, k_img=None):
+    """
+    Interactive demo path.
+
+    k_img defaults to 1 on the pixel path and 3 on the caption path, mirroring
+    compare_all.py's K_IMAGES_PIXELS / K_IMAGES_CAPTION. The experiment passes
+    its own prefix; this default only keeps the demo from drifting away from it.
+    """
+    if k_img is None:
+        k_img = 1 if vlm else 3
     text_retrieved = retrieve(query, text_index, chunks, sources, k=k)
-    image_retrieved = retrieve_images(query, img_index, img_names, captions, k=1)
-    answer = generate_multimodal(query, text_retrieved, image_retrieved)
+    image_retrieved = retrieve_images(query, img_index, img_names, captions, k=k_img)
+    answer = generate_multimodal(query, text_retrieved, image_retrieved,
+                                 model=model, vlm=vlm).text
     return answer, text_retrieved, image_retrieved
 
 

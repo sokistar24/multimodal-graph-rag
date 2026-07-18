@@ -1,0 +1,502 @@
+[
+  {
+    "q": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
+    "source": [
+      "Boston_Lincolnshire.txt",
+      "Kirton_End.txt"
+    ],
+    "answer": "35,124",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
+    "source": [
+      "Andrew_Jaspan.txt",
+      "The_Conversation_website.txt"
+    ],
+    "answer": "The Conversation",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Who was Chamberlain and Colonel of the military staff of The Merrie Monarch?",
+    "source": [
+      "Charles_Hastings_Judd.txt",
+      "Kalakaua_055843.txt"
+    ],
+    "answer": "Colonel Charles Hastings Judd",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which song was behind the third single on the album  \"A Lot About Livin' (And a Little 'bout Love)\" for two weeks on the country charts?",
+    "source": [
+      "Chattahoochee_song.txt",
+      "We_ll_Burn_That_Bridge.txt"
+    ],
+    "answer": "\"We'll Burn That Bridge\"",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the name of the Isles who were led by Aonghus Mór and covered a total land area of over 8300 km2?",
+    "source": [
+      "Aonghus_Mor_b5e643.txt",
+      "Kingdom_of_the_Isles.txt"
+    ],
+    "answer": "Kingdom of the Isles",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which country did the Falkland Islands beat in the 2010 Commonwealth games that has eleven administrative divisions?",
+    "source": [
+      "Gerald_Reive.txt",
+      "Samoa.txt"
+    ],
+    "answer": "Samoa",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
+    "source": [
+      "End_of_Days_film.txt",
+      "Oh_My_God_Guns_N_Roses_song.txt"
+    ],
+    "answer": "1999",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What station broadcast the episode \"Marry Me a Little, Marry Me a Little More\" , of the series created by Max Mutchnick and David Kohan?",
+    "source": [
+      "Marry_Me_a_Little_Marry_Me_a_Little_More.txt",
+      "Will_&amp;_Grace.txt"
+    ],
+    "answer": "National Broadcasting Company",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which professional baseball player and National 1993 Baseball Hall of Fame inductee is featured in the Greatest Sports Legends anthology? ",
+    "source": [
+      "Greatest_Sports_Legends.txt",
+      "Reggie_Jackson.txt"
+    ],
+    "answer": "Reginald Martinez \"Reggie\" Jackson",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "During Siege of Bharatpur, which Commander-in-Chief of Ireland and Commander-in-Chief of India contributed to the storming of the castle?",
+    "source": [
+      "Siege_of_Bharatpur.txt",
+      "Stapleton_Cotton_1st_Viscount_Combermere.txt"
+    ],
+    "answer": "Lord Combermere",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
+    "source": [
+      "2014_S_S.txt",
+      "Winner_band.txt"
+    ],
+    "answer": "YG Entertainment",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the name of the singer who's song was released as the lead single from the album \"Confessions\", and that had popular song stuck behind for eight consecutive weeks?",
+    "source": [
+      "I_Don_t_Wanna_Know.txt",
+      "Yeah!_Usher_song.txt"
+    ],
+    "answer": "Usher",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+    "source": [
+      "18th_Independent_Spirit_Awards.txt",
+      "John_Waters.txt"
+    ],
+    "answer": "John Waters",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the nickname of the city where Darling's Waterfront Pavilion is located?",
+    "source": [
+      "Bangor_Maine.txt",
+      "Darling_s_Waterfront_Pavilion.txt"
+    ],
+    "answer": "\"Queen City\"",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": " The name \"Mountbatten-Windsor\" applies to male-line descendants of the Queen without royal styles and titles which is a Eurpean dynasty resulting in what family?",
+    "source": [
+      "Mountbatten-Windsor.txt",
+      "Mountbatten_family.txt"
+    ],
+    "answer": "Mountbatten family",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which American film actor and dancer starred in the 1945 film Johnny Angel?",
+    "source": [
+      "George_Raft.txt",
+      "Johnny_Angel.txt"
+    ],
+    "answer": "George Raft",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "James Fieser received his B.A. from what liberal arts work college that was founded in 1855?",
+    "source": [
+      "Berea_College.txt",
+      "James_Fieser.txt"
+    ],
+    "answer": "Berea College",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
+    "source": [
+      "Arena_of_Khazan.txt",
+      "Tunnels_&amp;_Trolls.txt"
+    ],
+    "answer": "Arena of Khazan",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What year was the film that starred the composer for \"The Naked Brothers Band\"?",
+    "source": [
+      "Nat_Wolff.txt",
+      "The_Fault_in_Our_Stars_film.txt"
+    ],
+    "answer": "2014",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "When was the palace founded at which Columba de Dunbar died in 1435?",
+    "source": [
+      "Columba_de_Dunbar.txt",
+      "Spynie_Palace.txt"
+    ],
+    "answer": "the late 12th Century",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What arcade game is named after the only player in major league history to have a 0.300 batting average for 7 consecutive seasons?",
+    "source": [
+      "Frank_Thomas_Big_Hurt.txt",
+      "Frank_Thomas_designated_hitter.txt"
+    ],
+    "answer": "a pinball machine",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What was the position of Jean Baptiste Androuet du Cerceau under the man who was King of the Polish-Lithuanian Commonwealth from 1573 to 1575?",
+    "source": [
+      "Henry_III_of_France.txt",
+      "Jean_Baptiste_Androuet_du_Cerceau.txt"
+    ],
+    "answer": "supervisor of the royal works",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
+    "source": [
+      "Bobbi_Bacha.txt",
+      "Sela_Ward.txt"
+    ],
+    "answer": "Ann",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
+    "source": [
+      "I&quot;s.txt",
+      "Masakazu_Katsura.txt"
+    ],
+    "answer": "1962",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "The songs from the sountrack to \"When Harry Met Sally\" are performed by a singer that has had how many top 20 US albums?",
+    "source": [
+      "Harry_Connick_Jr..txt",
+      "When_Harry_Met_Sally..._soundtrack.txt"
+    ],
+    "answer": "seven",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which suburb is a soap opera featuring a character named Beverly Marshall set in?",
+    "source": [
+      "Beverly_Marshall.txt",
+      "Ramsay_Street.txt"
+    ],
+    "answer": "Erinsborough",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Chris Williams last played for which football club from the National League North?",
+    "source": [
+      "Chris_Williams_English_footballer.txt",
+      "Salford_City_F.C..txt"
+    ],
+    "answer": "Salford City Football Club",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?",
+    "source": [
+      "199293_Charlotte_Hornets_season_5737e5.txt",
+      "Muggsy_Bogues.txt"
+    ],
+    "answer": "shortest player ever to play in the National Basketball Association",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Who is Bruce Spizer an expert on, known as the most influential act of the rock era?",
+    "source": [
+      "Bruce_Spizer.txt",
+      "The_Beatles.txt"
+    ],
+    "answer": "The Beatles",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which Netflix series \"Unbreakable\" character is Elizabeth Claire Kemper known for playing?",
+    "source": [
+      "Ellie_Kemper.txt",
+      "Kimmy_Schmidt.txt"
+    ],
+    "answer": "Kimberly Couger \"Kimmy\" Schmidt",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
+    "source": [
+      "Alvaro_Mexia.txt",
+      "Indigenous_peoples_of_Florida.txt"
+    ],
+    "answer": "Apalachees",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Marcus Wayne Garland spent nine seasons with an American professional baseball team that is based in Baltimore, Maryland, and was one of the AMerican League's original eight charter franchises when the league was established in what year?",
+    "source": [
+      "Baltimore_Orioles.txt",
+      "Wayne_Garland.txt"
+    ],
+    "answer": "1901",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
+    "source": [
+      "Argand_lamp.txt",
+      "Lewis_lamp.txt"
+    ],
+    "answer": "Argand lamp",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What amount was the settlement that the character from the Son of al Quada got in 2017?",
+    "source": [
+      "Omar_Khadr.txt",
+      "Son_of_al_Qaeda.txt"
+    ],
+    "answer": "$10.5 million",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Where was the world cup hosted that Algeria qualified for the first time into the round of 16?",
+    "source": [
+      "2014_FIFA_World_Cup.txt",
+      "Algeria_at_the_FIFA_World_Cup.txt"
+    ],
+    "answer": "Brazil",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What airport serviced by American Airlines Shuttle, is also the largest airport in the New England region and 17th busiest in the U.S?",
+    "source": [
+      "American_Airlines_Shuttle.txt",
+      "Logan_International_Airport.txt"
+    ],
+    "answer": "Logan International Airport",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
+    "source": [
+      "Moroccan_Ambassador_to_China.txt",
+      "Rabat.txt"
+    ],
+    "answer": "Beijing",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Alice David is the voice of Lara Croft in a video game developed by which company ?",
+    "source": [
+      "Alice_David.txt",
+      "Tomb_Raider_2013_video_game.txt"
+    ],
+    "answer": "Crystal Dynamics",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
+    "source": [
+      "America_East_Conference.txt",
+      "Vermont_Catamounts_men_s_soccer.txt"
+    ],
+    "answer": "the North Atlantic Conference",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Which Kentucky Writers Hall of Fame author has had works published by Dim Gray Bar Press?",
+    "source": [
+      "Dim_Gray_Bar_Press.txt",
+      "Wendell_Berry.txt"
+    ],
+    "answer": "Wendell Berry",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Considered the strongest recorded tropical cyclone, which cyclone had a film made about it in 2007?",
+    "source": [
+      "1999_Odisha_cyclone.txt",
+      "Kathantara.txt"
+    ],
+    "answer": "1999 Odisha cyclone",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
+    "source": [
+      "Columbia_University.txt",
+      "Ralph_Hefferline.txt"
+    ],
+    "answer": "New York City",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What year was the brother of this first round draft pick by the Washington Redskins drafted?",
+    "source": [
+      "Boss_Bailey.txt",
+      "Champ_Bailey.txt"
+    ],
+    "answer": "2003",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What american actress/singer born in 1956 recorded the song Something there for beauty and the beast?",
+    "source": [
+      "Paige_O_Hara.txt",
+      "Something_There.txt"
+    ],
+    "answer": "Donna Paige Helmintoller",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "The Memphis Hustle are based in a suburb of a city with a population of what in 2010?",
+    "source": [
+      "Memphis_Hustle.txt",
+      "Southaven_Mississippi.txt"
+    ],
+    "answer": "48,982",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
+    "source": [
+      "199596_Manchester_United_F.C._season_3f9756.txt",
+      "Alex_Ferguson.txt"
+    ],
+    "answer": "from 1986 to 2013",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What major city is the Faith Lutheran Middle School and High School located by?",
+    "source": [
+      "Faith_Lutheran_Middle_School_&amp;_High_School.txt",
+      "Summerlin_Nevada.txt"
+    ],
+    "answer": "Las Vegas",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "Where did the descendants of the group of black Indians associated with the Seminole people settle?",
+    "source": [
+      "Black_Seminoles.txt",
+      "Mascogos.txt"
+    ],
+    "answer": "Coahuila, Mexico",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "D1NZ is a series based on what oversteering technique?",
+    "source": [
+      "D1NZ.txt",
+      "Drifting_motorsport.txt"
+    ],
+    "answer": "Drifting",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  },
+  {
+    "q": "What is the population according to the 2007 population census of the city in which the National Archives and Library of Ethiopia is located?",
+    "source": [
+      "Addis_Ababa.txt",
+      "National_Archives_and_Library_of_Ethiopia.txt"
+    ],
+    "answer": "3,384,569",
+    "type": "hotpot_bridge",
+    "level": "hard"
+  }
+]

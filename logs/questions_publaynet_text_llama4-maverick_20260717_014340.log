@@ -1,0 +1,78 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_text.json --model llama4-maverick
+# started 20260717_014340
+
+Loading CLIP...
+
+Ablation — questions_publaynet_text (35 questions)
+Generator : llama4-maverick  (Meta/DeepInfra, open, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|██████████| 7307/7307 [00:00<00:00, 384592.34it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1/35  What vaccine is currently the only one used in China for l
+    2/35  What percentage increase in signal was observed for bupren
+    3/35  What is the name of the instrument developed at Laval Univ
+    4/35  What linguistic cue indicates that the speaker knows what 
+    5/35  What was the primary diagnosis of the 115 women in the BED
+    6/35  What type of mice were used to evaluate the protective rol
+    7/35  What questionnaire module is used alongside the EORTC QLQ-
+    8/35  What year is associated with the Cngenve ae Fae nvsom esas
+    9/35  What term did the vocational trainees in this Swedish gene
+   10/35  What two approaches are discussed for assessing the gramma
+   11/35  In which two countries is the 'her carer' category relativ
+   12/35  What proportion of CA- and HCA-BSI was reported by Lauplan
+   13/35  What equipment is most commonly used for microfluidics in 
+   14/35  What NT level value is associated with 87.3% sensitivity a
+   15/35  What was the total number of registered GPs in the Seine-M
+   16/35  How many patients treated with placebo experienced their f
+   17/35  What structural component of the T4 phage is formed by the
+   18/35  What percentage of species across all dietary categories w
+   19/35  What transcription factor is expressed in the epicardium d
+   20/35  What database was used to investigate whether young age at
+   21/35  What modification was made to the SCID diagnostic criteria
+   22/35  What chemotherapy regimen was used for neoadjuvant treatme
+   23/35  What research methodology is mentioned as showing persons 
+   24/35  What diagnostic method was consistently positive in all ex
+   25/35  What is the AB42/AB40 ratio significantly higher in compar
+   26/35  What was the threshold for the number of magnetic resonanc
+   27/35  Which diagnostic group showed no significant correlations 
+   28/35  What molecule was measured in SHRSP rats and WKY rats to c
+   29/35  What percentage of productive forest land in Sweden is pri
+   30/35  What cutoff score on the ADOS or ADI-R was used to define 
+   31/35  What percentage of the HAdV-positive wastewater samples in
+   32/35  What is the effect of the methylene chloride fraction from
+   33/35  What ELISA kit was used to measure HMGB1 concentration in 
+   34/35  What was the Kaiser-Meyer-Olkin measure of sampling adequa
+   35/35  What was identified as the single independent risk factor 
+
+==============================================================================
+QUALITY — llama4-maverick
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+Recall@3                0.914          0.914          0.914          0.914
+AllGoldFound            0.914          0.914          0.914          0.914
+MRR                     0.886          0.886          0.886          0.886
+AnswerAcc               0.657          0.714          0.600          0.657
+Faithfulness            0.571          0.543          0.629          0.486
+AnswerRel               0.857          0.857          0.857          0.857
+
+EFFICIENCY — llama4-maverick
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+in_tok/q                  460            500            629            673
+out_tok/q                  51             59             60             80
+latency ms               2845           2749           2672           4087
+cost/100q $            0.0100         0.0110         0.0130         0.0149
+
+Summary -> results\summary_questions_publaynet_text_llama4-maverick_20260717_014348.csv
+Detail  -> results\detail_questions_publaynet_text_llama4-maverick_20260717_014348.csv
+Note: text-only systems (baseline, +KG) score 0 retrieval on figure questions by design — they cannot retrieve images.

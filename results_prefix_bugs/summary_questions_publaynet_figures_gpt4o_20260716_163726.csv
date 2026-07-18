@@ -1,0 +1,5 @@
+run_id,question_set,question_type,model,vendor,access,n_questions,system,recall,complete,mrr,acc,faith,rel,mean_in_tok,mean_out_tok,mean_latency_ms,total_cost_usd,cost_per_100q_usd
+2026-07-16_16:37:26,questions_publaynet_figures,figure,gpt4o,OpenAI,diagnostic,35,baseline,0.0,0.0,0.0,0.114,0.429,0.457,449.6,26.6,1227.7,0.048653,0.139
+2026-07-16_16:37:26,questions_publaynet_figures,figure,gpt4o,OpenAI,diagnostic,35,+KG,0.0,0.0,0.0,0.171,0.371,0.4,478.3,23.3,1175.4,0.04999,0.1428
+2026-07-16_16:37:26,questions_publaynet_figures,figure,gpt4o,OpenAI,diagnostic,35,+multimodal,0.143,0.143,0.143,0.343,0.371,0.8,514.9,46.4,1317.9,0.061285,0.1751
+2026-07-16_16:37:26,questions_publaynet_figures,figure,gpt4o,OpenAI,diagnostic,35,+both,0.143,0.143,0.143,0.286,0.314,0.686,547.6,40.4,1598.7,0.062043,0.1773

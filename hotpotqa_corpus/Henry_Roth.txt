@@ -1,0 +1,1 @@
+Henry Roth (February 8, 1906 – October 13, 1995) was an American novelist and short story writer.

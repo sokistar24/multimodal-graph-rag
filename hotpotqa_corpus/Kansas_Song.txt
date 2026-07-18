@@ -1,0 +1,1 @@
+Kansas Song (We’re From Kansas) is a fight song of the University of Kansas.

@@ -1,0 +1,1 @@
+A weak heap is a combination of the binary heap and binomial heap data structures for implementing priority queues. It can be stored in an array as an implicit binary tree like the former, and has the efficiency guarantees of the latter.

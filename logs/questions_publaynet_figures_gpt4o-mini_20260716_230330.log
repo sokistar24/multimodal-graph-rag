@@ -1,0 +1,80 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_figures.json --model gpt4o-mini
+# started 20260716_230330
+
+Loading CLIP...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Ablation — questions_publaynet_figures (35 questions)
+Generator : gpt4o-mini  (OpenAI, closed, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|██████████| 7307/7307 [00:00<00:00, 406684.97it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1/35  At 40 months of analysis time, what is the approximate per
+    2/35  What is the residual deviance value for the model with 2 d
+    3/35  At the 3 hour timepoint, which PBS/EICH concentration cond
+    4/35  At the apical region, what is the approximate difference i
+    5/35  What is the mean difference (95% CI) between groups for th
+    6/35  What is the approximate % of responders in the avian ELISA
+    7/35  What is the Bias value for Septal s' outer edge when compa
+    8/35  What is the relative mRNA expression level of brain-derive
+    9/35  Which cell type shows the highest relative expression of L
+   10/35  What is the odds ratio for Church Attendance in the logist
+   11/35  What is the T-max value for the R. parahippocampal gyrus i
+   12/35  What is the mean hemoglobin level (g/dL) in high-risk pati
+   13/35  What is the mean number of drinking occasions for binge dr
+   14/35  What is the frequency range in kHz displayed on the y-axis
+   15/35  Which GSCA gene set shows the longest red bar extending fu
+   16/35  What is the size responsible for drinking statements as a 
+   17/35  What is the approximate fold change in IL-17 expression in
+   18/35  What is the odds ratio for teeth with caries in the period
+   19/35  What is the approximate median number of disease terms per
+   20/35  At what wavelength does the 320nm excitation condition pro
+   21/35  Which genes are listed as being involved in negative regul
+   22/35  What is the Theta Mean (SD) value for electrode location F
+   23/35  What is the primer sequence for the RT primer targeting hs
+   24/35  What is the serum HCV RNA value at the 0° timepoint in the
+   25/35  What is the mean value of Vmax (%) for lung tissue within 
+   26/35  What is the curer type percentage for maternal family in I
+   27/35  Which regions of China are indicated as having wolf habita
+   28/35  What is the approximate mean IL-6 level in pg/mL for the E
+   29/35  What is the sample size (n) for males in the Zhuo et al.¹ 
+   30/35  What is the percentage of samples in Pattern 20 that were 
+   31/35  What is the approximate fold change in TGF-β1 reporter act
+   32/35  What is the mean Cd-Pb (nm) value for females in Group 1 (
+   33/35  What is the consequence of genetic alterations in the SDH4
+   34/35  What is the cytokine induction value for p7-labeled in the
+   35/35  How many references are cited for studies on the West Asia
+
+==============================================================================
+QUALITY — gpt4o-mini
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+Recall@3                0.000          0.000          0.371          0.371
+AllGoldFound            0.000          0.000          0.371          0.371
+MRR                     0.000          0.000          0.286          0.286
+AnswerAcc               0.000          0.000          0.086          0.114
+Faithfulness            0.000          0.000          0.057          0.114
+AnswerRel               0.000          0.000          0.200          0.257
+
+EFFICIENCY — gpt4o-mini
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+in_tok/q                  485            511           9477           9507
+out_tok/q                   4              4             12             15
+latency ms               1013            690           1171           1213
+cost/100q $            0.0075         0.0079         0.1429         0.1435
+
+Summary -> results\summary_questions_publaynet_figures_gpt4o-mini_20260716_230338.csv
+Detail  -> results\detail_questions_publaynet_figures_gpt4o-mini_20260716_230338.csv
+Note: text-only systems (baseline, +KG) score 0 retrieval on figure questions by design — they cannot retrieve images.

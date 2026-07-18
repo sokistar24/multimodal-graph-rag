@@ -1,233 +1,212 @@
 [
-
   {
-    "q": "What demographic and lifestyle factors are categorized in relation to mean BMI and waist circumference?",
-    "source": "PMC4537884_00002_table0.png",
-    "answer": "age, education, income, smoking status, alcohol intake, fruit consumption, sedentary leisure time, and season of survey",
-    "type": "figure"
-  },
-
-  {
-    "q": "How many genes are included in the Retinitis Pigmentosa panel?",
-    "source": "PMC5592712_00002_table0.png",
-    "answer": "132 genes",
+    "q": "At 40 months of analysis time, what is the approximate percentage of patients not achieving clinical benefit and not reducing clinical benefit in the survival curve?",
+    "source": "PMC5649768_00004_figure1.png",
+    "answer": "approximately 20-25%",
     "type": "figure"
   },
   {
-    "q": "What are the statistical methods used to estimate incremental cost, incremental QALYs, and incremental net benefit (INB)?",
-    "source": "PMC5763423_00016_table0.png",
-    "answer": "ITT, two-stage least squares, three-stage least squares, uBN, uBGN, and BFL",
+    "q": "What is the residual deviance value for the model with 2 degrees of freedom in 2013?",
+    "source": "PMC5710651_00006_table0.png",
+    "answer": "44.45",
     "type": "figure"
   },
   {
-    "q": "What genetic variants are analyzed for allele frequency in the NLGN3 and NLGN4X genes?",
-    "source": "PMC3120659_00004_table0.png",
-    "answer": "various SNPs",
+    "q": "At the 3 hour timepoint, which PBS/EICH concentration condition shows visible phase separation or layering in the tube?",
+    "source": "PMC4509882_00006_figure0.png",
+    "answer": "20% PBS/70% EICH",
     "type": "figure"
   },
   {
-    "q": "What types of microorganisms are distributed in the saturated zone during baseflow and an event?",
-    "source": "PMC5947618_00010_figure0.png",
-    "answer": "protozoa, bacteria, archaea, and bacteriophages",
+    "q": "At the apical region, what is the approximate difference in peak height between the preinguinal and postlingual measurements at around 3 minutes?",
+    "source": "PMC4569605_00005_figure0.png",
+    "answer": "The preinguinal line reaches approximately 0.4 units higher than the postlingual line at the 3-minute peak in the apical region.",
     "type": "figure"
   },
   {
-    "q": "What are the concentrations of TGFβ1, IL-1β, and IL-6 across the three groups?",
-    "source": "PMC5986835_00005_figure0.png",
-    "answer": "The concentrations are measured in pg/ml and show significant differences among the groups.",
+    "q": "What is the mean difference (95% CI) between groups for the Working condition?",
+    "source": "PMC3614271_00002_table1.png",
+    "answer": "1.25 (-1.28–2.22)",
     "type": "figure"
   },
   {
-    "q": "What are the key considerations for bariatric intervention in type 1 diabetes?",
-    "source": "PMC4936488_00011_table0.png",
-    "answer": "individualized decision-making, multidisciplinary care, and further research on long-term outcomes",
+    "q": "What is the approximate % of responders in the avian ELISA values group with the highest black bar value for non-crossreacted groups?",
+    "source": "PMC3909502_00016_figure0.png",
+    "answer": "95%",
     "type": "figure"
   },
-
   {
-    "q": "What are the categories compared for the duration and display percentages of alcohol cues and responsible drinking statements?",
+    "q": "What is the Bias value for Septal s' outer edge when comparing Export 1 + Other exon/sv2?",
+    "source": "PMC5501914_00010_figure1.png",
+    "answer": "Bias = 41.08",
+    "type": "figure"
+  },
+  {
+    "q": "What is the relative mRNA expression level of brain-derived neurotrophic factor in the brain tissue compared to the kidney tissue?",
+    "source": "PMC5936054_00001_figure0.png",
+    "answer": "The brain shows approximately 10-fold higher expression compared to kidney, with brain at ~10 and kidney at ~1 on the relative mRNA expression scale in panel A.",
+    "type": "figure"
+  },
+  {
+    "q": "Which cell type shows the highest relative expression of LILRB3 across all tissues examined?",
+    "source": "PMC4060870_00007_figure0.png",
+    "answer": "Macrophage",
+    "type": "figure"
+  },
+  {
+    "q": "What is the odds ratio for Church Attendance in the logistic regression model?",
+    "source": "PMC4944850_00014_table0.png",
+    "answer": "0.97",
+    "type": "figure"
+  },
+  {
+    "q": "What is the T-max value for the R. parahippocampal gyrus in the SU > MJ region?",
+    "source": "PMC3742334_00006_table1.png",
+    "answer": "3.20",
+    "type": "figure"
+  },
+  {
+    "q": "What is the mean hemoglobin level (g/dL) in high-risk patients with a short interval follow-up?",
+    "source": "PMC5993133_00005_table0.png",
+    "answer": "13.1 (1.6)",
+    "type": "figure"
+  },
+  {
+    "q": "What is the mean number of drinking occasions for binge drinking intentions under the advertising condition?",
+    "source": "PMC5467671_00004_table1.png",
+    "answer": "3.93 (2.50)",
+    "type": "figure"
+  },
+  {
+    "q": "What is the frequency range in kHz displayed on the y-axis of this spectrogram?",
+    "source": "PMC5968860_00018_figure0.png",
+    "answer": "0 to 10 kHz",
+    "type": "figure"
+  },
+  {
+    "q": "Which GSCA gene set shows the longest red bar extending furthest to the right?",
+    "source": "PMC3630327_00013_figure0.png",
+    "answer": "LISTZ_MIL",
+    "type": "figure"
+  },
+  {
+    "q": "What is the size responsible for drinking statements as a percentage of total display size in the Drinktomane group?",
     "source": "PMC5467671_00004_table0.png",
-    "answer": "Drinkaware, Heineken responsibility, and Heineken",
-    "type": "figure"
-  },
-
-
-  {
-    "q": "What does the phylogenetic tree illustrate about genetic relationships?",
-    "source": "PMC4366372_00020_figure0.png",
-    "answer": "genetic relationships among different strains",
-    "type": "figure"
-  },
-
-
-
-
-  {
-    "q": "What opportunities for additional funding are available for undergraduate medical education at Radboud University Medical Center?",
-    "source": "PMC5579150_00007_table0.png",
-    "answer": "SIRPME grants",
+    "answer": "12.98",
     "type": "figure"
   },
   {
-    "q": "What are the matrix factor percentages for DMEM/F12 and Fetal M199 at concentrations of 0.01 and 10.0 µg/mL?",
-    "source": "PMC6035002_00013_table0.png",
-    "answer": "the matrix factor percentages for DMEM/F12 and Fetal M199 at those concentrations",
-    "type": "figure"
-  },
-
-  {
-    "q": "What images are used for the go trials in the task setup?",
-    "source": "PMC4596151_00004_figure0.png",
-    "answer": "grapes and socks",
-    "type": "figure"
-  },
-
-  {
-    "q": "How are synthetic microbial communities categorized based on the type of mix and the number of FMG strains missing?",
-    "source": "PMC6061470_00004_table0.png",
-    "answer": "by types A, B, C and the presence of specific FMG strain IDs across groups I-IV",
-    "type": "figure"
-  },
-
-  {
-    "q": "What genetic mutations are associated with ovarian cancer development?",
-    "source": "PMC3537528_00006_figure0.png",
-    "answer": "various genetic mutations affecting tumor formation",
-    "type": "figure"
-  },
-
-  {
-    "q": "What measurements are compared between the right and left conchae bullosa?",
-    "source": "PMC3541255_00002_table1.png",
-    "answer": "R.M, L.M, R.A.E, L.A.E, R.P.E, L.P.E, R.F, L.F, R.S, L.S, R.OMC, and L.OMC",
+    "q": "What is the approximate fold change in IL-17 expression in the BCM1 group compared to PBS control?",
+    "source": "PMC5696500_00006_figure1.png",
+    "answer": "approximately 2.5-fold increase",
     "type": "figure"
   },
   {
-    "q": "What metrics are related to fast gait speed conditions?",
-    "source": "PMC5397518_00006_table0.png",
-    "answer": "duration, displacement, velocity range, and root mean square (RMS) values of acceleration and angular velocity",
-    "type": "figure"
-  },
-
-  {
-    "q": "What descriptive statistics are provided for healthcare-related input and output variables?",
-    "source": "PMC5423988_00002_table0.png",
-    "answer": "mean, median, standard deviation, minimum, and maximum",
+    "q": "What is the odds ratio for teeth with caries in the periodontic treatments group?",
+    "source": "PMC5893663_00004_table0.png",
+    "answer": "2.2",
     "type": "figure"
   },
   {
-    "q": "What treatments affect NF-κB p65 nuclear localization?",
-    "source": "PMC5228585_00006_figure0.png",
-    "answer": "different treatments have varying effects on NF-κB p65 nuclear localization",
+    "q": "What is the approximate median number of disease terms per gene for the HOMO category in the Distribution of HPO disease terms?",
+    "source": "PMC4267152_00008_figure0.png",
+    "answer": "approximately 10-12 disease terms per gene",
     "type": "figure"
   },
   {
-    "q": "What metrics decline over time during enzyme replacement therapy over 10 years?",
-    "source": "PMC5760608_00003_figure0.png",
-    "answer": "PVC% and 6-minute walk test distance",
-    "type": "figure"
-  },
-
-
-  {
-    "q": "What information is provided about genes associated with MODY?",
-    "source": "PMC4934136_00003_table0.png",
-    "answer": "the number of subjects with MODY, the number of VUS-determined pathogenic cases, and specific mutation descriptions",
+    "q": "At what wavelength does the 320nm excitation condition produce its peak emission intensity?",
+    "source": "PMC4977338_00003_figure1.png",
+    "answer": "approximately 400nm",
     "type": "figure"
   },
   {
-    "q": "What clinical characteristic shows a significant difference between MODY-negative and MODY-positive groups at diabetes onset?",
-    "source": "PMC4934136_00003_table1.png",
-    "answer": "age, HbA1c levels, initial blood glucose, and pharmacologic treatment",
-    "type": "figure"
-  },
-
-  {
-    "q": "What are the effects of control and leptin antibody + leptin treatments on the average number of large luteal cells per area?",
-    "source": "PMC5791151_00005_table0.png",
-    "answer": "significant differences in cell counts between treatments",
+    "q": "Which genes are listed as being involved in negative regulation of the cell cycle?",
+    "source": "PMC5392680_00002_table0.png",
+    "answer": "RB1, CDKN1A, CDKN1B, CDKN2A, CDKN2C, CDKN2D",
     "type": "figure"
   },
   {
-    "q": "What treatments are compared for their effects on fluorescence ratios in the samples?",
-    "source": "PMC5839695_00013_figure0.png",
-    "answer": "untreated, DTT-treated, and AT-2-treated samples",
+    "q": "What is the Theta Mean (SD) value for electrode location F2?",
+    "source": "PMC5548847_00004_table0.png",
+    "answer": "0.51 (0.21)",
     "type": "figure"
   },
   {
-    "q": "What clinical and demographic characteristics are compared between patients with and without disease progression?",
-    "source": "PMC3211193_00002_table0.png",
-    "answer": "age, gender, stage, symptoms, and follow-up time",
-    "type": "figure"
-  },
-
-
-
-  {
-    "q": "What topics are discussed in the dialogue transcript between S05-P and S07-H?",
-    "source": "PMC4895853_00003_figure2.png",
-    "answer": "medical advice and preferences regarding C-sections",
+    "q": "What is the primer sequence for the RT primer targeting hsa-miR-423-5p?",
+    "source": "PMC5725612_00002_table0.png",
+    "answer": "5'- CTCAACTGGTGTCGTGGAGTCGGCAATTCAGTTGAGAAGCAC -3'",
     "type": "figure"
   },
   {
-    "q": "What is the relationship between erythema or dryness and lotion transfer index across different pads?",
-    "source": "PMC4802086_00006_figure0.png",
-    "answer": "Erythema and dryness are represented by bars, while lotion transfer index is represented by a line.",
+    "q": "What is the serum HCV RNA value at the 0° timepoint in the follow-up measurement?",
+    "source": "PMC2711258_00002_table0.png",
+    "answer": "278",
     "type": "figure"
   },
   {
-    "q": "What are the overall survival rates for dental implants at 1, 5, and 10 years?",
-    "source": "PMC5906482_00007_table0.png",
-    "answer": "The overall survival rates are detailed for 1, 5, and 10 years.",
+    "q": "What is the mean value of Vmax (%) for lung tissue within 5 mm of the body surface in Plan A (5 mm clipped plan)?",
+    "source": "PMC5439372_00003_table0.png",
+    "answer": "93.1 ± 0.6",
     "type": "figure"
   },
   {
-    "q": "What are the mechanisms of action for lipid-lowering drugs in cholesterol metabolism?",
-    "source": "PMC5874549_00003_figure0.png",
-    "answer": "statins, fibrates, and PCSK9 inhibitors",
+    "q": "What is the curer type percentage for maternal family in Indonesia?",
+    "source": "PMC4837485_00006_table0.png",
+    "answer": "15.3",
     "type": "figure"
   },
   {
-    "q": "What are the expression levels of Sbno2 and Socs3 mRNA in astrocytes under different cytokine treatments?",
-    "source": "PMC4676294_00007_figure0.png",
-    "answer": "The expression levels vary depending on the treatment: control, hyper-IL-6, IL-1β, and TNFα.",
+    "q": "Which regions of China are indicated as having wolf habitat distribution according to the green shaded areas on the map?",
+    "source": "PMC5499078_00001_figure0.png",
+    "answer": "The northeastern regions (including areas around Inner Mongolia, Heilongjiang, and Jilin), and western/northwestern regions (including areas around Xinjiang, Tibet, Qinghai, and Gansu)",
     "type": "figure"
   },
   {
-    "q": "What information is provided about the primers and probes for RT-PCR and qRT-PCR?",
-    "source": "PMC5004774_00016_table0.png",
-    "answer": "their sequences, product sizes in base pairs, and sources",
-    "type": "figure"
-  },
-
-  {
-    "q": "What pathways are included for determining funding and support needs for patients deemed fit for discharge?",
-    "source": "PMC4180984_00001_figure0.png",
-    "answer": "social care, joint funding, or healthcare funding",
+    "q": "What is the approximate mean IL-6 level in pg/mL for the EU group at baseline?",
+    "source": "PMC4045312_00006_figure1.png",
+    "answer": "approximately 10 pg/mL",
     "type": "figure"
   },
   {
-    "q": "What is the role of Serine residue at position 411 in p70S6K activation?",
-    "source": "PMC5928379_00005_figure0.png",
-    "answer": "It is crucial for phosphorylation.",
+    "q": "What is the sample size (n) for males in the Zhuo et al.¹ study?",
+    "source": "PMC5915863_00004_table0.png",
+    "answer": "81",
     "type": "figure"
   },
   {
-    "q": "What effects does stress have on tactile and cold sensitivity over time post-injury in male and female subjects?",
-    "source": "PMC5999418_00004_figure0.png",
-    "answer": "Significant differences in sensitivity between control and stressed groups.",
+    "q": "What is the percentage of samples in Pattern 20 that were found to be positive for virus in digestive organs?",
+    "source": "PMC6024555_00005_table1.png",
+    "answer": "65.7%",
     "type": "figure"
   },
   {
-    "q": "What are the activity levels of fungal strains against HEPG2, CA, AS, and MRSA?",
-    "source": "PMC4205895_00005_table0.png",
-    "answer": "indicated by plus signs",
+    "q": "What is the approximate fold change in TGF-β1 reporter activity when sorafenib concentration is increased from 0 μM to 10 μM?",
+    "source": "PMC5052317_00005_figure0.png",
+    "answer": "Approximately 2-fold decrease (from ~1.0 to ~0.5)",
     "type": "figure"
   },
   {
-    "q": "What do the color-coded labels in the dendrogram represent in relation to the samples?",
-    "source": "PMC4205895_00005_figure1.png",
-    "answer": "different stages or types of fermentation",
+    "q": "What is the mean Cd-Pb (nm) value for females in Group 1 (n = 66)?",
+    "source": "PMC5995980_00002_table1.png",
+    "answer": "49.23",
+    "type": "figure"
+  },
+  {
+    "q": "What is the consequence of genetic alterations in the SDH4 gene associated with paragangliomas and pheochromocytomas?",
+    "source": "PMC5818369_00006_table0.png",
+    "answer": "Leads to reduction or loss of enzymatic activity and impaired complex II function",
+    "type": "figure"
+  },
+  {
+    "q": "What is the cytokine induction value for p7-labeled in the 0.020 concentration condition?",
+    "source": "PMC4983025_00006_table0.png",
+    "answer": "-0.089",
+    "type": "figure"
+  },
+  {
+    "q": "How many references are cited for studies on the West Asia (Middle East) region?",
+    "source": "PMC4241528_00002_table0.png",
+    "answer": "8",
     "type": "figure"
   }
 ]

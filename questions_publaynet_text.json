@@ -1,158 +1,212 @@
 [
-  
   {
-    "q": "What method is used to assess the spatial consistency of ERP maps across subjects?",
-    "source": "PMC6020783_00008.txt",
-    "answer": "the grand mean ERP map",
-    "type": "text"
-  },
- 
-  {
-    "q": "What is confirmed by studies recording the lateralized readiness potential (LAP) regarding incorrect spatial responses?",
-    "source": "PMC4743617_00001.txt",
-    "answer": "the incorrect spatial response is briefly activated while the correct response is emerging",
-    "type": "text"
-  },
- 
-  {
-    "q": "What is of paramount importance for the activation of p70S6K?",
-    "source": "PMC4125699_00003.txt",
-    "answer": "the phosphorylation of Serine residue in 411 position",
+    "q": "What vaccine is currently the only one used in China for leptospirosis?",
+    "source": "PMC5985562_00009.txt",
+    "answer": "multivalent inactivated vaccine",
     "type": "text"
   },
   {
-    "q": "What is the risk associated with visual manual interaction during cell networking and text messaging while driving?",
-    "source": "PMC3709122_00007.txt",
-    "answer": "comparable to having 0.15 mg/mL alcohol in the blood",
+    "q": "What percentage increase in signal was observed for buprenorphine in the binary mixture when analyzed by TD-DART-MS?",
+    "source": "PMC5731661_00008.txt",
+    "answer": "323%",
     "type": "text"
   },
   {
-    "q": "What is the primary mechanism by which fibrates lower lipid levels?",
-    "source": "PMC5874549_00003.txt",
-    "answer": "activating the peroxisome proliferator-activated receptor-alpha (PPAR-alpha)",
-    "type": "text"
-  },
-
-
-  {
-    "q": "What does the term 'Lamerr' refer to in the context of parenting discipline?",
-    "source": "PMC5429906_00004.txt",
-    "answer": "permissive discipline",
-    "type": "text"
-  },
- 
-  {
-    "q": "What does the Hepatocoon clade represent in terms of its phylogenetic structure?",
-    "source": "PMC6084435_00008.txt",
-    "answer": "a polyphyly with H. sacrum and H. toi forming 2 well-supported monophyletic clades",
+    "q": "What is the name of the instrument developed at Laval University to measure doctor-patient communication competency in medical students?",
+    "source": "PMC5658909_00001.txt",
+    "answer": "Doctor-Patient Communication Competency for Medical Students (DPCC-MS)",
     "type": "text"
   },
   {
-    "q": "What stabilization method is most commonly described in the articles regarding the effect of applying dentition?",
-    "source": "PMC5906482_00007.txt",
-    "answer": "the use of features or wires",
+    "q": "What linguistic cue indicates that the speaker knows what they are saying is factually not true in counterfactual comprehension?",
+    "source": "PMC5018041_00001.txt",
+    "answer": "the subjunctive mood",
     "type": "text"
   },
   {
-    "q": "What stem cell factors are associated with NSCLC resistance to chemotherapy?",
-    "source": "PMC4650740_00006.txt",
-    "answer": "Sox2, Oct and Nanog",
+    "q": "What was the primary diagnosis of the 115 women in the BED group?",
+    "source": "PMC3051108_00002.txt",
+    "answer": "BED",
     "type": "text"
   },
-
   {
-    "q": "What are the protective effects of coactivation of PPAR and Nrf2?",
+    "q": "What type of mice were used to evaluate the protective role of EGCG against diabetic testicular damage?",
     "source": "PMC5733955_00001.txt",
-    "answer": "against oxidative stress, inflammation and carcinogenesis",
+    "answer": "eight-week-old normal and diabetic male C57BL/6 wild-type and Nrf2 knockout mice",
     "type": "text"
   },
   {
-    "q": "What did GFP bleaching in phagocytized bacteria suggest about cytoplasmic HOC concentrations?",
-    "source": "PMC5839695_00013.txt",
-    "answer": "that cytoplasmic HOC concentrations were significant",
+    "q": "What questionnaire module is used alongside the EORTC QLQ-C30 to assess breast cancer-specific symptoms?",
+    "source": "PMC5759866_00005.txt",
+    "answer": "the EORTC-QLQ-ERDS",
     "type": "text"
   },
   {
-    "q": "What is a key feature of a substrate-based radiotracer for a hyalase?",
-    "source": "PMC5613853_00002.txt",
-    "answer": "the enzyme activation of the radiolabeled substrate cuts 2 fragments",
+    "q": "What year is associated with the Cngenve ae Fae nvsom esas entity in the passage?",
+    "source": "PMC4974260_00004.txt",
+    "answer": "2999",
     "type": "text"
   },
   {
-    "q": "What was the effect of LPS stimulation on the mRNA level of a specific gene in SJL and L/L pups?",
-    "source": "PMC4517690_00005.txt",
-    "answer": "LPS stimulation significantly elevated the mRNA level of the gene in SJL and L/L pups.",
+    "q": "What term did the vocational trainees in this Swedish general practice study use to refer to a specific refugee group?",
+    "source": "PMC4205530_00005.txt",
+    "answer": "Somali patient",
     "type": "text"
   },
   {
-    "q": "What analysis method was used to determine statistical significance in the study?",
-    "source": "PMC5928379_00005.txt",
-    "answer": "One-way ANOVA followed by Bonferroni comparison test and Student's t-test (two-tailed)",
-    "type": "text"
-  },
-
- 
-
-  {
-    "q": "What media were used for the matrix factor of doxorubicin?",
-    "source": "PMC6035002_00013.txt",
-    "answer": "DMEM/F12 and fetal M199 media",
-    "type": "text"
-  },
-
-  
-  {
-    "q": "What did Shabuova et al. (2014) define as the bacterial 'core' assemblage?",
-    "source": "PMC5947618_00010.txt",
-    "answer": "the subset of those bacterial genotypes that were present in all samples during their temporal study of the bacterial community development in stagnant rock pools",
+    "q": "What two approaches are discussed for assessing the grammatical abilities of nonhuman animals?",
+    "source": "PMC5325849_00000.txt",
+    "answer": "comparing the syntax of animal vocalizations to linguistic ones, and addressing grammatical rule- and pattern-learning abilities through experiments using artificial grammars",
     "type": "text"
   },
   {
-    "q": "What is an independent negative prognostic factor in breast cancer?",
+    "q": "In which two countries is the 'her carer' category relatively more important when both parents are away?",
+    "source": "PMC4837485_00006.txt",
+    "answer": "Indonesia and the Philippines",
+    "type": "text"
+  },
+  {
+    "q": "What proportion of CA- and HCA-BSI was reported by Laupland et al. for children aged 30 days to <1 year in Canada?",
+    "source": "PMC4531492_00004.txt",
+    "answer": "81%",
+    "type": "text"
+  },
+  {
+    "q": "What equipment is most commonly used for microfluidics in phylogenomics?",
+    "source": "PMC5895195_00002.txt",
+    "answer": "the Fluidigm Access Array System",
+    "type": "text"
+  },
+  {
+    "q": "What NT level value is associated with 87.3% sensitivity and 91.7% specificity for discriminating colon pathology from normal colonic epithelium?",
+    "source": "PMC5591352_00002.txt",
+    "answer": "1293 pg/ml",
+    "type": "text"
+  },
+  {
+    "q": "What was the total number of registered GPs in the Seine-Maritime area in 2010?",
+    "source": "PMC4308843_00001.txt",
+    "answer": "1040",
+    "type": "text"
+  },
+  {
+    "q": "How many patients treated with placebo experienced their first stroke more than 390 days after the first intake of trial medication?",
+    "source": "PMC5404404_00002.txt",
+    "answer": "1 patient",
+    "type": "text"
+  },
+  {
+    "q": "What structural component of the T4 phage is formed by the trimeric assembly of gp27-gp5?",
+    "source": "PMC3352280_00010.txt",
+    "answer": "the so-called cell puncturing device",
+    "type": "text"
+  },
+  {
+    "q": "What percentage of species across all dietary categories were correctly classified using ecomorphology in the LDA?",
+    "source": "PMC4321144_00001.txt",
+    "answer": "57%",
+    "type": "text"
+  },
+  {
+    "q": "What transcription factor is expressed in the epicardium during heart development?",
+    "source": "PMC4798847_00001.txt",
+    "answer": "Wt1 (WT1)",
+    "type": "text"
+  },
+  {
+    "q": "What database was used to investigate whether young age at onset is an independent negative prognostic factor in breast cancer?",
     "source": "PMC5050233_00001.txt",
-    "answer": "young age at onset",
+    "answer": "the Japanese Breast Cancer Registry",
     "type": "text"
   },
   {
-    "q": "What is the prevalence of Pompe disease in Australia compared to the expected prevalence for Bop?",
-    "source": "PMC5760608_00003.txt",
-    "answer": "considerably lower than that expected for Bop, 1-283,000",
+    "q": "What modification was made to the SCID diagnostic criteria for Major Depressive Disorder in the study conducted in Kyiv and Zaporizhia?",
+    "source": "PMC6092824_00003.txt",
+    "answer": "The MDD diagnosis was modified to be based on the presence of 4 or more symptoms plus functional impairment or recommendation for treatment services.",
     "type": "text"
   },
   {
-    "q": "What medium was selected to enhance the production of active SMa?",
-    "source": "PMC4205895_00005.txt",
-    "answer": "YES medium",
+    "q": "What chemotherapy regimen was used for neoadjuvant treatment in a single patient with stage IVb thymic carcinoma?",
+    "source": "PMC6103631_00003.txt",
+    "answer": "ADOC-based chemotherapy",
     "type": "text"
   },
   {
-    "q": "What compensatory mechanism occurs in Dictyostelium discoideum when SCAR is lost?",
-    "source": "PMC5800805_00000.txt",
-    "answer": "WASP moving to the leading edge to generate morphologically normal pseudopods",
+    "q": "What research methodology is mentioned as showing persons and institutions that embody several roles and functions?",
+    "source": "PMC5306236_00019.txt",
+    "answer": "a research programme of following the actors (Latour 1987)",
     "type": "text"
   },
   {
-    "q": "What do the abbreviations ECFP and DR stand for in the context of fluorescent proteins?",
-    "source": "PMC5580807_00019.txt",
-    "answer": "enhanced cyan fluorescent protein and Discosoma sped fluorescent protein, respectively",
+    "q": "What diagnostic method was consistently positive in all examined cases of Bartonella infection?",
+    "source": "PMC5997851_00004.txt",
+    "answer": "RT PCR",
     "type": "text"
   },
   {
-    "q": "What statistical tests were used to compare the frequencies of outpatient physician visits and other procedures by progression status?",
-    "source": "PMC3211193_00002.txt",
-    "answer": "Mann-Whitney U-tests",
+    "q": "What is the AB42/AB40 ratio significantly higher in compared to the EV-depleted medium?",
+    "source": "PMC5137253_00001.txt",
+    "answer": "EVs",
     "type": "text"
   },
   {
-    "q": "What genes were analyzed for allelic frequencies and case-control associations with ASDs?",
-    "source": "PMC3120659_00004.txt",
-    "answer": "NLGN3 and NLGN4X",
+    "q": "What was the threshold for the number of magnetic resonance images used to compare HCC before and after registration?",
+    "source": "PMC5976220_00003.txt",
+    "answer": "more than 20 images",
     "type": "text"
   },
   {
-    "q": "What is the suggested notion regarding smokers who attempt to quit in relation to COPD?",
-    "source": "PMC4374651_00008.txt",
-    "answer": "many smokers do attempt to quit until they are diagnosed with COPD",
+    "q": "Which diagnostic group showed no significant correlations for planning and text organization?",
+    "source": "PMC5868987_00013.txt",
+    "answer": "the dyslexia group",
+    "type": "text"
+  },
+  {
+    "q": "What molecule was measured in SHRSP rats and WKY rats to compare its levels before and after administration?",
+    "source": "PMC4490909_00005.txt",
+    "answer": "hexadecanedioate",
+    "type": "text"
+  },
+  {
+    "q": "What percentage of productive forest land in Sweden is privately owned?",
+    "source": "PMC5999132_00005.txt",
+    "answer": "approximately 81%",
+    "type": "text"
+  },
+  {
+    "q": "What cutoff score on the ADOS or ADI-R was used to define the at-risk typical group?",
+    "source": "PMC3942014_00004.txt",
+    "answer": "within 1 SD of the mean (>775)",
+    "type": "text"
+  },
+  {
+    "q": "What percentage of the HAdV-positive wastewater samples in the Eastern Cape Province, South Africa contained adenovirus serotype 3 (species B)?",
+    "source": "PMC5093187_00008.txt",
+    "answer": "86.7 %",
+    "type": "text"
+  },
+  {
+    "q": "What is the effect of the methylene chloride fraction from Rubus coreanum on blood pressure in anesthetized rats?",
+    "source": "PMC4745144_00000.txt",
+    "answer": "It produces depressor responses in a dose-dependent manner.",
+    "type": "text"
+  },
+  {
+    "q": "What ELISA kit was used to measure HMGB1 concentration in CSF samples?",
+    "source": "PMC5061653_00002.txt",
+    "answer": "the commercially available HMGB ELISA Kit II (SHINO-TEST Corporations, Kanagawa, Japan)",
+    "type": "text"
+  },
+  {
+    "q": "What was the Kaiser-Meyer-Olkin measure of sampling adequacy for the dataset?",
+    "source": "PMC2627534_00003.txt",
+    "answer": "0.77",
+    "type": "text"
+  },
+  {
+    "q": "What was identified as the single independent risk factor for MDRGNB-infected foot ulcers in diabetic patients?",
+    "source": "PMC2821376_00000.txt",
+    "answer": "Glycemic control at discharge",
     "type": "text"
   }
 ]

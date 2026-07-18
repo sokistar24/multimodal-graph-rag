@@ -75,22 +75,117 @@ def chunk_text(text, chunk_size=500, overlap=50):
 
 
 # ---------- EMBED ----------
-def embed(texts):
-    resp = client.embeddings.create(model=EMBED_MODEL, input=texts)
-    return np.array([d.embedding for d in resp.data], dtype="float32")
+# OpenAI caps a single embeddings request at 300k tokens. A 1,000-page corpus is
+# ~8,300 chunks ≈ 845k tokens, so one request fails. We batch under the cap.
+# 1,000 chunks x ~125 tokens ≈ 125k — comfortable headroom for long chunks.
+EMBED_BATCH   = 1000
+EMBED_RETRIES = 5
 
 
-# ---------- BUILD INDEX (with provenance) ----------
-def build_index(corpus_dir=CORPUS_DIR):
-    chunks, sources = [], []          # parallel lists: chunk text + the file it came from
+def embed(texts, quiet=True):
+    """
+    Embed a list of texts, batching to stay under the per-request token cap.
+
+    Retries each batch with exponential backoff: a transient 429 partway through
+    an 8,000-chunk index build shouldn't discard the batches already done.
+    """
+    import time
+
+    if isinstance(texts, str):
+        texts = [texts]
+
+    all_vecs = []
+    n_batches = (len(texts) + EMBED_BATCH - 1) // EMBED_BATCH
+
+    for b in range(n_batches):
+        batch = texts[b * EMBED_BATCH:(b + 1) * EMBED_BATCH]
+
+        for attempt in range(EMBED_RETRIES):
+            try:
+                resp = client.embeddings.create(model=EMBED_MODEL, input=batch)
+                all_vecs.extend(d.embedding for d in resp.data)
+                break
+            except Exception as e:
+                if attempt == EMBED_RETRIES - 1:
+                    raise
+                wait = 2 ** attempt
+                print(f"  [embed] batch {b+1}/{n_batches} failed "
+                      f"({str(e)[:60]}); retry in {wait}s")
+                time.sleep(wait)
+
+        if not quiet and n_batches > 1:
+            print(f"  [embed] {b + 1}/{n_batches} batches "
+                  f"({len(all_vecs)}/{len(texts)} chunks)")
+
+    return np.array(all_vecs, dtype="float32")
+
+
+# ---------- BUILD INDEX (with provenance + cache) ----------
+def _corpus_fingerprint(corpus_dir):
+    """
+    Hash of the corpus contents: filenames + sizes + mtimes.
+
+    Keys the cache so it invalidates automatically when the corpus changes.
+    Without this, pointing the pipeline at DocLayNet would silently reuse
+    PubLayNet's index — the same contamination trap as stale captions or
+    stale question files.
+    """
+    import hashlib
+    h = hashlib.md5()
+    for path in sorted(glob.glob(os.path.join(corpus_dir, "*"))):
+        st = os.stat(path)
+        h.update(f"{os.path.basename(path)}:{st.st_size}:{int(st.st_mtime)}".encode())
+    return h.hexdigest()[:16]
+
+
+def build_index(corpus_dir=CORPUS_DIR, rebuild=False):
+    """
+    Build (or load) the FAISS text index.
+
+    The index is IDENTICAL across every run — that is the experimental design:
+    only the generator varies. Re-embedding 8,300 chunks for each of the 12
+    planned runs would cost 12x for no benefit, so vectors are cached to disk
+    and keyed on the corpus fingerprint.
+
+    rebuild=True forces a fresh build.
+    """
+    import pickle
+
+    fp = _corpus_fingerprint(corpus_dir)
+    cache_path = f".index_cache_{os.path.basename(corpus_dir)}_{fp}.pkl"
+
+    if not rebuild and os.path.exists(cache_path):
+        try:
+            with open(cache_path, "rb") as f:
+                data = pickle.load(f)
+            vectors, chunks, sources = data["vectors"], data["chunks"], data["sources"]
+            index = faiss.IndexFlatIP(vectors.shape[1])
+            index.add(vectors)
+            print(f"Loaded cached index: {len(chunks)} chunks from "
+                  f"{len(set(sources))} files.")
+            return index, chunks, sources
+        except Exception as e:
+            print(f"  cache unreadable ({str(e)[:40]}); rebuilding")
+
+    chunks, sources = [], []          # parallel lists: chunk text + its source file
     for path in sorted(glob.glob(os.path.join(corpus_dir, "*"))):
         text = load_file(path)
         for chunk in chunk_text(text):
             chunks.append(chunk)
             sources.append(os.path.basename(path))
 
-    vectors = embed(chunks)
+    print(f"Embedding {len(chunks)} chunks from {len(set(sources))} files...")
+    vectors = embed(chunks, quiet=False)
     faiss.normalize_L2(vectors)       # normalised vectors make inner product == cosine
+
+    try:
+        with open(cache_path, "wb") as f:
+            pickle.dump({"vectors": vectors, "chunks": chunks,
+                         "sources": sources}, f)
+        print(f"Index cached -> {cache_path}")
+    except Exception as e:
+        print(f"  could not cache index ({str(e)[:40]}); continuing")
+
     index = faiss.IndexFlatIP(vectors.shape[1])
     index.add(vectors)
     print(f"Indexed {len(chunks)} chunks from {len(set(sources))} files.")
@@ -109,25 +204,28 @@ def retrieve(query, index, chunks, sources, k=3):
 
 
 # ---------- GENERATE ----------
-def generate(query, retrieved):
+def generate(query, retrieved, model="gpt4o-mini"):
+    """
+    Baseline generation: text context only.
+
+    `model` selects the generator from llm_client.MODELS, which is how
+    compare_all.py swaps between the four systems under comparison. Returns a
+    GenResult (text + tokens + latency + cost), not a bare string, so the
+    caller can log per-call efficiency data. Use .text for the answer.
+    """
+    from llm_client import call
     context = "\n\n".join(f"[{source}] {chunk}" for _, source, chunk in retrieved)
-    resp = client.chat.completions.create(
-        model=CHAT_MODEL,
-        temperature=0,
-        messages=[
-            {"role": "system",
-             "content": "Answer using only the provided context. "
-                        "If the answer isn't in it, say you don't know."},
-            {"role": "user",
-             "content": f"Context:\n{context}\n\nQuestion: {query}"},
-        ],
+    return call(
+        model,
+        system="Answer using only the provided context. "
+               "If the answer isn't in it, say you don't know.",
+        user=f"Context:\n{context}\n\nQuestion: {query}",
     )
-    return resp.choices[0].message.content
 
 
-def ask(query, index, chunks, sources, k=3):
+def ask(query, index, chunks, sources, k=3, model="gpt4o-mini"):
     retrieved = retrieve(query, index, chunks, sources, k=k)
-    return generate(query, retrieved), retrieved
+    return generate(query, retrieved, model=model).text, retrieved
 
 
 # ---------- interactive loop ----------

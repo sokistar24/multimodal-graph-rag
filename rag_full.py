@@ -27,38 +27,72 @@ load_dotenv()
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 
-def generate_full(query, text_retrieved, graph_facts, image_retrieved):
+def generate_full(query, text_retrieved, graph_facts, image_retrieved,
+                  model="gpt4o-mini", vlm=True, image_dir="publaynet_images"):
+    """
+    +both generation: text + KG facts + figure. Returns GenResult.
+
+    Same VLM/caption split as generate_multimodal: vision models get pixels,
+    text-only models get the caption.
+    """
+    from llm_client import call, MODELS
+
     context = "\n\n".join(f"[{source}] {chunk}" for _, source, chunk in text_retrieved)
     facts_block = "\n".join(f"- {fact}" for fact in graph_facts) if graph_facts else "(none)"
     img_block = ("\n".join(f"- ({name}) {caption}" for _, name, caption in image_retrieved)
                  if image_retrieved else "(none)")
 
-    resp = client.chat.completions.create(
-        model=CHAT_MODEL,
-        temperature=0,
-        messages=[
-            {"role": "system",
-             "content": "Answer using only the provided text context, knowledge-graph "
-                        "facts, and image descriptions. If the answer isn't in any of "
-                        "them, say you don't know."},
-            {"role": "user",
-             "content": (
-                 f"Text context:\n{context}\n\n"
-                 f"Knowledge-graph facts:\n{facts_block}\n\n"
-                 f"Relevant images (described):\n{img_block}\n\n"
-                 f"Question: {query}"
-             )},
-        ],
+    use_pixels = vlm and MODELS[model]["vision"] and bool(image_retrieved)
+
+    if use_pixels:
+        paths = [os.path.join(image_dir, name) for _, name, _ in image_retrieved]
+        paths = [p for p in paths if os.path.exists(p)]
+        return call(
+            model,
+            system="Answer using only the provided text context, knowledge-graph "
+                   "facts, and the attached image(s). If the answer isn't in any "
+                   "of them, say you don't know.",
+            user=(f"Text context:\n{context}\n\n"
+                  f"Knowledge-graph facts:\n{facts_block}\n\n"
+                  f"Question: {query}"),
+            images=paths,
+        )
+
+    return call(
+        model,
+        system="Answer using only the provided text context, knowledge-graph "
+               "facts, and image descriptions. If the answer isn't in any of "
+               "them, say you don't know.",
+        user=(f"Text context:\n{context}\n\n"
+              f"Knowledge-graph facts:\n{facts_block}\n\n"
+              f"Relevant images (described):\n{img_block}\n\n"
+              f"Question: {query}"),
     )
-    return resp.choices[0].message.content
 
 
 def ask_full(query, text_index, chunks, sources, graph,
-             img_index, img_names, captions, k=3):
+             img_index, img_names, captions, k=3, model="gpt4o-mini", vlm=True,
+             k_img=None):
+    """
+    Interactive demo path.
+
+    Two things kept in step with compare_all.py deliberately:
+      * k_img mirrors K_IMAGES_PIXELS (1) / K_IMAGES_CAPTION (3). This used to be
+        a hardcoded 3, so the demo sent three base64 crops where the experiment
+        sends one.
+      * graph facts are restricted to the retrieved pages. Without the
+        allowed_sources filter, common nodes ("patient") match the query and drag
+        in unrelated facts from across the corpus — measured to drop faithfulness
+        0.714 -> 0.571. run_both applies this; the demo did not.
+    """
+    if k_img is None:
+        k_img = 1 if vlm else 3
     text_retrieved = retrieve(query, text_index, chunks, sources, k=k)
-    graph_facts = graph_facts_for_query(query, graph)
-    image_retrieved = retrieve_images(query, img_index, img_names, captions, k=1)
-    answer = generate_full(query, text_retrieved, graph_facts, image_retrieved)
+    allowed = {src for _, src, _ in text_retrieved}
+    graph_facts = graph_facts_for_query(query, graph, allowed_sources=allowed)
+    image_retrieved = retrieve_images(query, img_index, img_names, captions, k=k_img)
+    answer = generate_full(query, text_retrieved, graph_facts, image_retrieved,
+                           model=model, vlm=vlm).text
     return answer, text_retrieved, graph_facts, image_retrieved
 
 

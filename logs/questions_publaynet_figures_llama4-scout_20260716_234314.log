@@ -1,0 +1,65 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_figures.json --model llama4-scout
+# started 20260716_234314
+
+Loading CLIP...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Ablation — questions_publaynet_figures (35 questions)
+Generator : llama4-scout  (Meta/Groq, open, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|██████████| 7307/7307 [00:00<00:00, 384655.09it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1/35  At 40 months of analysis time, what is the approximate per
+    2/35  What is the residual deviance value for the model with 2 d
+    3/35  At the 3 hour timepoint, which PBS/EICH concentration cond
+    4/35  At the apical region, what is the approximate difference i
+    5/35  What is the mean difference (95% CI) between groups for th
+    6/35  What is the approximate % of responders in the avian ELISA
+    7/35  What is the Bias value for Septal s' outer edge when compa
+    8/35  What is the relative mRNA expression level of brain-derive
+    9. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    9. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+    9/35  Which cell type shows the highest relative expression of L
+   10. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   10. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   10/35  What is the odds ratio for Church Attendance in the logist
+   11. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   11. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   11/35  What is the T-max value for the R. parahippocampal gyrus i
+   12. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   12. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   12/35  What is the mean hemoglobin level (g/dL) in high-risk pati
+   13. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   13. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   13/35  What is the mean number of drinking occasions for binge dr
+   14. [+KG] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   14. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   14. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   14/35  What is the frequency range in kHz displayed on the y-axis
+   15. [baseline] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   15. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   15. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   15/35  Which GSCA gene set shows the longest red bar extending fu
+   16. [+KG] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   16. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   16. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   16/35  What is the size responsible for drinking statements as a 
+   17. [+KG] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   17. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   17. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   17/35  What is the approximate fold change in IL-17 expression in
+   18. [+multimodal] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   18. [+both] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org
+   18/35  What is the odds ratio for teeth with caries in the period
+   19. [baseline] ERROR: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `meta-llama/llama-4-scout-17b-16e-instruct` in org

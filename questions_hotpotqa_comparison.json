@@ -1,0 +1,502 @@
+[
+  {
+    "q": "Are Bamboo Mañalac and Danny Jones both musicians?",
+    "source": [
+      "Bamboo_Manalac_c064bb.txt",
+      "Danny_Jones.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which was fought earlier in our nation's history, the Seven Days Battles or the Battle of Manila?",
+    "source": [
+      "Battle_of_Manila_1945.txt",
+      "Seven_Days_Battles.txt"
+    ],
+    "answer": "The Seven Days Battles",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Yingkou and Fuding the same level of city?",
+    "source": [
+      "Fuding.txt",
+      "Yingkou.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Hot Rod and The Memory of Our People both magazines?",
+    "source": [
+      "Hot_Rod_magazine.txt",
+      "The_Memory_of_Our_People.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which author has won more Pulitzer Prizes, Thomas Friedman or Henri Bergson?",
+    "source": [
+      "Henri_Bergson.txt",
+      "Thomas_Friedman.txt"
+    ],
+    "answer": "Thomas Loren Friedman",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are both Elko Regional Airport and Gerald R. Ford International Airport located in Michigan?",
+    "source": [
+      "Elko_Regional_Airport.txt",
+      "Gerald_R._Ford_International_Airport.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Freakonomics and In the Realm of the Hackers both American documentaries?",
+    "source": [
+      "Freakonomics_film.txt",
+      "In_the_Realm_of_the_Hackers.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which band, Letters to Cleo or Screaming Trees, had more members?",
+    "source": [
+      "Letters_to_Cleo.txt",
+      "Screaming_Trees.txt"
+    ],
+    "answer": "Letters to Cleo",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which filmmaker was known for animation, Lev Yilmaz or Pamela B. Green?",
+    "source": [
+      "Lev_Yilmaz.txt",
+      "Pamela_B._Green.txt"
+    ],
+    "answer": "Levni Yilmaz",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Do the drinks Gibson and Zurracapote both contain gin?",
+    "source": [
+      "Gibson_cocktail.txt",
+      "Zurracapote.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Daryl Hall and Gerry Marsden both musicians?",
+    "source": [
+      "Daryl_Hall.txt",
+      "Gerry_Marsden.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which tower is taller, 712 Fifth Avenue or Manhattan Life Insurance Building?",
+    "source": [
+      "712_Fifth_Avenue.txt",
+      "Manhattan_Life_Insurance_Building.txt"
+    ],
+    "answer": "712 5th Avenue",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which genus has more species, Xanthoceras or Ehretia?",
+    "source": [
+      "Ehretia.txt",
+      "Xanthoceras.txt"
+    ],
+    "answer": "Ehretia",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Where are Teide National Park and Garajonay National Park located?",
+    "source": [
+      "Garajonay_National_Park.txt",
+      "Teide_National_Park.txt"
+    ],
+    "answer": "Canary Islands, Spain",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Who has written more than 300 papers, Semyon Aranovich Gershgorin or Pavel Alexandrov?",
+    "source": [
+      "Pavel_Alexandrov.txt",
+      "Semyon_Aranovich_Gershgorin.txt"
+    ],
+    "answer": "Pavel Sergeyevich Alexandrov",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which came out first, Dinosaur or McFarland, USA",
+    "source": [
+      "Dinosaur_film.txt",
+      "McFarland_USA.txt"
+    ],
+    "answer": "Dinosaur",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Who was born first, Arthur Conan Doyle or Penelope Lively?",
+    "source": [
+      "Arthur_Conan_Doyle.txt",
+      "Penelope_Lively.txt"
+    ],
+    "answer": "Arthur Ignatius Conan Doyle",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which film was Oscar nominated, LaLee's Kin: The Legacy of Cotton or Gimme Shelter, the 1970 Rolling Stones documentary?",
+    "source": [
+      "Gimme_Shelter_1970_film.txt",
+      "LaLee_s_Kin_The_Legacy_of_Cotton.txt"
+    ],
+    "answer": "LaLee's Kin: The Legacy of Cotton",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "source": [
+      "Ed_Wood.txt",
+      "Scott_Derrickson.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "In what city can a person find both the Nusretiye Clock Tower and the Eski Imaret Mosque be found?",
+    "source": [
+      "Eski_Imaret_Mosque.txt",
+      "Nusretiye_Clock_Tower.txt"
+    ],
+    "answer": "Istanbul, Turkey",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are the Laleli Mosque and Esma Sultan Mansion located in the same neighborhood?",
+    "source": [
+      "Esma_Sultan_Mansion.txt",
+      "Laleli_Mosque.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are both Dafeng District and Dazhou located in the same province?",
+    "source": [
+      "Dafeng_District.txt",
+      "Dazhou.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "What occupation do Chris Menges and Aram Avakian share?",
+    "source": [
+      "Aram_Avakian.txt",
+      "Chris_Menges.txt"
+    ],
+    "answer": "director",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "which is larger Asante Traditional Buildings or Gulangyu?",
+    "source": [
+      "Asante_Traditional_Buildings.txt",
+      "Gulangyu.txt"
+    ],
+    "answer": "Gulangyu",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Local H and For Against both from the United States?",
+    "source": [
+      "For_Against.txt",
+      "Local_H.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are both Dictyosperma, and Huernia described as a genus?",
+    "source": [
+      "Dictyosperma.txt",
+      "Huernia.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are both Cypress and Ajuga genera?",
+    "source": [
+      "Ajuga.txt",
+      "Cypress.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Hayden is a singer-songwriter from Canada, but where does Buck-Tick hail from?",
+    "source": [
+      "Buck-Tick.txt",
+      "Hayden_musician.txt"
+    ],
+    "answer": "Fujioka, Gunma",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which writer was from England, Henry Roth or Robert Erskine Childers?",
+    "source": [
+      "Henry_Roth.txt",
+      "Robert_Erskine_Childers.txt"
+    ],
+    "answer": "Robert Erskine Childers DSC",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Ferocactus and Silene both types of plant?",
+    "source": [
+      "Ferocactus.txt",
+      "Silene.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+    "source": [
+      "Ambroise_Thomas.txt",
+      "Giuseppe_Verdi.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "What occupation was shared by David Yates and Pietro Germi?",
+    "source": [
+      "David_Yates.txt",
+      "Pietro_Germi.txt"
+    ],
+    "answer": "director",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Do The Importance of Being Icelandic and The Five Obstructions belong to different film genres ?",
+    "source": [
+      "The_Five_Obstructions.txt",
+      "The_Importance_of_Being_Icelandic.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which film was released first: Sacred Planet or Oz the Great and Powerful?",
+    "source": [
+      "Oz_the_Great_and_Powerful.txt",
+      "Sacred_Planet.txt"
+    ],
+    "answer": "Sacred Planet",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Who was born earlier, Emma Bull or Virginia Woolf?",
+    "source": [
+      "Emma_Bull.txt",
+      "Virginia_Woolf.txt"
+    ],
+    "answer": "Adeline Virginia Woolf",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Is the Marsilea or the Brabejum the genus of more individual species of plants?",
+    "source": [
+      "Brabejum.txt",
+      "Marsilea.txt"
+    ],
+    "answer": "Marsilea",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Who died first, George Archainbaud or Ralph Murphy?",
+    "source": [
+      "George_Archainbaud.txt",
+      "Ralph_Murphy.txt"
+    ],
+    "answer": "George Archainbaud",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which board game was published most recently, Pirate's Cove or Catan?",
+    "source": [
+      "Catan.txt",
+      "Pirate_s_Cove.txt"
+    ],
+    "answer": "Pirate's Cove",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which case came first, Craig v. Boren or United States v. Paramount Pictures, Inc.?",
+    "source": [
+      "Craig_v._Boren.txt",
+      "United_States_v._Paramount_Pictures_Inc..txt"
+    ],
+    "answer": "Craig v. Boren",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Can Stenocereus and Pachypodium both include tree like plants?",
+    "source": [
+      "Pachypodium.txt",
+      "Stenocereus.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Random House Tower and 888 7th Avenue both used for real estate?",
+    "source": [
+      "888_7th_Avenue.txt",
+      "Random_House_Tower.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are Broughtonia and Laeliocattleya both orchids?",
+    "source": [
+      "Broughtonia.txt",
+      "Laeliocattleya.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Who is older, Ferdi Taygan or Mahesh Bhupathi?",
+    "source": [
+      "Ferdi_Taygan.txt",
+      "Mahesh_Bhupathi.txt"
+    ],
+    "answer": "Ferdi Taygan",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which director had the longest career, Alain Resnais or Scott Sidney?",
+    "source": [
+      "Alain_Resnais.txt",
+      "Scott_Sidney.txt"
+    ],
+    "answer": "Scott Sidney",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Were the bands Skin Yard and Ostava from the U.S.?",
+    "source": [
+      "Ostava.txt",
+      "Skin_Yard.txt"
+    ],
+    "answer": "no",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Josey Scott and Ian Watkins were both promising musicians. Which of these talented men was incarcerated, impacting his career with a rock band?",
+    "source": [
+      "Ian_Watkins_Lostprophets.txt",
+      "Josey_Scott.txt"
+    ],
+    "answer": "Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Are  Chrysalis and Look both women's magazines?",
+    "source": [
+      "Chrysalis_magazine.txt",
+      "Look_UK_magazine.txt"
+    ],
+    "answer": "yes",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which Genus has more species Eucryphia or Lepidozamia ?",
+    "source": [
+      "Eucryphia.txt",
+      "Lepidozamia.txt"
+    ],
+    "answer": "Eucryphia",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which performance act has a higher instrument to person ratio, Badly Drawn Boy or Wolf Alice? ",
+    "source": [
+      "Badly_Drawn_Boy.txt",
+      "Wolf_Alice.txt"
+    ],
+    "answer": "Badly Drawn Boy",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  },
+  {
+    "q": "Which dog's ancestors include Gordon and Irish Setters: the Manchester Terrier or the Scotch Collie?",
+    "source": [
+      "Manchester_Terrier.txt",
+      "Scotch_Collie.txt"
+    ],
+    "answer": "Scotch Collie",
+    "type": "hotpot_comparison",
+    "level": "hard"
+  }
+]

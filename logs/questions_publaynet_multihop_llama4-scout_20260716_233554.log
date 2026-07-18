@@ -1,0 +1,75 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_multihop.json --model llama4-scout
+# started 20260716_233554
+
+Loading CLIP...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Ablation — questions_publaynet_multihop (30 questions)
+Generator : llama4-scout  (Meta/Groq, open, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|██████████| 7307/7307 [00:00<00:00, 384486.20it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1/30  In the German Nationwide Survey, what was the incidence of
+    2/30  What is the odds ratio for headache in individuals with ch
+    3/30  What does the new global dataset on killings of journalist
+    4/30  What percentage of Native Hawaiians and other Pacific Isla
+    5/30  What is the retention factor for moxonidine under the opti
+    6/30  What is the vapor pressure of 1-butanol at 304 K, and what
+    7/30  What is the number of cases reported for the 20–24 age gro
+    8/30  What is the age range of the males with FXS in the Repetit
+    9/30  What is the correlation between wave V latency and implant
+   10/30  What was the effect of celecoxib treatment on the escape l
+   11/30  What is the specific marker used to identify the ventricul
+   12/30  According to Grofkaus, what is the assassination norm an a
+   13/30  What is the GenBank number for the dmaW homolog from Metar
+   14/30  What is the decoy receptor for LIGHT that is found only in
+   15/30  What was the range of mean appropriateness and clarity sco
+   16/30  What two elements must ethical policies include according 
+   17/30  What concentration of tetraethylammonium was used as a non
+   18/30  What value prominent in the West Virginia community was le
+   19/30  How many peptides were identified for BSA after SCW hydrol
+   20/30  What was the incubation temperature and duration used for 
+   21/30  What was the particle number concentration factor for 60 g
+   22/30  What is the value of Pr(θ > θc) for the Facebook social ci
+   23/30  According to the passage, what is the focus of most academ
+   24/30  What was the mortality rate for CDH patients in the early 
+   25/30  What instrument was used to measure silver concentration i
+   26/30  What percentage of new HIV infections in adolescent girls 
+   27/30  What range of F-actin fluorescence (FHP) was observed duri
+   28/30  What is the 30-month overall survival rate for all CLL pat
+   29/30  What was the effect of cardanol alone on apoptosis in the 
+   30/30  What machine learning method has been applied to both Park
+
+==============================================================================
+QUALITY — llama4-scout
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+Recall@3                0.900          0.900          0.900          0.900
+AllGoldFound            0.900          0.900          0.900          0.900
+MRR                     0.883          0.883          0.883          0.883
+AnswerAcc               0.600          0.567          0.533          0.533
+Faithfulness            0.500          0.533          0.400          0.433
+AnswerRel               0.767          0.633          0.800          0.700
+
+EFFICIENCY — llama4-scout
+metric               baseline            +KG    +multimodal          +both
+------------------------------------------------------------------------------
+in_tok/q                  486            536            657            711
+out_tok/q                  62             68             80             86
+latency ms                257            291            305            330
+cost/100q $            0.0075         0.0082         0.0099         0.0107
+
+Summary -> results\summary_questions_publaynet_multihop_llama4-scout_20260716_233603.csv
+Detail  -> results\detail_questions_publaynet_multihop_llama4-scout_20260716_233603.csv
+Note: text-only systems (baseline, +KG) score 0 retrieval on figure questions by design — they cannot retrieve images.

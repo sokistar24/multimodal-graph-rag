@@ -1,0 +1,17 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_text.json --model llama-70b
+# started 20260716_223649
+
+Loading CLIP...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Ablation � questions_publaynet_text (35 questions)
+Traceback (most recent call last):
+  File "C:\Users\jonahs\Desktop\agentic\compare_all.py", line 520, in <module>
+    main()
+  File "C:\Users\jonahs\Desktop\agentic\compare_all.py", line 325, in main
+    print(f"Generator : {model}  ({cfg['vendor']}, {cfg['access']}, "
+  File "C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 51: character maps to <undefined>

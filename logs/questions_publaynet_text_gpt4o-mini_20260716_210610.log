@@ -1,0 +1,19 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe compare_all.py questions_publaynet_text.json --model gpt4o-mini
+# started 20260716_210610
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading CLIP...
+
+Ablation � questions_publaynet_text (35 questions)
+Generator : gpt4o-mini  (OpenAI, closed, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|##########| 7307/7307 [00:00<00:00, 405973.87it/s]

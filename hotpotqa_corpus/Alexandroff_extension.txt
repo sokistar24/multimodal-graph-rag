@@ -1,0 +1,1 @@
+In the mathematical field of topology, the Alexandroff extension is a way to extend a noncompact topological space by adjoining a single point in such a way that the resulting space is compact. It is named for the Russian mathematician Pavel Alexandrov.

@@ -1,0 +1,5 @@
+run_id,question_set,n_questions,system,recall,mrr,acc,faith,rel
+2026-06-22_21:21:10,questions_publaynet_text,24,baseline,0.958,0.938,0.833,0.833,1.0
+2026-06-22_21:21:10,questions_publaynet_text,24,+KG,0.958,0.938,0.833,0.833,1.0
+2026-06-22_21:21:10,questions_publaynet_text,24,+multimodal,0.958,0.938,0.833,0.875,1.0
+2026-06-22_21:21:10,questions_publaynet_text,24,+both,0.958,0.938,0.833,0.875,1.0

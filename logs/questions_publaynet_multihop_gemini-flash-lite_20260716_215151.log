@@ -1,0 +1,50 @@
+# C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\python.exe -u compare_all.py questions_publaynet_multihop.json --model gemini-flash-lite
+# started 20260716_215151
+
+Loading CLIP...
+
+Ablation � questions_publaynet_multihop (30 questions)
+Generator : gemini-flash-lite  (Google, closed, vision)
+Systems   : baseline, +KG, +multimodal, +both
+Images    : pixels (VLM)
+Judges    : deepseek (acc/rel/text-faith), claude-haiku (figure faith)
+==============================================================================
+Corpus    : publaynet_corpus
+Loaded cached index: 7307 chunks from 998 files.
+Knowledge graph: all 7307 chunks cached, loading instantly.
+
+Extracting KG triples:   0%|          | 0/7307 [00:00<?, ?it/s]
+Extracting KG triples: 100%|##########| 7307/7307 [00:00<00:00, 365891.21it/s]
+Knowledge graph ready: 36513 triples (0 newly extracted, 7307 from cache).
+Graph: 50515 nodes, 36303 edges
+Loaded cached image index: 598 images
+    1/30  In the German Nationwide Survey, what was the incidence of
+    2/30  What is the odds ratio for headache in individuals with ch
+    3/30  What does the new global dataset on killings of journalist
+    4/30  What percentage of Native Hawaiians and other Pacific Isla
+    5/30  What is the retention factor for moxonidine under the opti
+    6/30  What is the vapor pressure of 1-butanol at 304 K, and what
+    7/30  What is the number of cases reported for the 20�24 age gro
+    8/30  What is the age range of the males with FXS in the Repetit
+    9/30  What is the correlation between wave V latency and implant
+   10/30  What was the effect of celecoxib treatment on the escape l
+   11/30  What is the specific marker used to identify the ventricul
+   12/30  According to Grofkaus, what is the assassination norm an a
+   13/30  What is the GenBank number for the dmaW homolog from Metar
+   14/30  What is the decoy receptor for LIGHT that is found only in
+   15/30  What was the range of mean appropriateness and clarity sco
+   16/30  What two elements must ethical policies include according 
+   17/30  What concentration of tetraethylammonium was used as a non
+   18/30  What value prominent in the West Virginia community was le
+   19/30  How many peptides were identified for BSA after SCW hydrol
+   20/30  What was the incubation temperature and duration used for 
+   21/30  What was the particle number concentration factor for 60 g
+Traceback (most recent call last):
+  File "C:\Users\jonahs\Desktop\agentic\compare_all.py", line 520, in <module>
+    main()
+  File "C:\Users\jonahs\Desktop\agentic\compare_all.py", line 448, in main
+    print(f"  {i:3d}/{len(questions)}  {question[:58]}")
+  File "C:\Users\jonahs\AppData\Local\anaconda3\envs\rag\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u03b8' in position 34: character maps to <undefined>
