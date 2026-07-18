@@ -1,15 +1,24 @@
 # Multimodal and Graph-Aware RAG
 
-This repository implements and evaluates several retrieval-augmented generation systems 
-for scientific document question answering.
+This repository implements and evaluates retrieval-augmented generation systems
+for scientific document question answering. It uses the Hugging Face
+`lhoestq/small-publaynet-wds` dataset to compare text-only retrieval,
+knowledge-graph augmentation, multimodal retrieval, and their combination.
 
-```markdown
-The project uses the Hugging Face `lhoestq/small-publaynet-wds` dataset and compares text retrieval, 
-knowledge-graph retrieval, multimodal retrieval, and a combined system. 
-A detailed report covering the problem formulation, 
-data preprocessing, experimental evaluation and can be found in the report.pdf.
-```
+A detailed report covering the problem formulation, data preprocessing,
+experimental design, and results is available in `report.pdf`.
 
+## Architecture
+
+<p align="center">
+  <img src="architecture.png" alt="Multimodal graph-RAG architecture" width="900">
+</p>
+
+The pipeline processes document pages into text passages, a knowledge graph,
+and figure or table crops. At query time, the three evidence sources are
+retrieved independently and combined through late fusion before generation.
+The knowledge-graph and visual branches can be enabled or removed to support
+controlled ablation across system configurations.
 
 ## Systems evaluated
 
