@@ -1,5 +1,0 @@
-run_id,question_set,n_questions,system,src_recall,sub_answer_acc,both_correct,faithfulness,relevancy
-2026-06-23_02:14:52,questions_publaynet_compound,27,baseline,0.796,0.648,0.407,0.333,0.926
-2026-06-23_02:14:52,questions_publaynet_compound,27,+KG,0.796,0.537,0.407,0.444,0.926
-2026-06-23_02:14:52,questions_publaynet_compound,27,+multimodal,0.796,0.648,0.481,0.333,0.852
-2026-06-23_02:14:52,questions_publaynet_compound,27,+both,0.796,0.574,0.407,0.556,0.963

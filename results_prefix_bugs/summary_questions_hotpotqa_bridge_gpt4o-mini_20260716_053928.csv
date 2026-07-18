@@ -1,3 +1,0 @@
-run_id,question_set,question_type,model,vendor,access,n_questions,system,recall,complete,mrr,acc,faith,rel,mean_in_tok,mean_out_tok,mean_latency_ms,total_cost_usd,cost_per_100q_usd
-2026-07-16_05:39:28,questions_hotpotqa_bridge,hotpot_bridge,gpt4o-mini,OpenAI,closed,50,baseline,0.54,0.22,0.8,0.48,0.44,0.58,324.1,14.5,796.2,0.002865,0.0057
-2026-07-16_05:39:28,questions_hotpotqa_bridge,hotpot_bridge,gpt4o-mini,OpenAI,closed,50,+KG,0.54,0.22,0.8,0.42,0.38,0.5,394.1,14.5,762.2,0.00339,0.0068

@@ -5,3 +5,5 @@ publaynet_images/
 results/
 triples_cache.json
 full_freeze.txt
+# Generated experiment results
+results_prefix_bugs/
