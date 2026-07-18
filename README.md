@@ -1,9 +1,10 @@
 # Multimodal and Graph-Aware RAG
 
 This repository implements and evaluates retrieval-augmented generation systems
-for scientific document question answering. It uses the Hugging Face
-`lhoestq/small-publaynet-wds` dataset to compare text-only retrieval,
-knowledge-graph augmentation, multimodal retrieval, and their combination.
+for scientific document question answering. Experiments are conducted on 1,000
+pages from the Hugging Face `lhoestq/small-publaynet-wds` dataset. The study
+compares text-only retrieval, knowledge-graph augmentation, multimodal retrieval,
+and their combination across closed-weight and open-weight multimodal models.
 
 A detailed report covering the problem formulation, data preprocessing,
 experimental design, and results is available in `report.pdf`.
@@ -29,6 +30,19 @@ The main experiment compares four systems:
 * `+multimodal`: text retrieval enhanced with CLIP-retrieved figures and tables
 * `+both`: text retrieval combined with knowledge-graph and multimodal evidence
 
+## Models evaluated
+
+The retrieval stack is held fixed while the generator is changed. The main
+comparison includes:
+
+* `GPT-4o-mini`: closed-weight model from OpenAI
+* `Gemini 3.1 Flash-Lite`: closed-weight model from Google
+* `Llama 4 Scout`: open-weight model
+* `Llama 4 Maverick`: open-weight model
+
+GPT-4o is also used separately as a higher-cost diagnostic model for selected
+figure-question experiments.
+
 ## Project structure
 
 ```text
@@ -42,6 +56,7 @@ The main experiment compares four systems:
 ├── compare_all.py
 ├── compare_graph_vs_basaline.py
 ├── compare_multimodal.py
+├── run_matrix.py
 ├── evaluation.py
 ├── metrics.py
 ├── explainability.py
@@ -58,7 +73,7 @@ The main experiment compares four systems:
 
 ## Dataset
 
-The project streams pages from:
+The experiments use 1,000 pages streamed from:
 
 ```text
 lhoestq/small-publaynet-wds
@@ -107,10 +122,10 @@ The `.env` file is excluded from GitHub.
 
 ## Data ingestion
 
-Process 100 pages from the dataset:
+Process the 1,000-page experimental corpus:
 
 ```bash
-python ingestion.py --limit 100
+python ingestion.py --limit 1000
 ```
 
 For a smaller test run with additional output and without image caption generation:
@@ -125,7 +140,10 @@ The ingestion script performs OCR on textual regions and saves figures and table
 
 The main experiment is implemented in `compare_all.py`.
 
-It builds the text index, knowledge graph and image index once, then evaluates all four systems on the selected question set.
+It builds the text index, knowledge graph, and image index once, then evaluates
+the four system configurations across the selected question set and generator.
+The retrieval stack is reused across models so that differences can be attributed
+to the supplied evidence and the generator.
 
 ### Text questions
 
@@ -288,7 +306,7 @@ The result filenames include the question set and execution timestamp so that mu
 ## Recommended experiment order
 
 ```bash
-python ingestion.py --limit 100
+python ingestion.py --limit 1000
 python compare_all.py questions_publaynet_text.json
 python compare_all.py questions_publaynet_figures.json
 python compare_all.py questions_publaynet_multihop.json
