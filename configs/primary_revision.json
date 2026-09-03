@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "revision-hotpotqa-bridge-graph",
+  "corpus": "hotpotqa",
+  "corpus_dir": "hotpotqa_corpus",
+  "question_set": "data/questions/questions_hotpotqa_bridge.json",
+  "systems": ["baseline", "+KG", "+KGret"],
+  "generators": ["gpt4o-mini", "gemini-flash-lite", "llama4-scout", "llama4-maverick"],
+  "pricing_snapshot": "configs/pricing_2026-09-03.json",
+  "retrieval_method": "dense-plus-graph-expansion",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "deepseek",
+  "vision_judge": "claude-haiku",
+  "prompt_version": "evidence-attribution-v1",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 2,
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "shuffled", "oracle", "partial-gold"],
+  "metadata": {
+    "research_questions": ["RQ1", "RQ2", "RQ4"],
+    "minimum_questions": 100,
+    "bootstrap_iterations": 10000,
+    "multiplicity_correction": "holm",
+    "status": "infrastructure ready; the 100-question bridge set and paid runs are not yet produced"
+  }
+}

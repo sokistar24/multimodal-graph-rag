@@ -1,15 +1,19 @@
-
 name: rag
 
+# The whole numerical stack comes from conda-forge so that FAISS, NumPy/MKL,
+# Matplotlib, and PyTorch share one OpenMP runtime. Mixing the pip torch wheel
+# (which bundles its own libiomp5md) with conda-forge FAISS crashes on Windows.
 channels:
   - conda-forge
-  - defaults
+  - nodefaults
 
 dependencies:
   - python=3.11
   - faiss-cpu
+  - matplotlib-base>=3.8
+  - pytorch=2.6.0=cpu*
+  - torchvision=0.21.0
   - tesseract
   - pip
   - pip:
-      - -r requirements.txt
-
+      - -e .[test,dev]

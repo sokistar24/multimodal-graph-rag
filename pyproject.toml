@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimodal-graph-rag"
+version = "0.3.0"
+description = "Evidence-attributed evaluation of graph-augmented and multimodal RAG for document question answering"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic>=0.40",
+  "datasets==5.0.0",
+  "huggingface-hub>=0.25",
+  "matplotlib>=3.8",
+  "networkx==3.4.2",
+  "numpy>=2.0,<3",
+  "open-clip-torch==3.3.0",
+  "openai==2.43.0",
+  "Pillow==12.2.0",
+  "python-docx==1.2.0",
+  "python-dotenv==1.2.2",
+  "PyYAML>=6.0",
+  "pytesseract==0.3.13",
+  "requests>=2.32",
+  "torch==2.6.0",
+  "torchvision==0.21.0",
+  "tqdm==4.68.3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0", "pytest-cov>=5.0"]
+dev = ["ruff>=0.12"]
+
+[project.scripts]
+rag = "multimodal_graph_rag.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+extend-exclude = ["archive", "tmp", "paper"]
+
+[tool.ruff.lint]
+# E/W/F: pycodestyle + pyflakes (PEP 8). I: import ordering with all imports at
+# the top of the module. B: bugbear. BLE: no blind `except Exception`. UP: modern
+# syntax. PLC0415: no imports inside functions. PLW0603: no `global` mutation.
+select = ["E", "F", "I", "W", "B", "BLE", "UP", "PLC0415", "PLW0603"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["multimodal_graph_rag"]

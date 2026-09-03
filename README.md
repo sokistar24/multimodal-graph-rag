@@ -1,171 +1,165 @@
-# When Do Multimodal and Graph-Augmented RAG Help?
+# Evidence Attribution in Graph-Augmented and Multimodal RAG
 
-This repository implements and evaluates retrieval-augmented generation (RAG)
-systems for document question answering. The evaluation varies the evidence
-configuration, the generator, and the corpus as independent factors: five
-system configurations, four production multimodal generators, and three
-corpora (PubLayNet, SPIQA, HotpotQA) with matched question-set controls. It
-accompanies the paper *"When Do Multimodal and Graph-Augmented RAG Help? A
-Controlled Evaluation for Document Question Answering."*
+Controlled document question-answering experiments that separate retrieval
+failure, incomplete evidence, evidence-use failure, non-gold support,
+closed-book answers, and unsupported answers when a RAG pipeline is augmented
+with a knowledge graph (at the generation stage, `+KG`, or the retrieval
+stage, `+KGret`) or with retrieved figure crops (`+multimodal`, `+both`).
 
-Every table and figure in the paper is regenerated from the released
-per-question run logs by two scripts (`make_tables.py`, `make_figures.py`), so
-every reported number is traceable to a recorded model response.
+Everything runs through one installed command, `rag`, from one package,
+`multimodal_graph_rag`. There is a single implementation of every provider
+call, retriever, graph, judge, and artifact builder; failures stop a run
+explicitly instead of being scored as zero.
 
-## Architecture
+## Repository layout
 
-<p align="center">
-  <img src="architecture.png" alt="Multimodal graph-RAG architecture" width="900">
-</p>
-
-Documents are processed into text passages, a knowledge graph of extracted
-subject–relation–object triples, and figure/table crops. At query time the
-evidence sources are retrieved independently. The knowledge graph is deployed
-at two alternative stages: injected into the generation prompt under a
-provenance constraint (+KG), or used to expand the retrieval candidate set
-with chunks from entity-bridged documents (+KGret). The two are complementary
-by construction—one can only reformulate retrieved evidence, the other can
-only extend it—so their comparison isolates the pipeline stage at which graph
-evidence acts.
-
-## Systems evaluated
-
-* `baseline` — text-only RAG (top-3 chunks)
-* `+KG` — generation-stage graph augmentation (provenance-filtered facts in the prompt)
-* `+KGret` — retrieval-stage graph augmentation (entity-bridged candidate expansion)
-* `+multimodal` — CLIP-retrieved figures/tables (pixels or captions)
-* `+both` — +KG and +multimodal combined
-
-## Generators
-
-The retrieval stack is fixed while the generator changes: GPT-4o-mini and
-Gemini 3.1 Flash-Lite (closed-weight), Llama 4 Scout and Llama 4 Maverick
-(open-weight, hosted inference). GPT-4o is a higher-cost diagnostic on
-selected figure experiments. Question authoring (DeepSeek-Chat, Claude
-Haiku 4.5) and judging (DeepSeek-Chat, Claude Haiku 4.5) use models outside
-the four generator families.
-
-## Corpora
-
-One environment variable selects the corpus for every script:
-
-```powershell
-$env:RAG_CORPUS = "spiqa"      # publaynet (default) | spiqa | hotpotqa
+```text
+src/multimodal_graph_rag/
+  cli.py                 the `rag` command
+  clients.py             provider registry, frozen pricing, ModelClient (all model calls)
+  config.py              ExperimentConfig with a deterministic identity hash
+  schemas.py             QuestionRecord, EvidenceBundle, RunRecord, question file I/O
+  errors.py              explicit error types (provider, pricing, cache, evidence)
+  corpora/               loaders, captioning/OCR, and the five ingesters
+  questions/             validators and the authoring protocols
+  retrieval/             dense TextIndex, KnowledgeGraph, graph expansion,
+                         CLIP image index, lexical/random controls, metrics
+  pipelines/             systems under comparison, evidence-control arms,
+                         and the evaluation runner
+  evaluation/            judges, attribution states, leakage screening,
+                         audit instruments, paired inference
+  artifacts/             manifests, run selection, tables, figures
+configs/                 experiment configs and the frozen pricing snapshot
+data/questions/          released question sets
+data/graphs/             extracted-triple caches (one per corpus)
+artifacts/runs/legacy/   the run files behind the first submission
+artifacts/{tables,figures}/legacy/   tables and figures as submitted
+protocols/               human-annotation instruments
+docs/                    architecture diagram
+archive/                 invalid runs, superseded scripts, logs, old submissions
+tests/                   offline test suite with a deterministic fake client
 ```
-
-| Corpus | Source | Units | Property varied |
-|---|---|---|---|
-| `publaynet` | `lhoestq/small-publaynet-wds` (1,000 pages) | page | disconnected, OCR text, obscure content |
-| `spiqa` | SPIQA test-A (100 papers, 1,126 crops) | paper | cross-document terminology, clean TeX text, prominent papers |
-| `hotpotqa` | HotpotQA distractor dev (2,964 paragraphs) | article | canonical entities, bridge/comparison controls, text-only |
-
-Each corpus is rebuilt deterministically by its ingestion script
-(`ingestion.py`, `ingest_spiqa.py`, `ingest_hotpotqa.py`); the corpus
-directories themselves are not committed. Per-corpus caches
-(`triples_cache_<corpus>_corpus.json`) are committed so the expensive triple
-extraction never re-runs.
-
-## Question sets
-
-| File | n | Author | Notes |
-|---|---|---|---|
-| `questions_publaynet_text/multihop/figures[_caption].json` | 35/30/35/35 | DeepSeek / Claude Haiku | original sets |
-| `questions_spiqa_text.json` | 35 | DeepSeek | |
-| `questions_spiqa_multihop.json` | 30 | DeepSeek | within-paper control |
-| `questions_spiqa_multihop_cross.json` | 50 | DeepSeek | seeded from the triple store; 50 entities, 50 paper pairs |
-| `questions_spiqa_figures.json` | 35 | Claude Haiku (vision) | tiered by `verify_figure_integrity.py` |
-| `questions_hotpotqa_bridge/comparison.json` | 50/50 | HotpotQA gold | multi-source gold lists |
-
-All sets pass programmatic validators (no modality cues, no container
-references, no source-id leaks, length caps) implemented in
-`generate_questions.py`; `clean_question_sets.py` re-applies them to existing
-files.
 
 ## Installation
 
-```bash
-conda env create -f environment.yml && conda activate rag
-# or: pip install -r requirements.txt
-```
-
-Create a `.env` in the project root (never committed; see `.env.example`):
-
-```text
-OPENAI_API_KEY=...        # generation (GPT-4o-mini/GPT-4o), embeddings, captioning
-DEEPSEEK_API_KEY=...      # question authoring + text judging
-ANTHROPIC_API_KEY=...     # figure-question authoring + figure judging
-GEMINI_API_KEY=...        # Gemini 3.1 Flash-Lite
-DEEPINFRA_API_KEY=...     # Llama 4 Scout / Maverick hosted inference
-```
-
-## Reproduction path
+The environment is conda-based (FAISS and Tesseract come from conda-forge;
+the pip-installed package pins the versions used for the released runs).
 
 ```powershell
-# 1. Build a corpus (once per corpus)
-python ingestion.py --limit 1000                     # publaynet
-python ingest_spiqa.py --papers 100                  # spiqa
-python ingest_hotpotqa.py                            # hotpotqa
-
-# 2. Run an evaluation (RAG_CORPUS selects everything consistently)
-$env:RAG_CORPUS = "spiqa"
-python compare_all.py questions_spiqa_multihop_cross.json --model gpt4o-mini --systems baseline,+KG,+KGret
-
-$env:RAG_CORPUS = "hotpotqa"
-python compare_all.py questions_hotpotqa_bridge.json --model gpt4o-mini --systems baseline,+KG,+KGret --hops 2
-
-# 3. Regenerate every paper table and figure from results/
-python make_tables.py          # -> paper_tables/
-python make_figures.py         # -> figs/
+conda env create -f environment.yml
+conda activate rag
+Copy-Item .env.example .env      # add only the keys a run needs
+rag --help
 ```
 
-`compare_all.py` guards against corpus/question mismatches (it aborts if no
-gold source exists in the active corpus) and writes summary and per-question
-CSVs to `results/`, which this repository includes for all reported runs.
+Provider keys are read from the environment (and `.env`) when a command that
+needs them starts. `TESSERACT_CMD` points at the Tesseract binary if it is not
+on `PATH`. No key is required to run the tests or a dry run.
 
-Useful auxiliary analyses:
+## Workflow
+
+Every experiment is described by a JSON config (`configs/*.json`) naming the
+corpus, question set, systems, generators, candidate budget, bridge depth,
+vision mode, evidence controls, and the pricing snapshot. The config hash and
+the question-file checksum are written into every summary row.
 
 ```powershell
-python graph_retrieval.py questions_spiqa_multihop_cross.json          # retrieval-side A/B (+ bridge diagnostics)
-python retrieval_dump.py questions_spiqa_multihop_cross.json           # per-question top-k with multi-gold hits
-python verify_figure_integrity.py questions_spiqa_figures.json spiqa_images/captions.json spiqa_corpus
+# 1. Build a corpus from its public dataset
+rag ingest --config configs/spiqa_cross_paper.json --papers 100
+
+# 2. Author question sets (each protocol is one command; all items need manual review)
+rag questions --protocol text  --config configs/publaynet_figures.json --corpus-dir publaynet_corpus --out data/questions/questions_publaynet_text.json --target 35
+rag questions --protocol figure --config configs/publaynet_figures.json --image-dir publaynet_images --out data/questions/questions_publaynet_figures.json --target 35
+rag questions --protocol caption-matched --config configs/spiqa_cross_paper.json --pixel-file data/questions/questions_spiqa_figures.json --image-dir spiqa_images --out data/questions/questions_spiqa_figures_caption.json
+rag questions --protocol cross-paper --config configs/spiqa_cross_paper.json --corpus-dir spiqa_corpus --out data/questions/questions_spiqa_multihop_cross.json --target 50
+
+# 3. Inspect the plan without spending credit, then run
+rag evaluate --config configs/primary_revision.json --dry-run
+rag evaluate --config configs/primary_revision.json --limit 5      # pilot
+rag evaluate --config configs/primary_revision.json
+
+# 4. Retrieval-only A/B for graph expansion (pre-registered primary outcome)
+rag retrieval-ab --config configs/primary_revision.json
+
+# 5. Freeze the runs a reported table may use, validate, and build tables and figures
+rag freeze-manifest --summary artifacts/runs/summary_*.csv --release-id r1 --question-set data/questions/questions_hotpotqa_bridge.json --output configs/release_manifest.json
+rag validate-release --manifest configs/release_manifest.json
+rag artifacts --manifest configs/release_manifest.json --out artifacts
+
+# Exploratory tables from a directory scan (never a release artifact)
+rag artifacts --scan artifacts/runs/legacy --out artifacts/exploratory
 ```
 
-## Metrics
+Each evaluation writes three timestamped files that are never overwritten:
+`summary_*.csv` (one row per system), `detail_*.csv` (one row per question),
+and `trace_*.jsonl` (one `RunRecord` per question and system with the full
+evidence bundle: ranked passages, graph-bridged passages, graph facts, scored
+and sent images, and the raw judge calls). A provider failure aborts the run
+after writing the completed rows as `detail_partial_*.csv`.
 
-Retrieval: Recall@K, MRR, and completeness (all gold sources present, for
-multi-gold questions). Answers: accuracy, faithfulness, and relevancy as
-binary LLM-judge verdicts (RAGAS-style), plus accuracy conditioned on
-evidence completeness, which separates retrieval-attributable performance
-from parametric memory. `metrics.py` adds lexical/semantic measures (EM, F1,
-BLEU, ROUGE-L, BERTScore).
+### Systems and evidence controls
 
-## Explainability
+| system                 | context supplied to the generator                                  |
+|------------------------|--------------------------------------------------------------------|
+| `baseline`             | dense top-`k` passages                                             |
+| `+KG`                  | baseline passages plus graph facts restricted to those passages    |
+| `+KGret`               | dense top-3 plus graph-expanded passages, same total budget        |
+| `+multimodal`          | baseline passages plus a CLIP-retrieved crop (pixels or caption)   |
+| `+both`                | `+KG` and `+multimodal` together                                   |
+| `control:closed-book`  | no context                                                         |
+| `control:shuffled`     | unrelated passages of matched length                               |
+| `control:oracle`       | passages from every gold document                                  |
+| `control:partial-gold` | passages from the first gold document only                         |
 
-`explainability.py` records, per answer: retrieved chunks and source pages
-with scores, injected graph facts, retrieved crops with CLIP scores, bridged
-chunks (for +KGret), and the final fused context.
+Controls are switched on per config through the `controls` list.
 
-## Project structure
+### Audits and statistics
 
-```text
-.
-├── ingestion.py / ingest_spiqa.py / ingest_hotpotqa.py   # corpus builders
-├── rag_basics.py / rag_multimodal.py / rag_full.py       # retrieval + fusion
-├── graph_aware.py                                        # triples, graph, +KG
-├── graph_retrieval.py                                    # +KGret bridging + A/B
-├── compare_all.py                                        # main evaluation (5 systems)
-├── generate_questions.py                                 # canonical question authoring
-├── generate_questions_spiqa_cross.py                     # cross-paper set (triple-seeded)
-├── generate_caption_questions_spiqa.py                   # matched caption protocol
-├── clean_question_sets.py / verify_figure_integrity.py   # validators
-├── retrieval_dump.py / metrics.py / evaluation.py / explainability.py
-├── make_tables.py / make_figures.py                      # paper reproduction
-├── questions_*.json                                      # evaluation sets
-├── triples_cache_*_corpus.json                           # committed KG caches
-├── results/                                              # all reported run logs
-├── paper_tables/  figs/                                  # regenerated outputs
-└── legacy/                                               # superseded scripts (do not run)
+```powershell
+rag audit-graph data/graphs/triples_cache_spiqa_corpus.json --corpus spiqa --count 200
+rag audit-figures data/questions/questions_spiqa_figures.json spiqa_images/captions.json spiqa_corpus
+rag paired-analysis artifacts/runs/detail_<run>.csv --treatment +KGret
+rag clean-questions data/questions/questions_spiqa_text.json
 ```
 
-`legacy/` holds early question-generation scripts kept for provenance; running
-them would overwrite canonical question files.
+The leakage screen labels a clean programmatic result `screened_unflagged`,
+never "verified"; semantic checks and human review follow the protocol in
+`protocols/ANNOTATION_GUIDE.md`. Paired contrasts report bootstrap confidence
+intervals, exact McNemar tests, and continuity-corrected odds ratios;
+generator rows are not independent replications.
+
+## Provenance rules
+
+- Reported tables are built only from runs listed in a checksummed release
+  manifest. `rag validate-release` rejects missing, modified, archived, or
+  error-containing run files.
+- Cells are never backfilled across timestamps; a directory scan selects one
+  newest valid run per question set and generator as a unit.
+- Prices are frozen in `configs/pricing_<date>.json`; a model without a
+  frozen price cannot be charged and the capture date is written into every
+  summary row.
+- The graph-seeded SPIQA cross-paper set is labelled `graph_seeded` and must
+  be reported separately from any independently authored set.
+
+## Status of the revision
+
+The package implements the interfaces, controls, and safeguards for the major
+revision. The released runs under `artifacts/runs/legacy/` are historical
+evidence for the first submission; the 100-question sets, equal-budget
+retrieval comparators, established graph-retriever comparison, document
+visual retriever, oracle-image control, and 400-output human validation
+described in the revision plan have not been run yet and must not be reported
+as complete until their frozen manifests and adjudicated labels exist.
+
+## Development
+
+```powershell
+ruff check .
+ruff format --check .
+pytest
+```
+
+The test suite runs offline against a deterministic fake client and a tiny
+corpus; it exercises the full evaluation loop, caches, graph expansion,
+manifests, tables, and figures without provider access.
+

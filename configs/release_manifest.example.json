@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "release_id": "replace-with-release-id",
+  "commit": "replace-with-git-commit",
+  "question_set_sha256": "replace-with-sha256",
+  "runs": [
+    {
+      "run_id": "replace-with-run-id",
+      "config_hash": "replace-with-config-hash",
+      "summary": "artifacts/runs/replace/summary.csv",
+      "summary_sha256": "replace-with-sha256",
+      "detail": "artifacts/runs/replace/detail.csv",
+      "detail_sha256": "replace-with-sha256"
+    }
+  ]
+}
+

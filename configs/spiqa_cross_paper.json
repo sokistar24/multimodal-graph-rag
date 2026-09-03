@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "name": "revision-spiqa-cross-paper-graph-seeded",
+  "corpus": "spiqa",
+  "corpus_dir": "spiqa_corpus",
+  "question_set": "data/questions/questions_spiqa_multihop_cross.json",
+  "systems": ["baseline", "+KG", "+KGret"],
+  "generators": ["gpt4o-mini", "gemini-flash-lite", "llama4-scout", "llama4-maverick"],
+  "pricing_snapshot": "configs/pricing_2026-09-03.json",
+  "retrieval_method": "dense-plus-graph-expansion",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "deepseek",
+  "vision_judge": "claude-haiku",
+  "prompt_version": "evidence-attribution-v1",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "spiqa_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "oracle", "partial-gold"],
+  "metadata": {
+    "question_set_role": "in-graph mechanism set (graph-seeded); report separately from the independent set",
+    "research_questions": ["RQ1", "RQ2"]
+  }
+}

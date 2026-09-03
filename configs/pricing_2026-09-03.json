@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "captured_on": "2026-09-03",
+  "warning": "Verify every rate against the provider pricing page immediately before a paid run; cost_usd is computed from this file, never returned by an API.",
+  "models": {
+    "gpt4o-mini": {"input_per_million": 0.15, "output_per_million": 0.60},
+    "gemini-flash-lite": {"input_per_million": 0.10, "output_per_million": 0.40},
+    "llama4-maverick": {"input_per_million": 0.15, "output_per_million": 0.60},
+    "llama4-scout": {"input_per_million": 0.08, "output_per_million": 0.30},
+    "gpt4o": {"input_per_million": 2.50, "output_per_million": 10.00},
+    "deepseek": {"input_per_million": 0.27, "output_per_million": 1.10},
+    "claude-haiku": {"input_per_million": 1.00, "output_per_million": 5.00},
+    "text-embedding-3-small": {"input_per_million": 0.02, "output_per_million": 0.00}
+  }
+}

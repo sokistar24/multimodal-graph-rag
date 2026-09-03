@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "name": "revision-publaynet-pixel-only-figures",
+  "corpus": "publaynet",
+  "corpus_dir": "publaynet_corpus",
+  "question_set": "data/questions/questions_publaynet_figures.json",
+  "systems": ["baseline", "+multimodal"],
+  "generators": ["gpt4o-mini", "gemini-flash-lite", "llama4-scout", "llama4-maverick"],
+  "pricing_snapshot": "configs/pricing_2026-09-03.json",
+  "retrieval_method": "dense-plus-clip",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "deepseek",
+  "vision_judge": "claude-haiku",
+  "prompt_version": "evidence-attribution-v1",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "publaynet_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book"],
+  "metadata": {
+    "research_questions": ["RQ3"],
+    "note": "run once with vision_mode=pixels and once with vision_mode=captions for the caption-mediated comparison"
+  }
+}
