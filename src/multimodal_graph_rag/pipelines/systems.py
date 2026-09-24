@@ -8,6 +8,8 @@ so any difference between runs traces to the generator alone.
     baseline      dense top-``k`` text passages
     +KG           baseline passages plus graph facts restricted to those passages
     +KGret        dense top-3 passages plus graph-expanded passages (equal budget)
+    +HippoRAG     a published graph retriever (HippoRAG 2) at the same budget,
+                  served from retrievals precomputed in its own environment
     +multimodal   baseline passages plus a CLIP-retrieved crop (pixels or caption)
     +both         +KG and +multimodal together
 
@@ -26,6 +28,7 @@ from pathlib import Path
 
 from ..clients import GenResult, ModelClient
 from ..errors import ConfigurationError, MissingEvidenceError
+from ..retrieval.comparators import PrecomputedRetrievals
 from ..retrieval.graph import KnowledgeGraph
 from ..retrieval.graph_expansion import retrieve_with_bridge
 from ..retrieval.text import Passage, TextIndex
@@ -74,6 +77,7 @@ class RunContext:
     text_index: TextIndex
     candidate_budget: int
     graph: KnowledgeGraph | None = None
+    comparator: PrecomputedRetrievals | None = None
     image_index: ClipImageIndex | None = None
     image_dir: Path | None = None
     bridge_base_k: int = 3
@@ -96,6 +100,14 @@ class RunContext:
         if self.image_index is None or self.image_dir is None:
             raise MissingEvidenceError(f"{system} requires an image index")
         return self.image_index, self.image_dir
+
+    def require_comparator(self, system: str) -> PrecomputedRetrievals:
+        if self.comparator is None:
+            raise ConfigurationError(
+                f"{system} requires precomputed comparator retrievals "
+                "(set comparator_retrievals in the config)"
+            )
+        return self.comparator
 
 
 @dataclass(frozen=True)
@@ -279,6 +291,22 @@ def run_kgret(
             *(f"[graph-bridged] {p.text}" for p in retrieval.bridged),
         ),
         metadata={"candidate_pages": len(retrieval.candidate_pages)},
+    )
+
+
+def run_hipporag(
+    question: QuestionRecord, ctx: RunContext, use_pixels: bool
+) -> SystemOutput:
+    """The published comparator at the baseline budget, same prompt as baseline."""
+    passages = ctx.require_comparator("+HippoRAG").retrieve(
+        question.id, ctx.candidate_budget
+    )
+    user = f"Context:\n{format_passages(passages)}\n\nQuestion: {question.question}"
+    return SystemOutput(
+        result=_generate(ctx, BASELINE_SYSTEM_PROMPT, user),
+        text_passages=passages,
+        context=judge_context(*(p.text for p in passages)),
+        selection_reason="hipporag",
     )
 
 
@@ -470,6 +498,7 @@ SYSTEMS: dict[str, SystemRunner] = {
     "baseline": run_baseline,
     "+KG": run_kg,
     "+KGret": run_kgret,
+    "+HippoRAG": run_hipporag,
     "+multimodal": run_multimodal,
     "+both": run_both,
     EvidenceControl.CLOSED_BOOK.system_name: run_closed_book,
@@ -478,6 +507,7 @@ SYSTEMS: dict[str, SystemRunner] = {
     EvidenceControl.PARTIAL_GOLD.system_name: run_partial_gold,
 }
 GRAPH_SYSTEMS = frozenset({"+KG", "+KGret", "+both"})
+COMPARATOR_SYSTEMS = frozenset({"+HippoRAG"})
 IMAGE_SYSTEMS = frozenset({"+multimodal", "+both"})
 DEFAULT_SYSTEMS: tuple[str, ...] = ("baseline", "+KG", "+multimodal", "+both")
 

@@ -66,8 +66,33 @@ python -c "import torch; print(torch.cuda.get_device_name(0), torch.version.cuda
 ```
 
 Provider keys are read from the environment (and `.env`) when a command that
-needs them starts. `TESSERACT_CMD` points at the Tesseract binary if it is not
-on `PATH`. No key is required to run the tests or a dry run.
+needs them starts. The revision roster (the fifth generator and every judge)
+is served through OpenRouter under one `OPENROUTER_API_KEY`; the legacy
+generators keep their direct providers so results stay comparable with the
+first-submission runs. Prices are frozen per model in `configs/pricing_*.json`.
+`TESSERACT_CMD` points at the Tesseract binary if it is not on `PATH`. No key
+is required to run the tests or a dry run.
+
+## Published comparator (HippoRAG 2)
+
+The `+HippoRAG` system compares our graph expansion with a published graph
+retriever at the same candidate budget. HippoRAG brings its own model stack,
+so it runs in a separate environment and never inside an evaluation:
+
+```powershell
+# comparators environment, once per corpus
+pip install -e .[comparators]
+python -m multimodal_graph_rag.retrieval.hipporag_index --corpus-dir hotpotqa_corpus --questions data/questions/questions_hotpotqa_bridge.json --output .cache/hipporag/hotpotqa/retrievals_hotpotqa_bridge.json --save-dir .cache/hipporag/hotpotqa/index
+
+# main environment: retrieval-only check, then point a config at the file
+rag comparator-ab --questions data/questions/questions_hotpotqa_bridge.json --retrievals .cache/hipporag/hotpotqa/retrievals_hotpotqa_bridge.json --corpus-dir hotpotqa_corpus --k 5
+```
+
+The indexer feeds HippoRAG the same chunks the dense baseline embeds and maps
+every returned text back to its source file, so gold-provenance scoring works
+unchanged. The retrievals file records the corpus fingerprint and question-set
+digest it was built for and refuses a corpus that has changed. Set
+`comparator_retrievals` in the config and add `+HippoRAG` to `systems`.
 
 ## Workflow
 

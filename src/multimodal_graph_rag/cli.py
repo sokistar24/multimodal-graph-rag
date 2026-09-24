@@ -48,6 +48,7 @@ from .questions.authoring import author_figure_questions, author_text_questions
 from .questions.caption_matched import author_caption_matched
 from .questions.cross_paper import author_cross_paper
 from .questions.spiqa_native import convert_spiqa_native
+from .retrieval.comparators import PrecomputedRetrievals, comparator_report
 from .retrieval.graph import TripleStore, default_cache_path, load_graph
 from .retrieval.graph_expansion import bridge_report
 from .retrieval.text import TextIndex
@@ -304,6 +305,23 @@ def cmd_retrieval_ab(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_comparator_ab(args: argparse.Namespace) -> int:
+    """Retrieval-only completeness of precomputed comparator rankings."""
+    questions = load_questions(args.questions)
+    retrievals = PrecomputedRetrievals.load(args.retrievals, corpus_dir=args.corpus_dir)
+    report = comparator_report(questions, retrievals, k=args.k)
+    output = Path(
+        args.output
+        or f"artifacts/runs/comparator_ab_{Path(args.questions).stem}_k{args.k}.json"
+    )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with output.open("w", encoding="utf-8") as stream:
+        json.dump(report, stream, indent=2)
+    print(json.dumps(report["summary"], indent=2))
+    print(f"wrote {output}")
+    return 0
+
+
 def cmd_artifacts(args: argparse.Namespace) -> int:
     if args.manifest:
         errors = validate_manifest(args.manifest)
@@ -515,6 +533,17 @@ def build_parser() -> argparse.ArgumentParser:
     retrieval_ab.add_argument("--hops", type=int, choices=[1, 2], default=None)
     retrieval_ab.add_argument("--output", default=None)
     retrieval_ab.set_defaults(handler=cmd_retrieval_ab)
+
+    comparator_ab = commands.add_parser(
+        "comparator-ab",
+        help="retrieval-only completeness of precomputed comparator rankings",
+    )
+    comparator_ab.add_argument("--questions", required=True)
+    comparator_ab.add_argument("--retrievals", required=True)
+    comparator_ab.add_argument("--corpus-dir", default=None)
+    comparator_ab.add_argument("--k", type=int, default=5)
+    comparator_ab.add_argument("--output", default=None)
+    comparator_ab.set_defaults(handler=cmd_comparator_ab)
 
     artifacts = commands.add_parser(
         "artifacts", help="tables and figures from frozen or scanned runs"

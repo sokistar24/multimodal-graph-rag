@@ -2,7 +2,7 @@
 
 Retrieval components are built once and shared by all systems. Each question
 is scored for retrieval (partial recall, full-provenance completeness, MRR),
-answer accuracy, faithfulness, and relevancy, and every generation call's
+answer accuracy and faithfulness, and every generation call's
 tokens, latency, and cost are recorded. A provider failure stops the run: the
 rows completed so far are written with a ``partial`` prefix and the error is
 raised, so a rate limit can never be scored as a zero.
@@ -26,9 +26,14 @@ from pathlib import Path
 from ..artifacts.manifest import file_sha256
 from ..clients import DIAGNOSTICS, GENERATORS, ModelClient
 from ..config import ExperimentConfig
-from ..errors import ConfigurationError, MultimodalGraphRagError
+from ..errors import (
+    BudgetExceededError,
+    ConfigurationError,
+    MultimodalGraphRagError,
+)
 from ..evaluation.answer_match import contains_reference, exact_match, token_f1
 from ..evaluation.judges import Judges
+from ..retrieval.comparators import PrecomputedRetrievals
 from ..retrieval.graph import default_cache_path, load_graph
 from ..retrieval.metrics import retrieval_metrics
 from ..retrieval.text import TextIndex
@@ -36,6 +41,7 @@ from ..retrieval.visual import ClipImageIndex
 from ..schemas import QuestionRecord, RunRecord, content_hash, load_questions
 from . import EvidenceControl
 from .systems import (
+    COMPARATOR_SYSTEMS,
     GRAPH_SYSTEMS,
     IMAGE_SYSTEMS,
     SYSTEMS,
@@ -53,7 +59,6 @@ QUALITY_METRICS = (
     "f1",
     "contains",
     "faith",
-    "rel",
 )
 EFFICIENCY_METRICS = ("in_tok", "out_tok", "latency_ms", "cost_usd")
 SUMMARY_FIELDS = (
@@ -84,7 +89,6 @@ SUMMARY_FIELDS = (
     "f1",
     "contains",
     "faith",
-    "rel",
     "mean_in_tok",
     "mean_out_tok",
     "mean_latency_ms",
@@ -116,6 +120,8 @@ class EvaluationSettings:
     limit: int | None = None
     experiment: str = "ad-hoc"
     experiment_hash: str = ""
+    budget_usd: float | None = None
+    comparator_file: Path | None = None
     extra_identity: dict[str, object] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
@@ -129,6 +135,8 @@ class EvaluationSettings:
             raise ConfigurationError("vision_mode must be 'pixels' or 'captions'")
         if self.limit is not None and self.limit < 1:
             raise ConfigurationError("limit must be positive")
+        if self.budget_usd is not None and self.budget_usd <= 0:
+            raise ConfigurationError("budget_usd must be positive when set")
         resolve_systems(self.systems)
 
     @classmethod
@@ -164,6 +172,12 @@ class EvaluationSettings:
             limit=limit,
             experiment=config.name,
             experiment_hash=config.config_hash,
+            budget_usd=config.budget_usd,
+            comparator_file=(
+                (root / config.comparator_retrievals)
+                if config.comparator_retrievals
+                else None
+            ),
             extra_identity={
                 "graph_version": config.graph_version,
                 "prompt_version": config.prompt_version,
@@ -270,6 +284,9 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
         "vision_judge": settings.vision_judge,
         "seed": settings.seed,
         "limit": settings.limit,
+        "comparator_file": (
+            str(settings.comparator_file.resolve()) if settings.comparator_file else ""
+        ),
         **settings.extra_identity,
     }
     config_hash = content_hash(identity)
@@ -296,6 +313,20 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
         )
         stats = graph.statistics()
         print(f"Graph     : {stats.node_count} nodes, {stats.edge_count} edges")
+    comparator = None
+    if COMPARATOR_SYSTEMS & set(systems):
+        if settings.comparator_file is None:
+            raise ConfigurationError(
+                f"{sorted(COMPARATOR_SYSTEMS & set(systems))} need comparator "
+                "retrievals; set comparator_retrievals in the config"
+            )
+        comparator = PrecomputedRetrievals.load(
+            settings.comparator_file, corpus_dir=settings.corpus_dir
+        )
+        print(
+            f"Comparator: {comparator.comparator} from {settings.comparator_file} "
+            f"({len(comparator.retrievals)} questions)"
+        )
     image_index = None
     if IMAGE_SYSTEMS & set(systems):
         if settings.image_dir is None:
@@ -311,6 +342,7 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
         text_index=text_index,
         candidate_budget=settings.candidate_budget,
         graph=graph,
+        comparator=comparator,
         image_index=image_index,
         image_dir=settings.image_dir,
         bridge_base_k=settings.bridge_base_k,
@@ -326,6 +358,7 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
 
     aggregates = {name: _Aggregate() for name in systems}
     detail_rows: list[dict[str, object]] = []
+    spent = 0.0
     try:
         for number, question in enumerate(questions, 1):
             use_pixels = settings.vision_mode == "pixels" and question.is_visual
@@ -347,7 +380,6 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                     output.context,
                     image_paths=output.image_paths if question.is_visual else (),
                 )
-                relevancy = judges.relevancy(question.question, output.result.text)
                 values = {
                     "recall": recall,
                     "complete": complete,
@@ -357,7 +389,6 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                     "f1": token_f1(output.result.text, question.answer),
                     "contains": contains_reference(output.result.text, question.answer),
                     "faith": faith.value,
-                    "rel": relevancy.value,
                     "in_tok": output.result.input_tokens,
                     "out_tok": output.result.output_tokens,
                     "latency_ms": output.result.latency_ms,
@@ -366,9 +397,9 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                 aggregate = aggregates[name]
                 for metric, value in values.items():
                     aggregate.totals[metric] += float(value)
-                aggregate.judge_cost += (
-                    answer.call.cost_usd + faith.call.cost_usd + relevancy.call.cost_usd
-                )
+                judge_spend = answer.call.cost_usd + faith.call.cost_usd
+                aggregate.judge_cost += judge_spend
+                spent += output.result.cost_usd + judge_spend
                 row.update(
                     {
                         f"{name}_acc": answer.value,
@@ -376,7 +407,6 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                         f"{name}_f1": round(values["f1"], 3),
                         f"{name}_contains": values["contains"],
                         f"{name}_faith": faith.value,
-                        f"{name}_rel": relevancy.value,
                         f"{name}_rec": round(recall, 3),
                         f"{name}_complete": complete,
                         f"{name}_mrr": round(mrr, 3),
@@ -399,7 +429,6 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                     raw_judges={
                         "accuracy": answer.to_dict(),
                         "faithfulness": faith.to_dict(),
-                        "relevancy": relevancy.to_dict(),
                     },
                     input_tokens=output.result.input_tokens,
                     output_tokens=output.result.output_tokens,
@@ -409,6 +438,11 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                 ).write_jsonl(trace_path)
             detail_rows.append(row)
             print(f"  {number:3d}/{len(questions)}  {question.question[:58]}")
+            if settings.budget_usd is not None and spent > settings.budget_usd:
+                raise BudgetExceededError(
+                    f"run spend ${spent:.4f} exceeded budget_usd ${settings.budget_usd:.4f} "
+                    f"after {number} of {len(questions)} questions"
+                )
     except MultimodalGraphRagError:
         if detail_rows:
             partial = results_dir / f"detail_partial_{base_name}.csv"
@@ -451,7 +485,6 @@ def run_evaluation(settings: EvaluationSettings, client: ModelClient) -> RunOutp
                 "f1": round(totals["f1"] / count, 3),
                 "contains": round(totals["contains"] / count, 3),
                 "faith": round(totals["faith"] / count, 3),
-                "rel": round(totals["rel"] / count, 3),
                 "mean_in_tok": round(totals["in_tok"] / count, 1),
                 "mean_out_tok": round(totals["out_tok"] / count, 1),
                 "mean_latency_ms": round(totals["latency_ms"] / count, 1),

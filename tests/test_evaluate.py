@@ -4,9 +4,16 @@ import json
 import pytest
 from conftest import FakeModelClient
 
-from multimodal_graph_rag.errors import ConfigurationError, ProviderError
+from multimodal_graph_rag.config import ExperimentConfig
+from multimodal_graph_rag.errors import (
+    BudgetExceededError,
+    ConfigurationError,
+    ProviderError,
+)
 from multimodal_graph_rag.pipelines.evaluate import EvaluationSettings, run_evaluation
+from multimodal_graph_rag.retrieval.comparators import write_retrievals
 from multimodal_graph_rag.retrieval.graph import default_cache_path
+from multimodal_graph_rag.schemas import load_questions
 
 pytest.importorskip("faiss")
 
@@ -132,3 +139,141 @@ def test_settings_validate_generator_and_systems(
         )
     with pytest.raises(ConfigurationError, match="unknown system"):
         _settings(tmp_path, corpus_dir, question_file, triple_cache, ("nope",))
+
+
+def test_relevancy_is_no_longer_judged(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    settings = _settings(
+        tmp_path, corpus_dir, question_file, triple_cache, ("baseline",)
+    )
+    outputs = run_evaluation(settings, fake_client)
+    relevancy_calls = [user for _, user, _ in fake_client.calls if "RELEVANT" in user]
+    assert relevancy_calls == []
+    with outputs.summary_path.open(newline="", encoding="utf-8") as stream:
+        header = next(csv.reader(stream))
+    assert "rel" not in header
+    trace = json.loads(outputs.trace_path.read_text(encoding="utf-8").splitlines()[0])
+    assert set(trace["raw_judges"]) == {"accuracy", "faithfulness"}
+
+
+def test_budget_cap_aborts_the_run_and_keeps_partial_rows(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    settings = _settings(
+        tmp_path,
+        corpus_dir,
+        question_file,
+        triple_cache,
+        ("baseline",),
+        budget_usd=1e-9,
+    )
+    with pytest.raises(BudgetExceededError, match="budget"):
+        run_evaluation(settings, fake_client)
+    assert len(list((tmp_path / "runs").glob("detail_partial_*.csv"))) == 1
+    assert not list((tmp_path / "runs").glob("summary_*.csv"))
+
+
+def test_budget_must_be_positive_when_set(
+    tmp_path, corpus_dir, question_file, triple_cache
+):
+    with pytest.raises(ConfigurationError, match="budget_usd"):
+        _settings(
+            tmp_path,
+            corpus_dir,
+            question_file,
+            triple_cache,
+            ("baseline",),
+            budget_usd=0.0,
+        )
+
+
+def test_config_budget_reaches_settings_and_identity(tmp_path):
+    base = dict(
+        name="cap",
+        corpus="hotpotqa",
+        corpus_dir="hotpotqa_corpus",
+        question_set="data/questions/questions_hotpotqa_bridge.json",
+        systems=("baseline",),
+        generators=("gpt4o-mini",),
+        pricing_snapshot="configs/pricing_2026-09-10.json",
+    )
+    capped = ExperimentConfig(**base, budget_usd=2.5)
+    settings = EvaluationSettings.from_config(
+        capped, "gpt4o-mini", pricing_captured_on="x"
+    )
+    assert settings.budget_usd == 2.5
+    assert capped.config_hash != ExperimentConfig(**base).config_hash
+
+
+def _comparator_file(tmp_path, corpus_dir, question_file):
+    questions = load_questions(question_file)
+    path = tmp_path / "hipporag_retrievals.json"
+    write_retrievals(
+        path,
+        retrievals={
+            q.id: [
+                {"source": s, "text": f"chunk of {s}", "score": 1.0}
+                for s in q.gold_sources
+            ]
+            for q in questions
+        },
+        corpus_dir=corpus_dir,
+        question_file=question_file,
+        comparator="hipporag2",
+        num_to_retrieve=5,
+    )
+    return path
+
+
+def test_hipporag_arm_serves_precomputed_retrievals(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    comparator = _comparator_file(tmp_path, corpus_dir, question_file)
+    settings = _settings(
+        tmp_path,
+        corpus_dir,
+        question_file,
+        triple_cache,
+        ("baseline", "+HippoRAG"),
+        comparator_file=comparator,
+    )
+    outputs = run_evaluation(settings, fake_client)
+    with outputs.summary_path.open(newline="", encoding="utf-8") as stream:
+        by_system = {row["system"]: row for row in csv.DictReader(stream)}
+    assert by_system["+HippoRAG"]["complete"] == "1.0"
+    traces = [
+        json.loads(line)
+        for line in outputs.trace_path.read_text(encoding="utf-8").splitlines()
+    ]
+    hippo = [t for t in traces if t["system"] == "+HippoRAG"][0]
+    assert {item["selection_reason"] for item in hippo["evidence"]["items"]} == {
+        "hipporag"
+    }
+
+
+def test_hipporag_arm_without_retrievals_is_a_configuration_error(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    settings = _settings(
+        tmp_path, corpus_dir, question_file, triple_cache, ("+HippoRAG",)
+    )
+    with pytest.raises(ConfigurationError, match="comparator"):
+        run_evaluation(settings, fake_client)
+
+
+def test_config_comparator_path_reaches_settings(tmp_path):
+    config = ExperimentConfig(
+        name="cmp",
+        corpus="hotpotqa",
+        corpus_dir="hotpotqa_corpus",
+        question_set="data/questions/questions_hotpotqa_bridge.json",
+        systems=("baseline", "+HippoRAG"),
+        generators=("gpt4o-mini",),
+        pricing_snapshot="configs/pricing_2026-09-10.json",
+        comparator_retrievals=".cache/hipporag/hotpotqa/retrievals.json",
+    )
+    settings = EvaluationSettings.from_config(
+        config, "gpt4o-mini", pricing_captured_on="x", root=tmp_path
+    )
+    assert settings.comparator_file == tmp_path / config.comparator_retrievals

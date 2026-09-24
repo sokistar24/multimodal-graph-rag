@@ -14,6 +14,7 @@ rows, not the diagnostic Recall@k over scored candidates.
 from __future__ import annotations
 
 import csv
+from collections.abc import Iterable
 from pathlib import Path
 
 import matplotlib
@@ -22,18 +23,43 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt  # noqa: E402  (backend must be set before import)
 
+from ..clients import GENERATORS  # noqa: E402
 from .collect import RunSelection  # noqa: E402
 
 PIXEL_ONLY_SET = "publaynet_figures"
 BASELINE_COLOUR = "#1f77b4"
 KG_COLOUR = "#c8553d"
 KGRET_COLOUR = "#2e6f95"
-MODELS = (
-    ("llama4-scout", "Llama 4 Scout", "#1b9e77", "o"),
-    ("llama4-maverick", "Llama 4 Maverick", "#66a61e", "o"),
-    ("gemini-flash-lite", "Gemini 3.1 Flash-Lite", "#d95f02", "s"),
-    ("gpt4o-mini", "GPT-4o-mini", "#e7298a", "s"),
-)
+# Plot styles per generator: label, colour, marker. Which generators appear in a
+# figure is decided by the runs present, so a fifth generator shows up as soon
+# as it has results and the legacy figures still build from the legacy runs.
+GENERATOR_STYLES: dict[str, tuple[str, str, str]] = {
+    "llama4-scout": ("Llama 4 Scout", "#1b9e77", "o"),
+    "llama4-maverick": ("Llama 4 Maverick", "#66a61e", "o"),
+    "gemini-flash-lite": ("Gemini 3.1 Flash-Lite", "#d95f02", "s"),
+    "gpt4o-mini": ("GPT-4o-mini", "#e7298a", "s"),
+    "qwen3.7-flash": ("Qwen 3.7 Flash", "#7570b3", "D"),
+}
+Style = tuple[str, str, str, str]
+
+
+def generator_styles(keys: Iterable[str]) -> list[Style]:
+    """(key, label, colour, marker) for the given generators, in registry order."""
+    wanted = set(keys)
+    styles = []
+    for key in GENERATORS:
+        if key in wanted:
+            label, colour, marker = GENERATOR_STYLES.get(key, (key, "#999999", "x"))
+            styles.append((key, label, colour, marker))
+    return styles
+
+
+def _models_with(selection: RunSelection, qset: str, system: str) -> list[Style]:
+    return generator_styles(
+        key for key in GENERATORS if selection.get(qset, key, system) is not None
+    )
+
+
 STYLE = {
     "font.size": 8,
     "axes.labelsize": 8,
@@ -63,7 +89,7 @@ def _read_csv(path: Path) -> list[dict[str, str]]:
 def recall_at_one(selection: RunSelection, qset: str, system: str) -> float | None:
     """Fraction of questions whose single gold image was ranked first."""
     hits = total = 0
-    for key, _, _, _ in MODELS:
+    for key, _, _, _ in _models_with(selection, qset, system):
         cell = selection.get(qset, key, system)
         if cell is None or cell.detail_path is None:
             continue
@@ -80,7 +106,9 @@ def recall_at_one(selection: RunSelection, qset: str, system: str) -> float | No
 def figure_cost_accuracy(selection: RunSelection, out_dir: Path) -> Path | None:
     fig, ax = plt.subplots(figsize=(3.5, 2.7))
     plotted = False
-    for key, label, colour, marker in MODELS:
+    for key, label, colour, marker in _models_with(
+        selection, PIXEL_ONLY_SET, "+multimodal"
+    ):
         cell = selection.get(PIXEL_ONLY_SET, key, "+multimodal")
         if cell is None:
             continue
@@ -131,7 +159,7 @@ def figure_cost_accuracy(selection: RunSelection, out_dir: Path) -> Path | None:
 
 def figure_image_tokens(selection: RunSelection, out_dir: Path) -> Path | None:
     labels, values, colours = [], [], []
-    for key, label, colour, _ in MODELS:
+    for key, label, colour, _ in _models_with(selection, PIXEL_ONLY_SET, "+multimodal"):
         cell = selection.get(PIXEL_ONLY_SET, key, "+multimodal")
         if cell is None:
             continue
@@ -162,8 +190,7 @@ def figure_image_tokens(selection: RunSelection, out_dir: Path) -> Path | None:
         )
     baseline = [
         float(selection.get(PIXEL_ONLY_SET, key, "baseline").summary["mean_in_tok"])
-        for key, _, _, _ in MODELS
-        if selection.get(PIXEL_ONLY_SET, key, "baseline")
+        for key, _, _, _ in _models_with(selection, PIXEL_ONLY_SET, "baseline")
     ]
     if baseline:
         low, high, mean = min(baseline), max(baseline), sum(baseline) / len(baseline)
@@ -205,11 +232,13 @@ def figure_stage(tables_dir: Path, out_dir: Path) -> Path | None:
     sets = ["SPIQA multi-hop (cross-paper, graph-seeded)", "HotpotQA bridge"]
     short = {sets[0]: "SPIQA cross-paper (graph-seeded)", sets[1]: "HotpotQA bridge"}
     accuracy: dict[str, dict[str, dict[str, float]]] = {}
-    for row in _read_csv(table):
+    rows = _read_csv(table)
+    models = generator_styles(rows[0].keys()) if rows else []
+    for row in rows:
         qset, system = row["question set"], row["system"]
         if qset not in sets:
             continue
-        for key, _, _, _ in MODELS:
+        for key, _, _, _ in models:
             cell = row.get(key, "—")
             if cell and not cell.startswith("—"):
                 accuracy.setdefault(qset, {}).setdefault(system, {})[key] = float(
@@ -222,15 +251,15 @@ def figure_stage(tables_dir: Path, out_dir: Path) -> Path | None:
         return None
     fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.6), sharey=True)
     for ax, qset in zip(axes, sets, strict=True):
-        positions = range(len(MODELS))
+        positions = range(len(models))
         delta_kg = [
             accuracy[qset]["+KG"].get(k, 0.0) - accuracy[qset]["baseline"].get(k, 0.0)
-            for k, _, _, _ in MODELS
+            for k, _, _, _ in models
         ]
         delta_kgret = [
             accuracy[qset]["+KGret"].get(k, 0.0)
             - accuracy[qset]["baseline"].get(k, 0.0)
-            for k, _, _, _ in MODELS
+            for k, _, _, _ in models
         ]
         ax.axhline(0, color="0.55", lw=0.8, zorder=1)
         ax.bar(
@@ -257,7 +286,7 @@ def figure_stage(tables_dir: Path, out_dir: Path) -> Path | None:
         ax.set_xticklabels(
             [
                 _short_label(label).replace("Flash-Lite", "F-L")
-                for _, label, _, _ in MODELS
+                for _, label, _, _ in models
             ],
             fontsize=6.5,
         )

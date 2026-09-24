@@ -332,7 +332,7 @@ def table_all_runs(selection: RunSelection, out_dir: Path) -> Path:
                 summary["complete"],
                 summary["acc"],
                 summary["faith"],
-                summary["rel"],
+                summary.get("rel", ""),
                 cell.run_id,
             ]
         )

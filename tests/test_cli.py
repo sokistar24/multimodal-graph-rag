@@ -1,6 +1,8 @@
 import json
 
 from multimodal_graph_rag.cli import build_parser, main
+from multimodal_graph_rag.retrieval.comparators import write_retrievals
+from multimodal_graph_rag.schemas import load_questions
 
 
 def test_dry_run_evaluate_reports_every_generator(capsys):
@@ -48,3 +50,38 @@ def test_parser_lists_all_commands():
         "paired-analysis",
         "clean-questions",
     } <= set(commands)
+
+
+def test_comparator_ab_reports_completeness_without_a_client(
+    tmp_path, corpus_dir, question_file, capsys
+):
+    questions = load_questions(question_file)
+    retrievals = tmp_path / "r.json"
+    write_retrievals(
+        retrievals,
+        retrievals={
+            q.id: [{"source": q.gold_sources[0], "text": "t", "score": 1.0}]
+            for q in questions
+        },
+        corpus_dir=corpus_dir,
+        question_file=question_file,
+        comparator="hipporag2",
+        num_to_retrieve=1,
+    )
+    output = tmp_path / "ab.json"
+    code = main(
+        [
+            "comparator-ab",
+            "--questions",
+            str(question_file),
+            "--retrievals",
+            str(retrievals),
+            "--k",
+            "1",
+            "--output",
+            str(output),
+        ]
+    )
+    assert code == 0
+    assert '"complete": 2' in capsys.readouterr().out
+    assert output.is_file()

@@ -36,6 +36,12 @@ dependencies = [
 [project.optional-dependencies]
 test = ["pytest>=8.0", "pytest-cov>=5.0"]
 dev = ["ruff>=0.12"]
+# The published graph-retrieval comparator brings its own model stack, so it
+# lives in a separate environment: `pip install -e .[comparators]` there, then
+# `python -m multimodal_graph_rag.retrieval.hipporag_index ...` writes the
+# retrievals file that `+HippoRAG` reads in the main environment. Pin the
+# version after the first successful install.
+comparators = ["hipporag"]
 
 [project.scripts]
 rag = "multimodal_graph_rag.cli:main"

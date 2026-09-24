@@ -32,3 +32,7 @@ class CacheError(MultimodalGraphRagError):
 
 class MissingEvidenceError(MultimodalGraphRagError):
     """Evidence that a system must supply to the generator does not exist."""
+
+
+class BudgetExceededError(MultimodalGraphRagError):
+    """A run's generation plus judging spend passed its configured cap."""
