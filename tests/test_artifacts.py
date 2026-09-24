@@ -236,3 +236,51 @@ def test_file_sha256_is_stable(tmp_path):
         file_sha256(path)
         == "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
     )
+
+
+def test_figures_plot_a_generator_beyond_the_legacy_four(tmp_path):
+    runs = tmp_path / "runs"
+    _write_run(
+        runs,
+        "hotpotqa_bridge",
+        "qwen3.7-flash",
+        "20260101_000000",
+        {"baseline": "0.5", "+KG": "0.5", "+KGret": "0.8"},
+    )
+    _write_run(
+        runs,
+        "spiqa_multihop_cross",
+        "qwen3.7-flash",
+        "20260101_000000",
+        {"baseline": "0.5", "+KG": "0.4", "+KGret": "0.7"},
+    )
+    _write_run(
+        runs,
+        "publaynet_figures",
+        "qwen3.7-flash",
+        "20260101_000000",
+        {"baseline": "0.1", "+multimodal": "0.3"},
+    )
+    selection = scan_runs(runs)
+    build_tables(selection, tmp_path / "tables")
+    figures = build_figures(selection, tmp_path / "tables", tmp_path / "figures")
+    assert {"fig2_cost_accuracy.pdf", "fig3_image_tokens.pdf", "fig4_stage.pdf"} <= {
+        path.name for path in figures
+    }
+
+
+def test_flat_table_tolerates_runs_without_a_relevancy_column(tmp_path):
+    runs = tmp_path / "runs"
+    summary, _ = _write_run(
+        runs, "hotpotqa_bridge", "gpt4o-mini", "20260101_000000", {"baseline": "0.5"}
+    )
+    rows = list(csv.DictReader(summary.open(newline="", encoding="utf-8")))
+    fields = [f for f in rows[0] if f != "rel"]
+    with summary.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fields, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
+    selection = scan_runs(runs)
+    tables = {path.name: path for path in build_tables(selection, tmp_path / "tables")}
+    flat = list(csv.DictReader(tables["T5_all_runs_flat.csv"].open(newline="")))
+    assert flat[0]["rel"] == ""

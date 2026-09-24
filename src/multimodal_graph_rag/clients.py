@@ -63,6 +63,8 @@ class ModelSpec:
     base_url: str | None = None
 
 
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+
 MODELS: dict[str, ModelSpec] = {
     "gpt4o-mini": ModelSpec(
         name="gpt4o-mini",
@@ -140,6 +142,58 @@ MODELS: dict[str, ModelSpec] = {
         access="embedding",
         vision=False,
     ),
+    # --- OpenRouter roster, chosen 2026-09-10 (docs/REVISION_PLAN.md section 15).
+    # One key covers every family below; OpenRouter is OpenAI-compatible.
+    "qwen3.7-flash": ModelSpec(
+        name="qwen3.7-flash",
+        sdk="openai",
+        model="qwen/qwen3.7-flash",
+        api_key_env="OPENROUTER_API_KEY",
+        vendor="Alibaba/OpenRouter",
+        access="open",
+        vision=True,
+        base_url=OPENROUTER_BASE_URL,
+    ),
+    "claude-sonnet-5": ModelSpec(
+        name="claude-sonnet-5",
+        sdk="openai",
+        model="anthropic/claude-sonnet-5",
+        api_key_env="OPENROUTER_API_KEY",
+        vendor="Anthropic/OpenRouter",
+        access="judge",
+        vision=True,
+        base_url=OPENROUTER_BASE_URL,
+    ),
+    "claude-opus-5": ModelSpec(
+        name="claude-opus-5",
+        sdk="openai",
+        model="anthropic/claude-opus-5",
+        api_key_env="OPENROUTER_API_KEY",
+        vendor="Anthropic/OpenRouter",
+        access="judge",
+        vision=True,
+        base_url=OPENROUTER_BASE_URL,
+    ),
+    "deepseek-v4-pro": ModelSpec(
+        name="deepseek-v4-pro",
+        sdk="openai",
+        model="deepseek/deepseek-v4-pro-0813",
+        api_key_env="OPENROUTER_API_KEY",
+        vendor="DeepSeek/OpenRouter",
+        access="judge",
+        vision=False,
+        base_url=OPENROUTER_BASE_URL,
+    ),
+    "grok-4.3": ModelSpec(
+        name="grok-4.3",
+        sdk="openai",
+        model="x-ai/grok-4.3",
+        api_key_env="OPENROUTER_API_KEY",
+        vendor="xAI/OpenRouter",
+        access="judge",
+        vision=True,
+        base_url=OPENROUTER_BASE_URL,
+    ),
 }
 
 GENERATORS: tuple[str, ...] = (
@@ -147,9 +201,17 @@ GENERATORS: tuple[str, ...] = (
     "gemini-flash-lite",
     "llama4-maverick",
     "llama4-scout",
+    "qwen3.7-flash",
 )
 DIAGNOSTICS: tuple[str, ...] = ("gpt4o",)
-JUDGES: tuple[str, ...] = ("deepseek", "claude-haiku")
+JUDGES: tuple[str, ...] = (
+    "deepseek",
+    "claude-haiku",
+    "claude-sonnet-5",
+    "claude-opus-5",
+    "deepseek-v4-pro",
+    "grok-4.3",
+)
 EMBEDDING_MODEL = "text-embedding-3-small"
 CAPTION_MODEL = "gpt4o"
 EXTRACTION_MODEL = "gpt4o-mini"

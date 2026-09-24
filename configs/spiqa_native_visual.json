@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "name": "revision-spiqa-native-human-visual",
+  "corpus": "spiqa",
+  "corpus_dir": "spiqa_corpus",
+  "question_set": "data/questions/questions_spiqa_native_primary.json",
+  "systems": ["baseline", "+multimodal"],
+  "generators": ["gpt4o-mini", "gemini-flash-lite", "llama4-scout", "llama4-maverick", "qwen3.7-flash"],
+  "pricing_snapshot": "configs/pricing_2026-09-10.json",
+  "retrieval_method": "dense-plus-clip",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "claude-sonnet-5",
+  "vision_judge": "claude-sonnet-5",
+  "prompt_version": "evidence-attribution-v1",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "spiqa_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "shuffled"],
+  "metadata": {
+    "research_questions": ["RQ3", "RQ4"],
+    "question_authorship": "human (SPIQA test-A curators), not model-authored",
+    "gold_provenance": "human figure-level: one crop per question",
+    "pool": "447 of 579 curated items pass the caption leakage screen; this set samples 150 of them at seed 20260903",
+    "note": "run once with vision_mode=pixels and once with vision_mode=captions. SPIQA is a public benchmark, so the closed-book control is required to quantify prior exposure rather than assume it away."
+  }
+}

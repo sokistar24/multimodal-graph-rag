@@ -41,6 +41,8 @@ class ExperimentConfig:
     controls: tuple[str, ...] = ("normal",)
     cache_dir: str = ".cache"
     results_dir: str = "artifacts/runs"
+    budget_usd: float | None = None
+    comparator_retrievals: str | None = None
     metadata: Mapping[str, Any] = field(default_factory=dict)
     schema_version: int = 1
 
@@ -62,6 +64,8 @@ class ExperimentConfig:
             raise ConfigurationError(f"unknown evidence controls: {unknown}")
         if not str(self.pricing_snapshot).strip():
             raise ConfigurationError("pricing_snapshot is required")
+        if self.budget_usd is not None and self.budget_usd <= 0:
+            raise ConfigurationError("budget_usd must be positive when set")
         if self.schema_version != 1:
             raise ConfigurationError(
                 f"unsupported config schema version: {self.schema_version}"
@@ -84,6 +88,7 @@ class ExperimentConfig:
             ("question_set", self.question_set),
             ("image_dir", self.image_dir),
             ("pricing_snapshot", self.pricing_snapshot),
+            ("comparator_retrievals", self.comparator_retrievals),
         ):
             if value and not (base / value).exists():
                 missing.append(f"{label}: {value}")

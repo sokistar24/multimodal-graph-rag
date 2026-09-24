@@ -1,3 +1,9 @@
+# Write-up sources and their build products are kept outside this repository.
+# Deliberately near the top: when this entry sat on the last line it was twice
+# stripped by an editor trimming the end of the file, which silently re-tracked
+# the manuscript on the next `git add -A`.
+paper/
+
 # Secrets
 .env
 
@@ -42,6 +48,3 @@ dist/
 # Editors and scratch
 .vscode/
 tmp/
-
-# Write-up sources and their build products are kept outside this repository.
-paper/

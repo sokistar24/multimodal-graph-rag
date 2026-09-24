@@ -206,9 +206,10 @@ def table_evidence_conditioned(selection: RunSelection, out_dir: Path) -> Path:
         header,
         rows,
         "Pooled over generators. 'acc | incomplete' is accuracy without complete "
-        "gold provenance; its source (non-gold support, partial evidence, or "
-        "closed-book knowledge) is established by the control arms and human "
-        "audit, not assumed to be parametric memory.",
+        "gold provenance, not a parametric floor. The closed-book and shuffled "
+        "arms bound how much of it is prior knowledge; whether a retrieved "
+        "non-gold passage was sufficient is not measured, so no part of this "
+        "column is attributed to non-gold support.",
     )
 
 
@@ -331,7 +332,7 @@ def table_all_runs(selection: RunSelection, out_dir: Path) -> Path:
                 summary["complete"],
                 summary["acc"],
                 summary["faith"],
-                summary["rel"],
+                summary.get("rel", ""),
                 cell.run_id,
             ]
         )

@@ -1,0 +1,38 @@
+# GPU environment, for a local judge, a local generator arm, and a
+# document-image retriever. Everything comes from conda-forge, including the
+# CUDA build of PyTorch, so this environment is created the same way as the CPU
+# one and the whole numerical stack still shares a single OpenMP runtime.
+#
+# cuda-version is pinned to 12.8 rather than left free because Blackwell
+# consumer cards (RTX 50-series, compute capability sm_120) have no kernels in
+# CUDA 12.4 builds: PyTorch 2.6 fails on them with "no kernel image is
+# available for execution on the device". Turing and Ampere cards run on this
+# build too, so one file covers every machine.
+#
+# Verified to solve on win-64, resolving to:
+#   pytorch 2.13.0 cuda128_mkl_py311   torchvision 0.28.0 cuda128_py311
+#   cuda-cudart 12.8.90                faiss 1.14.3 cpu
+#
+# FAISS stays on CPU deliberately. The text index is a few thousand vectors, so
+# GPU FAISS buys nothing and is awkward to install on Windows.
+#
+#   conda env create -f environment-gpu.yml
+#   conda activate rag-gpu
+#   python -c "import torch; print(torch.cuda.get_device_name(0), torch.version.cuda)"
+
+name: rag-gpu
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python=3.11
+  - pytorch-gpu>=2.7
+  - torchvision
+  - cuda-version=12.8
+  - faiss-cpu
+  - tesseract
+  - pip
+  - pip:
+      - -e .[test,dev]

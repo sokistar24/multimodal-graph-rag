@@ -1,502 +1,1808 @@
-[
-  {
-    "q": "According to the 2001 census, what was the population of the city in which Kirton End is located?",
-    "source": [
-      "Boston_Lincolnshire.txt",
-      "Kirton_End.txt"
-    ],
-    "answer": "35,124",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
-    "source": [
-      "Andrew_Jaspan.txt",
-      "The_Conversation_website.txt"
-    ],
-    "answer": "The Conversation",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Who was Chamberlain and Colonel of the military staff of The Merrie Monarch?",
-    "source": [
-      "Charles_Hastings_Judd.txt",
-      "Kalakaua_055843.txt"
-    ],
-    "answer": "Colonel Charles Hastings Judd",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which song was behind the third single on the album  \"A Lot About Livin' (And a Little 'bout Love)\" for two weeks on the country charts?",
-    "source": [
-      "Chattahoochee_song.txt",
-      "We_ll_Burn_That_Bridge.txt"
-    ],
-    "answer": "\"We'll Burn That Bridge\"",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the name of the Isles who were led by Aonghus Mór and covered a total land area of over 8300 km2?",
-    "source": [
-      "Aonghus_Mor_b5e643.txt",
-      "Kingdom_of_the_Isles.txt"
-    ],
-    "answer": "Kingdom of the Isles",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which country did the Falkland Islands beat in the 2010 Commonwealth games that has eleven administrative divisions?",
-    "source": [
-      "Gerald_Reive.txt",
-      "Samoa.txt"
-    ],
-    "answer": "Samoa",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What year did Guns N Roses perform a promo for a movie starring Arnold Schwarzenegger as a former New York Police detective?",
-    "source": [
-      "End_of_Days_film.txt",
-      "Oh_My_God_Guns_N_Roses_song.txt"
-    ],
-    "answer": "1999",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What station broadcast the episode \"Marry Me a Little, Marry Me a Little More\" , of the series created by Max Mutchnick and David Kohan?",
-    "source": [
-      "Marry_Me_a_Little_Marry_Me_a_Little_More.txt",
-      "Will_&amp;_Grace.txt"
-    ],
-    "answer": "National Broadcasting Company",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which professional baseball player and National 1993 Baseball Hall of Fame inductee is featured in the Greatest Sports Legends anthology? ",
-    "source": [
-      "Greatest_Sports_Legends.txt",
-      "Reggie_Jackson.txt"
-    ],
-    "answer": "Reginald Martinez \"Reggie\" Jackson",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "During Siege of Bharatpur, which Commander-in-Chief of Ireland and Commander-in-Chief of India contributed to the storming of the castle?",
-    "source": [
-      "Siege_of_Bharatpur.txt",
-      "Stapleton_Cotton_1st_Viscount_Combermere.txt"
-    ],
-    "answer": "Lord Combermere",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "2014 S/S is the debut album of a South Korean boy group that was formed by who?",
-    "source": [
-      "2014_S_S.txt",
-      "Winner_band.txt"
-    ],
-    "answer": "YG Entertainment",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the name of the singer who's song was released as the lead single from the album \"Confessions\", and that had popular song stuck behind for eight consecutive weeks?",
-    "source": [
-      "I_Don_t_Wanna_Know.txt",
-      "Yeah!_Usher_song.txt"
-    ],
-    "answer": "Usher",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
-    "source": [
-      "18th_Independent_Spirit_Awards.txt",
-      "John_Waters.txt"
-    ],
-    "answer": "John Waters",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the nickname of the city where Darling's Waterfront Pavilion is located?",
-    "source": [
-      "Bangor_Maine.txt",
-      "Darling_s_Waterfront_Pavilion.txt"
-    ],
-    "answer": "\"Queen City\"",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": " The name \"Mountbatten-Windsor\" applies to male-line descendants of the Queen without royal styles and titles which is a Eurpean dynasty resulting in what family?",
-    "source": [
-      "Mountbatten-Windsor.txt",
-      "Mountbatten_family.txt"
-    ],
-    "answer": "Mountbatten family",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which American film actor and dancer starred in the 1945 film Johnny Angel?",
-    "source": [
-      "George_Raft.txt",
-      "Johnny_Angel.txt"
-    ],
-    "answer": "George Raft",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "James Fieser received his B.A. from what liberal arts work college that was founded in 1855?",
-    "source": [
-      "Berea_College.txt",
-      "James_Fieser.txt"
-    ],
-    "answer": "Berea College",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the name for the adventure in \"Tunnels and Trolls\", a game designed by Ken St. Andre?",
-    "source": [
-      "Arena_of_Khazan.txt",
-      "Tunnels_&amp;_Trolls.txt"
-    ],
-    "answer": "Arena of Khazan",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What year was the film that starred the composer for \"The Naked Brothers Band\"?",
-    "source": [
-      "Nat_Wolff.txt",
-      "The_Fault_in_Our_Stars_film.txt"
-    ],
-    "answer": "2014",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "When was the palace founded at which Columba de Dunbar died in 1435?",
-    "source": [
-      "Columba_de_Dunbar.txt",
-      "Spynie_Palace.txt"
-    ],
-    "answer": "the late 12th Century",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What arcade game is named after the only player in major league history to have a 0.300 batting average for 7 consecutive seasons?",
-    "source": [
-      "Frank_Thomas_Big_Hurt.txt",
-      "Frank_Thomas_designated_hitter.txt"
-    ],
-    "answer": "a pinball machine",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What was the position of Jean Baptiste Androuet du Cerceau under the man who was King of the Polish-Lithuanian Commonwealth from 1573 to 1575?",
-    "source": [
-      "Henry_III_of_France.txt",
-      "Jean_Baptiste_Androuet_du_Cerceau.txt"
-    ],
-    "answer": "supervisor of the royal works",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
-    "source": [
-      "Bobbi_Bacha.txt",
-      "Sela_Ward.txt"
-    ],
-    "answer": "Ann",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "A Japanese manga series based on a 16 year old high school student Ichitaka Seto, is written and illustrated by someone born in what year?",
-    "source": [
-      "I&quot;s.txt",
-      "Masakazu_Katsura.txt"
-    ],
-    "answer": "1962",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "The songs from the sountrack to \"When Harry Met Sally\" are performed by a singer that has had how many top 20 US albums?",
-    "source": [
-      "Harry_Connick_Jr..txt",
-      "When_Harry_Met_Sally..._soundtrack.txt"
-    ],
-    "answer": "seven",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which suburb is a soap opera featuring a character named Beverly Marshall set in?",
-    "source": [
-      "Beverly_Marshall.txt",
-      "Ramsay_Street.txt"
-    ],
-    "answer": "Erinsborough",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Chris Williams last played for which football club from the National League North?",
-    "source": [
-      "Chris_Williams_English_footballer.txt",
-      "Salford_City_F.C..txt"
-    ],
-    "answer": "Salford City Football Club",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?",
-    "source": [
-      "199293_Charlotte_Hornets_season_5737e5.txt",
-      "Muggsy_Bogues.txt"
-    ],
-    "answer": "shortest player ever to play in the National Basketball Association",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Who is Bruce Spizer an expert on, known as the most influential act of the rock era?",
-    "source": [
-      "Bruce_Spizer.txt",
-      "The_Beatles.txt"
-    ],
-    "answer": "The Beatles",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which Netflix series \"Unbreakable\" character is Elizabeth Claire Kemper known for playing?",
-    "source": [
-      "Ellie_Kemper.txt",
-      "Kimmy_Schmidt.txt"
-    ],
-    "answer": "Kimberly Couger \"Kimmy\" Schmidt",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Alvaro Mexia had a diplomatic mission with which tribe of indigenous people?",
-    "source": [
-      "Alvaro_Mexia.txt",
-      "Indigenous_peoples_of_Florida.txt"
-    ],
-    "answer": "Apalachees",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Marcus Wayne Garland spent nine seasons with an American professional baseball team that is based in Baltimore, Maryland, and was one of the AMerican League's original eight charter franchises when the league was established in what year?",
-    "source": [
-      "Baltimore_Orioles.txt",
-      "Wayne_Garland.txt"
-    ],
-    "answer": "1901",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
-    "source": [
-      "Argand_lamp.txt",
-      "Lewis_lamp.txt"
-    ],
-    "answer": "Argand lamp",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What amount was the settlement that the character from the Son of al Quada got in 2017?",
-    "source": [
-      "Omar_Khadr.txt",
-      "Son_of_al_Qaeda.txt"
-    ],
-    "answer": "$10.5 million",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Where was the world cup hosted that Algeria qualified for the first time into the round of 16?",
-    "source": [
-      "2014_FIFA_World_Cup.txt",
-      "Algeria_at_the_FIFA_World_Cup.txt"
-    ],
-    "answer": "Brazil",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What airport serviced by American Airlines Shuttle, is also the largest airport in the New England region and 17th busiest in the U.S?",
-    "source": [
-      "American_Airlines_Shuttle.txt",
-      "Logan_International_Airport.txt"
-    ],
-    "answer": "Logan International Airport",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "In which city is the ambassador of the Rabat-Salé-Kénitra administrative region to China based?",
-    "source": [
-      "Moroccan_Ambassador_to_China.txt",
-      "Rabat.txt"
-    ],
-    "answer": "Beijing",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Alice David is the voice of Lara Croft in a video game developed by which company ?",
-    "source": [
-      "Alice_David.txt",
-      "Tomb_Raider_2013_video_game.txt"
-    ],
-    "answer": "Crystal Dynamics",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "The Vermont Catamounts men's soccer team currently competes in a conference that was formerly known as what from 1988 to 1996?",
-    "source": [
-      "America_East_Conference.txt",
-      "Vermont_Catamounts_men_s_soccer.txt"
-    ],
-    "answer": "the North Atlantic Conference",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Which Kentucky Writers Hall of Fame author has had works published by Dim Gray Bar Press?",
-    "source": [
-      "Dim_Gray_Bar_Press.txt",
-      "Wendell_Berry.txt"
-    ],
-    "answer": "Wendell Berry",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Considered the strongest recorded tropical cyclone, which cyclone had a film made about it in 2007?",
-    "source": [
-      "1999_Odisha_cyclone.txt",
-      "Kathantara.txt"
-    ],
-    "answer": "1999 Odisha cyclone",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Ralph Hefferline was a psychology professor at a university that is located in what city?",
-    "source": [
-      "Columbia_University.txt",
-      "Ralph_Hefferline.txt"
-    ],
-    "answer": "New York City",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What year was the brother of this first round draft pick by the Washington Redskins drafted?",
-    "source": [
-      "Boss_Bailey.txt",
-      "Champ_Bailey.txt"
-    ],
-    "answer": "2003",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What american actress/singer born in 1956 recorded the song Something there for beauty and the beast?",
-    "source": [
-      "Paige_O_Hara.txt",
-      "Something_There.txt"
-    ],
-    "answer": "Donna Paige Helmintoller",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "The Memphis Hustle are based in a suburb of a city with a population of what in 2010?",
-    "source": [
-      "Memphis_Hustle.txt",
-      "Southaven_Mississippi.txt"
-    ],
-    "answer": "48,982",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "The football manager who recruited David Beckham managed Manchester United during what timeframe?",
-    "source": [
-      "199596_Manchester_United_F.C._season_3f9756.txt",
-      "Alex_Ferguson.txt"
-    ],
-    "answer": "from 1986 to 2013",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What major city is the Faith Lutheran Middle School and High School located by?",
-    "source": [
-      "Faith_Lutheran_Middle_School_&amp;_High_School.txt",
-      "Summerlin_Nevada.txt"
-    ],
-    "answer": "Las Vegas",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "Where did the descendants of the group of black Indians associated with the Seminole people settle?",
-    "source": [
-      "Black_Seminoles.txt",
-      "Mascogos.txt"
-    ],
-    "answer": "Coahuila, Mexico",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "D1NZ is a series based on what oversteering technique?",
-    "source": [
-      "D1NZ.txt",
-      "Drifting_motorsport.txt"
-    ],
-    "answer": "Drifting",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  },
-  {
-    "q": "What is the population according to the 2007 population census of the city in which the National Archives and Library of Ethiopia is located?",
-    "source": [
-      "Addis_Ababa.txt",
-      "National_Archives_and_Library_of_Ethiopia.txt"
-    ],
-    "answer": "3,384,569",
-    "type": "hotpot_bridge",
-    "level": "hard"
-  }
-]
+{
+  "schema_version": 1,
+  "source_file": "hotpotqa/hotpot_qa:distractor:validation",
+  "question_count": 100,
+  "questions_sha256": "31fbf8e2f50c2344ccbafbaf97630c9be20a86ae3eca45b93b0a83b583f2b302",
+  "questions": [
+    {
+      "id": "5a8b20335542996c9b8d5fb3",
+      "question": "What distinction is held by the former NBA player who was a member of the Charlotte Hornets during their 1992-93 season and was head coach for the WNBA team Charlotte Sting?",
+      "answer": "shortest player ever to play in the National Basketball Association",
+      "gold_sources": [
+        "199293_Charlotte_Hornets_season_5737e5.txt",
+        "Muggsy_Bogues.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac3165c5542995ef918c10a",
+      "question": "Which American film director hosted the 18th Independent Spirit Awards in 2002?",
+      "answer": "John Waters",
+      "gold_sources": [
+        "18th_Independent_Spirit_Awards.txt",
+        "John_Waters.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a88f9555542995153361214",
+      "question": "The Jeep Cherokee was originally sold as a variant of a Jeep model produced during what years?",
+      "answer": "1963 to 1991",
+      "gold_sources": [
+        "Jeep_Cherokee.txt",
+        "Jeep_Wagoneer_SJ.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abba4855542993f40c73b68",
+      "question": "Who were the directors of the 2009 American science fiction film starring the actor who played Dexter Morgan in the Showtime TV Network series \"Dexter\"?",
+      "answer": "Mark Neveldine and Brian Taylor",
+      "gold_sources": [
+        "Gamer_film.txt",
+        "Michael_C._Hall.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8ef2a75542995a26add583",
+      "question": "Seven Brief Lessons on Physics was written by an Italian physicist that has worked in France since what year?",
+      "answer": "2000",
+      "gold_sources": [
+        "Carlo_Rovelli.txt",
+        "Seven_Brief_Lessons_on_Physics.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8c5c6f554299653c1aa04d",
+      "question": "The album \"The Best of LeAnn Rimes\" contained a song used as the theme song for a film. What is the name of the film?",
+      "answer": "Coyote Ugly",
+      "gold_sources": [
+        "Can_t_Fight_the_Moonlight.txt",
+        "The_Best_of_LeAnn_Rimes.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abcf2b4554299700f9d7937",
+      "question": "Lorenzo Monaco was influenced by which Italian painter and architect?",
+      "answer": "Giotto",
+      "gold_sources": [
+        "Giotto.txt",
+        "Lorenzo_Monaco.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac23ff0554299636651994d",
+      "question": "When was Poison's album \"Shut Up, Make Love\" released?",
+      "answer": "2000",
+      "gold_sources": [
+        "Poison_American_band.txt",
+        "Shut_Up_Make_Love.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abfb3425542990832d3a1c0",
+      "question": "Andrew Jaspan was the co-founder of what not-for-profit media outlet?",
+      "answer": "The Conversation",
+      "gold_sources": [
+        "Andrew_Jaspan.txt",
+        "The_Conversation_website.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5adffe7155429906c02daa9e",
+      "question": "The songs from the sountrack to \"When Harry Met Sally\" are performed by a singer that has had how many top 20 US albums?",
+      "answer": "seven",
+      "gold_sources": [
+        "Harry_Connick_Jr..txt",
+        "When_Harry_Met_Sally..._soundtrack.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab6aaff55429953192ad35b",
+      "question": "What Cayman Islands registered Mandarin and Cantonese-language television broadcaster launched Phoenix Hong Kong Channel on 28 March 2011?",
+      "answer": "Phoenix Television",
+      "gold_sources": [
+        "Phoenix_Hong_Kong_Channel.txt",
+        "Phoenix_Television.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab8854555429934fafe6e0c",
+      "question": "Works by Hanna Leena Kristiina Varis are part of a collection in a museum that houses approximately 65,000 what?",
+      "answer": "drawings",
+      "gold_sources": [
+        "Albertina.txt",
+        "Hanna_Varis.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a74ce9655429974ef308c6c",
+      "question": "What retailer in ABQ Uptown is headquarted in Poole, Dorset, United Kingdom?",
+      "answer": "Lush Ltd.",
+      "gold_sources": [
+        "ABQ_Uptown.txt",
+        "Lush_company.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae738f75542991bbc9761c4",
+      "question": "What year was the brother of this first round draft pick by the Washington Redskins drafted?",
+      "answer": "2003",
+      "gold_sources": [
+        "Boss_Bailey.txt",
+        "Champ_Bailey.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7c960655429935c91b5244",
+      "question": "The 1974 Texas Tech Raiders football team represented what public research university in Lubbock, Texas?",
+      "answer": "Texas Tech University",
+      "gold_sources": [
+        "1974_Texas_Tech_Red_Raiders_football_team.txt",
+        "Texas_Tech_University.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8e0a005542995085b373a1",
+      "question": "Bordan Tkachuk was the CEO of a company that provides what sort of products?",
+      "answer": "IT products and services",
+      "gold_sources": [
+        "Bordan_Tkachuk.txt",
+        "Viglen.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5adf043b5542993a75d263d4",
+      "question": "Which American cable news and talk radio host was the former GOP representative",
+      "answer": "Charles Joseph",
+      "gold_sources": [
+        "Joe_Scarborough.txt",
+        "Morning_Joe.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8979f4554299669944a52e",
+      "question": "What is the middle name of the actress who plays Bobbi Bacha in Suburban Madness?",
+      "answer": "Ann",
+      "gold_sources": [
+        "Bobbi_Bacha.txt",
+        "Sela_Ward.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8b4a5f55429949d91db531",
+      "question": "The 2011 La Manga Cup was won by Viking, who beat which Norwegian football club from the town of Kristiansand, currently playing in Tippeligaen having been promoted from Adeccoligaen in 2012?",
+      "answer": "IK Start",
+      "gold_sources": [
+        "2011_La_Manga_Cup.txt",
+        "IK_Start.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae74890554299572ea547af",
+      "question": "Haruki Murakami said that writing \"Dance Dance Dance\" had been a healing act after his unexpected fame following the publication of a novel published in which year ?",
+      "answer": "1987",
+      "gold_sources": [
+        "Dance_Dance_Dance_novel.txt",
+        "Norwegian_Wood_novel.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7cbf93554299452d57b9f5",
+      "question": "Which constituent college of the University of Oxford endows four professorial fellowships for sciences including chemistry and pure mathematics?",
+      "answer": "Magdalen College",
+      "gold_sources": [
+        "Magdalen_College_Oxford.txt",
+        "Waynflete_Professorship.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae0d4c9554299603e418468",
+      "question": "Roger O. Egeberg was Assistant Secretary for Health and Scientific Affairs during the administration of a president that served during what years?",
+      "answer": "1969 until 1974",
+      "gold_sources": [
+        "Richard_Nixon.txt",
+        "Roger_O._Egeberg.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae6828f5542996d980e7bb9",
+      "question": "Salisbury Woodland Gardens links a zoo with a park designed and built under the watchful eye of who?",
+      "answer": "Thomas Mawson",
+      "gold_sources": [
+        "Salisbury_Woodland_Gardens_Blackpool.txt",
+        "Stanley_Park_Blackpool.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab78edc5542995dae37e95c",
+      "question": "Where is the school that Tyler Kalinoski went to located?",
+      "answer": "located in Olathe, Kansas",
+      "gold_sources": [
+        "Olathe_East_High_School.txt",
+        "Tyler_Kalinoski.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5adccdd55542992c1e3a2408",
+      "question": "Meaning \"reddish water\" in Hawaiian, which location was Butch Van Artsdalen known for surfing 25-foot waves at?",
+      "answer": "Waimea Bay",
+      "gold_sources": [
+        "Butch_Van_Artsdalen.txt",
+        "Waimea_Bay_Hawaii.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7d3470554299452d57bb56",
+      "question": "A scam involving a male calling small town fast-food restaurants and pretending to be a police officer to have them strip search employees was turned into a movie of what name?",
+      "answer": "Compliance",
+      "gold_sources": [
+        "Compliance_film.txt",
+        "Strip_search_phone_call_scam.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a85ea095542994775f606a8",
+      "question": "What science fantasy young adult series, told in first person, has a set of companion books narrating the stories of enslaved worlds and alien species?",
+      "answer": "Animorphs",
+      "gold_sources": [
+        "Animorphs.txt",
+        "The_Hork-Bajir_Chronicles.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7ad9865542995eb53be8aa",
+      "question": "The \"civic rally cross\" was sold alongside what other model sold exclusively in Japan at Honda Verno dealerships? ",
+      "answer": "Honda Ballade",
+      "gold_sources": [
+        "Honda_Ballade.txt",
+        "Honda_CR-X.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7bbb64554299042af8f7cc",
+      "question": "Who is older, Annie Morton or Terry Richardson?",
+      "answer": "Terry Richardson",
+      "gold_sources": [
+        "Annie_Morton.txt",
+        "Terry_Richardson.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abcc96c5542996583600492",
+      "question": "What is the name of the film starring Rose McGowan and features the character Earl McGraw's daughter?",
+      "answer": "Planet Terror",
+      "gold_sources": [
+        "Earl_and_Edgar_McGraw.txt",
+        "Planet_Terror.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8cfee555429941ae14df5c",
+      "question": "How are elephants connected to Gajabrishta?",
+      "answer": "Sanskrit",
+      "gold_sources": [
+        "Elephant.txt",
+        "Gajabrishta.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac120c55542992a796dedfc",
+      "question": "Maxeda has been owned since 2004 by which American multinational equity firm?",
+      "answer": "KKR & Co",
+      "gold_sources": [
+        "Kohlberg_Kravis_Roberts.txt",
+        "Maxeda.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a78bd9b554299078472774a",
+      "question": "What nationality were social anthropologists Alfred Gell and Edmund Leach?",
+      "answer": "British",
+      "gold_sources": [
+        "Alfred_Gell.txt",
+        "Edmund_Leach.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae4c5595542990ba0bbb123",
+      "question": "Which lead actor/actress in War Chhod Na Yaar has also acted in Bengali and English-language films?",
+      "answer": "Soha Ali Khan",
+      "gold_sources": [
+        "Soha_Ali_Khan.txt",
+        "War_Chhod_Na_Yaar.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae75a4c5542997b22f6a6f1",
+      "question": "The Bart the Fink episode of The Simpsons aired in February of 1996, and involves the host of which kiddie show?",
+      "answer": "The Itchy & Scratchy Show",
+      "gold_sources": [
+        "Bart_the_Fink.txt",
+        "Krusty_the_Clown.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a74684655429929fddd8410",
+      "question": "Which American music star appeared as a guest in a Will & Grace episode called \"Back Up, Dancer\"?",
+      "answer": "Janet Damita Jo Jackson",
+      "gold_sources": [
+        "Back_Up_Dancer.txt",
+        "Janet_Jackson.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7caae75542996dd594b971",
+      "question": "What, known as AAS, is commonly used in bodybuilding?",
+      "answer": "Anabolic steroids",
+      "gold_sources": [
+        "Anabolic_steroid.txt",
+        "Steroid_use_in_Australia.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8085705542992bc0c4a74b",
+      "question": "Garden Island Naval Chapel is the oldest Chistian chapel of a naval branch of what defence force?",
+      "answer": "Australian Defence Force",
+      "gold_sources": [
+        "Garden_Island_Naval_Chapel.txt",
+        "Royal_Australian_Navy.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac119335542992a796dede4",
+      "question": "I'd Come for You is a single by the band formed in what Alberta city?",
+      "answer": "Hanna",
+      "gold_sources": [
+        "I_d_Come_for_You.txt",
+        "Nickelback.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8d5fc6554299585d9e37c6",
+      "question": "What's the name of the fantasy film starring Sarah Bolger, featuring a New England family who discover magical creatures around their estate?",
+      "answer": "The Spiderwick Chronicles",
+      "gold_sources": [
+        "Sarah_Bolger.txt",
+        "The_Spiderwick_Chronicles_film.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7dc2495542997cc2c4749a",
+      "question": "What competition held in Kathmandu, Nepal did Julian Bolling compete in 1984?",
+      "answer": "1984 South Asian Games",
+      "gold_sources": [
+        "1984_South_Asian_Games.txt",
+        "Julian_Bolling.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7a8a9c554299042af8f666",
+      "question": "The lamp used in many lighthouses is similiar to this type of lamp patented in 1780 by Aimé Argand?",
+      "answer": "Argand lamp",
+      "gold_sources": [
+        "Argand_lamp.txt",
+        "Lewis_lamp.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7cef5d55429909bec768ac",
+      "question": "The was the album with the song  Unbelievable by American rapper The Notorious B.I.G released?",
+      "answer": "September 13, 1994",
+      "gold_sources": [
+        "Ready_to_Die.txt",
+        "Unbelievable_The_Notorious_B.I.G._song.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5add673e5542992ae4cec54d",
+      "question": "Joe Walker played for which team that ends their regular season with the Civil War rivalry game?",
+      "answer": "Oregon Ducks football",
+      "gold_sources": [
+        "Joe_Walker_American_football.txt",
+        "Oregon_Ducks_football.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae22b8d554299234fd0440f",
+      "question": "What was the father of Kasper Schmeichel voted to be by the IFFHS in 1992?",
+      "answer": "World's Best Goalkeeper",
+      "gold_sources": [
+        "Kasper_Schmeichel.txt",
+        "Peter_Schmeichel.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a83a532554299334474606f",
+      "question": "Where did Ian Harland study prior to studying at the oldest college at the University of Cambridge?",
+      "answer": "The Dragon School in Oxford",
+      "gold_sources": [
+        "Ian_Harland.txt",
+        "Peterhouse_Cambridge.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a86ebac55429960ec39b6d6",
+      "question": "Handi-Snacks are a snack food product line sold by what American multinational confectionery, food, and beverage company that is based in Illinois?",
+      "answer": "Mondelez International, Inc.",
+      "gold_sources": [
+        "Handi-Snacks.txt",
+        "Mondelez_International.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ababbe9554299232ef4a38a",
+      "question": "Which author influenced the animated Easter television special \"The First Easter Rabbit\"? ",
+      "answer": "Margery Williams",
+      "gold_sources": [
+        "The_First_Easter_Rabbit.txt",
+        "The_Velveteen_Rabbit.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a89fb525542993b751ca9d6",
+      "question": "Which composer created Night Ferry first performed in 2012 at Symphony Center in Chicago?",
+      "answer": "Anna Clyne",
+      "gold_sources": [
+        "Night_Ferry_composition.txt",
+        "Symphony_Center.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7bae20554299294a54aa96",
+      "question": "Onika Tanya Maraj is a judge on a television show hosted by whom? ",
+      "answer": "Ryan Seacrest",
+      "gold_sources": [
+        "American_Idol_season_12.txt",
+        "Nicki_Minaj.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a729e7b5542992359bc313d",
+      "question": "Which river system in Chilhowie, Virginia was the starting place for most Longhunters?",
+      "answer": "Holston River",
+      "gold_sources": [
+        "Holston_River.txt",
+        "Longhunter.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a89706055429951533612f9",
+      "question": "Scott Sandelin grew up in a town in what Minnesota county?",
+      "answer": "Saint Louis County",
+      "gold_sources": [
+        "Hibbing_Minnesota.txt",
+        "Scott_Sandelin.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae4c2b95542995dadf243ef",
+      "question": "One of the coaches of Southern Methodist University also played what role at the Arizona State Sun Devils?",
+      "answer": "defensive coordinator",
+      "gold_sources": [
+        "Phil_Bennett_American_football.txt",
+        "SMU_Mustangs_football_under_Mike_Cavan.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae0345855429924de1b705f",
+      "question": "Which company owns the hotel on whose premises the Cotal Arena is located ?",
+      "answer": "Las Vegas Sands company.",
+      "gold_sources": [
+        "Cotai_Arena.txt",
+        "The_Venetian_Macao.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae73c065542991e8301cc18",
+      "question": "Which Eminem album included vocals from a singer who had an album titled \"Unapologetic\"?",
+      "answer": "\"The Marshall Mathers LP 2\"",
+      "gold_sources": [
+        "Numb_Rihanna_song.txt",
+        "The_Monster_song.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abf10b75542997719eab659",
+      "question": "What is the height of the player who won the 2015 AFL Rising Star award?",
+      "answer": "1.95 m",
+      "gold_sources": [
+        "2015_AFL_Rising_Star.txt",
+        "Jesse_Hogan.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a88e605554299206df2b39c",
+      "question": "What is the population of the town at the intersection of Interstate Highways 77 and  the longest Interstate highway within the borders of Virginia?",
+      "answer": "8,211 at the 2010 census",
+      "gold_sources": [
+        "Interstate_81_in_Virginia.txt",
+        "Wytheville_Virginia.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae63dad55429929b0807afe",
+      "question": "When was the British author who wrote the novel on which \"Here We Go Round the Mulberry Bush\" was based born? ",
+      "answer": "7 January 1936",
+      "gold_sources": [
+        "Here_We_Go_Round_the_Mulberry_Bush_film.txt",
+        "Hunter_Davies.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a895d305542993b751ca931",
+      "question": "Which football team does Lewis Young's older brother, Ashley Young, play for?",
+      "answer": "Premier League club Manchester United and the England national team",
+      "gold_sources": [
+        "Ashley_Young.txt",
+        "Lewis_Young.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8038b55542996402f6a485",
+      "question": "Jacques Sernas, actor in Fugitive in Trieste, was of what nationality?",
+      "answer": "Lithuanian-born French",
+      "gold_sources": [
+        "Fugitive_in_Trieste.txt",
+        "Jacques_Sernas.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8a43eb5542996c9b8d5e82",
+      "question": "Which Australian city founded in 1838 contains a boarding school opened by a Prime Minister of Australia and named after a school in London of the same name.",
+      "answer": "Marion, South Australia",
+      "gold_sources": [
+        "Marion_South_Australia.txt",
+        "Westminster_School_Adelaide.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae0006755429925eb1afbd3",
+      "question": "Where is the Bubblegum Alley, that is similar to Gum Wall, located in California?",
+      "answer": "San Luis Obispo, California",
+      "gold_sources": [
+        "Gum_Wall.txt",
+        "San_Luis_Obispo_California.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a88fc4255429938390d4019",
+      "question": "On what date will the comedy film directed by Kevin Tent and starring the Bulgarian-Canadian actress known for portraying the role of Mia Jones be released on video on demand services?",
+      "answer": "September 25, 2017",
+      "gold_sources": [
+        "Crash_Pad.txt",
+        "Nina_Dobrev.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a85fb085542994775f606de",
+      "question": "What is the name of the executive producer of the film that has a score composed by Jerry Goldsmith?",
+      "answer": "Ronald Shusett",
+      "gold_sources": [
+        "Alien_film.txt",
+        "Alien_soundtrack.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7f5c9f55429969796c1a0f",
+      "question": "The city that contains the Yunnan Provincial Museum is also known by what nickname?",
+      "answer": "Spring city",
+      "gold_sources": [
+        "Kunming.txt",
+        "Yunnan_Provincial_Museum.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abd01205542992ac4f3819b",
+      "question": "Mummulgum is a stop on the Bruxner Highway before reaching the town on the banks of which river?",
+      "answer": "Richmond",
+      "gold_sources": [
+        "Casino_New_South_Wales.txt",
+        "Mummulgum.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac1c6805542994ab5c67e11",
+      "question": "For what type of work is the production company for The Year Without a Santa Claus best known?",
+      "answer": "seasonal television specials, particularly its work in stop motion animation",
+      "gold_sources": [
+        "Rankin_Bass_Productions.txt",
+        "The_Year_Without_a_Santa_Claus.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ac1b5de5542994d76dccec6",
+      "question": "Rex Riot is known for a remix of the Kanye West song that was from which album?",
+      "answer": "My Beautiful Dark Twisted Fantasy",
+      "gold_sources": [
+        "All_of_the_Lights.txt",
+        "Rex_Riot.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae5aba0554299546bf82f17",
+      "question": "Which of Tara Strong major voice role in animated series is an American animated television series based on the DC Comics fictional superhero team, the \"Teen Titans\"?",
+      "answer": "Teen Titans Go!",
+      "gold_sources": [
+        "Tara_Strong.txt",
+        "Teen_Titans_Go!_TV_series.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8c4c625542995e66a475a1",
+      "question": "Which airplane was this Major test-flying after whom the base, that 514th Flight Test Squadron is stated at, is named?",
+      "answer": "B-17 Flying Fortress bomber",
+      "gold_sources": [
+        "514th_Flight_Test_Squadron.txt",
+        "Hill_Air_Force_Base.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a85cead5542991dd0999ea9",
+      "question": "What arcade game is named after the only player in major league history to have a 0.300 batting average for 7 consecutive seasons?",
+      "answer": "a pinball machine",
+      "gold_sources": [
+        "Frank_Thomas_Big_Hurt.txt",
+        "Frank_Thomas_designated_hitter.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5adc1ae5554299438c868d5c",
+      "question": "Hate Them is the ninth album by a band likened to who?",
+      "answer": "Motörhead",
+      "gold_sources": [
+        "Darkthrone.txt",
+        "Hate_Them.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7997a2554299029c4b5f59",
+      "question": "Tefik Selim Mborja was a part of a party that held power in Albania until what year? ",
+      "answer": "1943",
+      "gold_sources": [
+        "Albanian_Fascist_Party.txt",
+        "Tefik_Mborja.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae5072e55429960a22e0246",
+      "question": "Who is the current drummer of the band who did the song \"What Lovers Do\"?",
+      "answer": "Matt Flynn",
+      "gold_sources": [
+        "Maroon_5.txt",
+        "What_Lovers_Do.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a85b2d95542997b5ce40028",
+      "question": "Who was known by his stage name Aladin and helped organizations improve their performance as a consultant?",
+      "answer": "Eenasul Fateh",
+      "gold_sources": [
+        "Eenasul_Fateh.txt",
+        "Management_consulting.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab31864554299233954ff06",
+      "question": "What class of instrument does Apatim Majumdar play?",
+      "answer": "strings",
+      "gold_sources": [
+        "Apratim_Majumdar.txt",
+        "Sarod.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae3205c55429928c423961e",
+      "question": "Ms. Knope Goes to Washington is the fifth season premiere of an American political comedy television sitcom starring Amy Poehler as who?",
+      "answer": "Leslie Knope",
+      "gold_sources": [
+        "Ms._Knope_Goes_to_Washington.txt",
+        "Parks_and_Recreation.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab45a0b5542991779162c7e",
+      "question": "Which mall, Wilton Mall or Viaport Rotterdam, has had more owners?",
+      "answer": "Viaport Rotterdam",
+      "gold_sources": [
+        "Viaport_Rotterdam.txt",
+        "Wilton_Mall.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7f113d55429934daa2fcbe",
+      "question": "Which professional baseball player and National 1993 Baseball Hall of Fame inductee is featured in the Greatest Sports Legends anthology? ",
+      "answer": "Reginald Martinez \"Reggie\" Jackson",
+      "gold_sources": [
+        "Greatest_Sports_Legends.txt",
+        "Reggie_Jackson.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5abbf698554299114383a0b5",
+      "question": "Which British first-generation jet-powered medium bomber was used in the South West Pacific theatre of World War II?",
+      "answer": "English Electric Canberra",
+      "gold_sources": [
+        "English_Electric_Canberra.txt",
+        "No._2_Squadron_RAAF.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8d7b1755429941ae14dfc6",
+      "question": "What is the 2010 population of the city 2.1 miles southwest of Marietta Air Force Station?",
+      "answer": "51,271",
+      "gold_sources": [
+        "Marietta_Air_Force_Station.txt",
+        "Smyrna_Georgia.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a734bb65542994cef4bc50f",
+      "question": "Fantasy Records is know for recordings of comedian Lenny Bruce, Creedence Clearwater Revival, and what American jazz pianist who composed the music for the animated television adaptations of the \"Peanuts\" comic strip?",
+      "answer": "Vincent Anthony Guaraldi",
+      "gold_sources": [
+        "Fantasy_Records.txt",
+        "Vince_Guaraldi.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a85a3005542991dd0999e72",
+      "question": "The Azad Hind Dal was created by an Indian nationalist whose defiant patriotism made him a hero in India, but whose attempt to rid India of British rule during what war left a troubled legacy?",
+      "answer": "World War II",
+      "gold_sources": [
+        "Azad_Hind_Dal.txt",
+        "Subhas_Chandra_Bose.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a7133565542994082a3e65c",
+      "question": "What Kentucky county has a population of 60,316 and features the Lake Louisvilla neighborhood?",
+      "answer": "Oldham County",
+      "gold_sources": [
+        "Lake_Louisvilla_Louisville.txt",
+        "Oldham_County_Kentucky.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a74c85055429916b0164218",
+      "question": "Born on 6 March 1937, this man was also a citizen of the United Kingdom.",
+      "answer": "Alistair Grant",
+      "gold_sources": [
+        "Alistair_Grant.txt",
+        "British_people.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae2b770554299495565db0f",
+      "question": "In what month is the annual documentary film festival, that is presented by the fortnightly published British journal of literary essays, held? ",
+      "answer": "March and April",
+      "gold_sources": [
+        "London_International_Documentary_Festival.txt",
+        "London_Review_of_Books.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a77724455429972597f153e",
+      "question": "What race track in the midwest hosts a 500 mile race eavery May?",
+      "answer": "Indianapolis Motor Speedway",
+      "gold_sources": [
+        "1957_Indianapolis_500.txt",
+        "Indianapolis_Motor_Speedway.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a80840f554299485f59863b",
+      "question": "What WB supernatrual drama series was Jawbreaker star Rose Mcgowan best known for being in?",
+      "answer": "Charmed",
+      "gold_sources": [
+        "Jawbreaker_film.txt",
+        "Rose_McGowan.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae7e1fc55429952e35ea9cc",
+      "question": "What color clothing do people of the Netherlands wear during Oranjegekte or to celebrate the national holiday Koningsdag? ",
+      "answer": "orange",
+      "gold_sources": [
+        "Koningsdag.txt",
+        "Oranjegekte.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a80ad7c5542992097ad3018",
+      "question": "What year did the biographical-comedy-crime film directed by Steven Soderbergh about the highest-level corporate executive whistleblower come out?",
+      "answer": "2009",
+      "gold_sources": [
+        "Mark_Whitacre.txt",
+        "The_Informant!.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ade9545554299728e26c740",
+      "question": "What team did the recipient of the 2007 Brownlow Medal play for?",
+      "answer": "Geelong Football Club",
+      "gold_sources": [
+        "2007_Brownlow_Medal.txt",
+        "Jimmy_Bartel.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a87ab9b5542996e4f3088c2",
+      "question": "In what century did this Native warrior and chief, whose brother Tenskwatawa led the Tippecanoe order of battle, become the primary leader of a large, multi tribal confederacy?",
+      "answer": "nineteenth",
+      "gold_sources": [
+        "Tecumseh.txt",
+        "Tippecanoe_order_of_battle.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae6860e5542991bbc976112",
+      "question": "How did Emilie du Chatelet, Voltaire's love, contribute to the basic laws of physics?",
+      "answer": "commentary on Isaac Newton's book \"Principia\"",
+      "gold_sources": [
+        "Emilie_du_Chatelet_1326a1.txt",
+        "Voltaire_in_Love.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a81ff62554299676cceb1c4",
+      "question": "What type of profession does Ithu Engal Neethi and Shoba Chandrasekhar have in common?",
+      "answer": "director",
+      "gold_sources": [
+        "Ithu_Engal_Neethi.txt",
+        "Shoba_Chandrasekhar.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a818387554299260e20a291",
+      "question": "Based on a True Story... is an album by which country music star, with the single My Eyes?",
+      "answer": "Blake Shelton",
+      "gold_sources": [
+        "Based_on_a_True_Story....txt",
+        "My_Eyes_Blake_Shelton_song.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a80ecea55429938b6142254",
+      "question": "My Secret Hotel is a television series starring a South Korean DJ who rose to fame as the lead actress in what?",
+      "answer": "Queen In-hyun's Man",
+      "gold_sources": [
+        "My_Secret_Hotel.txt",
+        "Yoo_In-na.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae4563e5542996836b02c7f",
+      "question": "in 1999, Spirit Halloween LLC was purchased by a mall retailer that has how many stores in the United States and Canada ?",
+      "answer": "over 600 stores",
+      "gold_sources": [
+        "Spencer_Gifts.txt",
+        "Spirit_Halloween.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a8a495055429930ff3c0d6a",
+      "question": "Chicagoland Sports Hall of Fame was founded by the company located in what Washington town, near the state capital?",
+      "answer": "Tumwater, Washington",
+      "gold_sources": [
+        "Chicagoland_Sports_Hall_of_Fame.txt",
+        "Olympia_Brewing_Company.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ab48c325542996a3a969f93",
+      "question": "In which county is the English king Harold Godwinson buried?",
+      "answer": "Essex",
+      "gold_sources": [
+        "Edith_Walks.txt",
+        "Waltham_Abbey_Church.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ae0d52e554299603e418469",
+      "question": "The actress that played the leading role in the independent film \"A Perfect Ending\" also stars with John Bregar in a 2008 film directed by who?",
+      "answer": "Douglas Jackson",
+      "gold_sources": [
+        "Barbara_Niven.txt",
+        "Dead_at_17.txt"
+      ],
+      "question_type": "hotpot_bridge",
+      "construction_method": "hotpotqa-native",
+      "evidence_requirement": "text-multi-source",
+      "graph_seeded": false,
+      "leakage_status": "not_audited",
+      "metadata": {
+        "level": "hard"
+      },
+      "schema_version": 1
+    }
+  ]
+}

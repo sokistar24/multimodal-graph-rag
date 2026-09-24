@@ -37,13 +37,19 @@ from .evaluation.audits import (
     paired_accuracy,
     sample_triple_audit,
 )
+from .evaluation.graph_grounding import (
+    audit_triple_grounding,
+    canonicalisation_collisions,
+)
 from .evaluation.statistics import mcnemar_exact, paired_bootstrap_delta
 from .pipelines.evaluate import EvaluationSettings, run_evaluation
 from .questions import clean_question_file
 from .questions.authoring import author_figure_questions, author_text_questions
 from .questions.caption_matched import author_caption_matched
 from .questions.cross_paper import author_cross_paper
-from .retrieval.graph import default_cache_path, load_graph
+from .questions.spiqa_native import convert_spiqa_native
+from .retrieval.comparators import PrecomputedRetrievals, comparator_report
+from .retrieval.graph import TripleStore, default_cache_path, load_graph
 from .retrieval.graph_expansion import bridge_report
 from .retrieval.text import TextIndex
 from .schemas import load_questions
@@ -136,12 +142,44 @@ def cmd_ingest(args: argparse.Namespace) -> int:
     return 0
 
 
+def _print_question_report(report: object) -> None:
+    print(
+        json.dumps(
+            {
+                key: (str(value) if isinstance(value, Path) else value)
+                for key, value in report.__dict__.items()
+            },
+            indent=2,
+        )
+    )
+
+
 def cmd_questions(args: argparse.Namespace) -> int:
     config: ExperimentConfig | None = (
         load_experiment_config(args.config) if args.config else None
     )
     corpus_dir = args.corpus_dir or (config.corpus_dir if config else None)
     image_dir = args.image_dir or (config.image_dir if config else None)
+
+    # SPIQA's curated QA is already written; converting it calls no provider,
+    # so it needs neither a pricing snapshot nor a client.
+    if args.protocol == "spiqa-native":
+        if not args.gold_file or not image_dir or not args.out:
+            raise ConfigurationError(
+                "spiqa-native conversion needs --gold-file, --image-dir, and --out"
+            )
+        report = convert_spiqa_native(
+            args.gold_file,
+            Path(image_dir) / "captions.json",
+            args.out,
+            author_captions_file=Path(image_dir) / "author_captions.json",
+            target=args.target if args.target > 0 else None,
+            seed=args.seed,
+            exclude_flagged=args.exclude_flagged,
+        )
+        _print_question_report(report)
+        return 0
+
     pricing = args.pricing or (config.pricing_snapshot if config else None)
     if not pricing:
         raise ConfigurationError("--pricing or --config is required")
@@ -196,15 +234,7 @@ def cmd_questions(args: argparse.Namespace) -> int:
             seed=args.seed,
             verbose=args.verbose,
         )
-    print(
-        json.dumps(
-            {
-                k: (str(v) if isinstance(v, Path) else v)
-                for k, v in report.__dict__.items()
-            },
-            indent=2,
-        )
-    )
+    _print_question_report(report)
     print("\nEvery authored item still needs manual review before it is used.")
     return 0
 
@@ -275,6 +305,23 @@ def cmd_retrieval_ab(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_comparator_ab(args: argparse.Namespace) -> int:
+    """Retrieval-only completeness of precomputed comparator rankings."""
+    questions = load_questions(args.questions)
+    retrievals = PrecomputedRetrievals.load(args.retrievals, corpus_dir=args.corpus_dir)
+    report = comparator_report(questions, retrievals, k=args.k)
+    output = Path(
+        args.output
+        or f"artifacts/runs/comparator_ab_{Path(args.questions).stem}_k{args.k}.json"
+    )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with output.open("w", encoding="utf-8") as stream:
+        json.dump(report, stream, indent=2)
+    print(json.dumps(report["summary"], indent=2))
+    print(f"wrote {output}")
+    return 0
+
+
 def cmd_artifacts(args: argparse.Namespace) -> int:
     if args.manifest:
         errors = validate_manifest(args.manifest)
@@ -335,6 +382,22 @@ def cmd_audit_graph(args: argparse.Namespace) -> int:
     rows = sample_triple_audit(args.cache, args.corpus, args.count, args.seed)
     _write_csv(Path(args.output), TRIPLE_AUDIT_FIELDS, rows)
     print(f"wrote {args.output} ({len(rows)} triples)")
+    return 0
+
+
+def cmd_graph_grounding(args: argparse.Namespace) -> int:
+    report = audit_triple_grounding(args.corpus_dir, args.cache, corpus=args.corpus)
+    payload = report.to_dict()
+    if args.collisions:
+        store = TripleStore.load(args.cache)
+        collisions = canonicalisation_collisions(store.entries)
+        payload["surface_forms_merged_into_one_node"] = len(collisions)
+        payload["example_collisions"] = dict(list(collisions.items())[:10])
+    print(json.dumps(payload, indent=2))
+    print(
+        "\nGrounding is not precision: it shows the endpoints occur in the "
+        "source chunk, not that the relation is correct."
+    )
     return 0
 
 
@@ -412,16 +475,39 @@ def build_parser() -> argparse.ArgumentParser:
     questions.add_argument(
         "--protocol",
         required=True,
-        choices=["text", "multihop", "figure", "caption-matched", "cross-paper"],
+        choices=[
+            "text",
+            "multihop",
+            "figure",
+            "caption-matched",
+            "cross-paper",
+            "spiqa-native",
+        ],
     )
     questions.add_argument("--config", default=None)
     questions.add_argument("--corpus-dir", default=None)
     questions.add_argument("--image-dir", default=None)
     questions.add_argument("--pricing", default=None)
     questions.add_argument("--out", default=None)
-    questions.add_argument("--target", type=int, default=35)
+    questions.add_argument(
+        "--target",
+        type=int,
+        default=35,
+        help="how many questions to write; 0 means every eligible item "
+        "(spiqa-native only)",
+    )
     questions.add_argument("--pixel-file", default=None)
     questions.add_argument("--graph-cache", default=None)
+    questions.add_argument(
+        "--gold-file",
+        default=None,
+        help="spiqa-native: the curated QA written by `rag ingest`",
+    )
+    questions.add_argument(
+        "--exclude-flagged",
+        action="store_true",
+        help="spiqa-native: sample only items the leakage screen did not flag",
+    )
     questions.add_argument("--seed", type=int, default=42)
     questions.add_argument("--smoke", action="store_true")
     questions.add_argument("--verbose", action="store_true")
@@ -447,6 +533,17 @@ def build_parser() -> argparse.ArgumentParser:
     retrieval_ab.add_argument("--hops", type=int, choices=[1, 2], default=None)
     retrieval_ab.add_argument("--output", default=None)
     retrieval_ab.set_defaults(handler=cmd_retrieval_ab)
+
+    comparator_ab = commands.add_parser(
+        "comparator-ab",
+        help="retrieval-only completeness of precomputed comparator rankings",
+    )
+    comparator_ab.add_argument("--questions", required=True)
+    comparator_ab.add_argument("--retrievals", required=True)
+    comparator_ab.add_argument("--corpus-dir", default=None)
+    comparator_ab.add_argument("--k", type=int, default=5)
+    comparator_ab.add_argument("--output", default=None)
+    comparator_ab.set_defaults(handler=cmd_comparator_ab)
 
     artifacts = commands.add_parser(
         "artifacts", help="tables and figures from frozen or scanned runs"
@@ -478,7 +575,7 @@ def build_parser() -> argparse.ArgumentParser:
     freeze.set_defaults(handler=cmd_freeze)
 
     audit_graph = commands.add_parser(
-        "audit-graph", help="sample triples for human audit"
+        "audit-graph", help="sample triples for an optional human audit"
     )
     audit_graph.add_argument("cache")
     audit_graph.add_argument("--corpus", required=True)
@@ -488,6 +585,20 @@ def build_parser() -> argparse.ArgumentParser:
         "--output", default="protocols/graph_triple_audit_sample.csv"
     )
     audit_graph.set_defaults(handler=cmd_audit_graph)
+
+    grounding = commands.add_parser(
+        "graph-grounding",
+        help="check every extracted triple against its source chunk",
+    )
+    grounding.add_argument("cache")
+    grounding.add_argument("--corpus-dir", required=True)
+    grounding.add_argument("--corpus", default=None)
+    grounding.add_argument(
+        "--collisions",
+        action="store_true",
+        help="also count surface forms that merge into one graph node",
+    )
+    grounding.set_defaults(handler=cmd_graph_grounding)
 
     audit_figures = commands.add_parser(
         "audit-figures", help="screen visual questions for text leakage"

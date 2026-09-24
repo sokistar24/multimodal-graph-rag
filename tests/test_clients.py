@@ -4,6 +4,8 @@ from types import SimpleNamespace
 import pytest
 
 from multimodal_graph_rag.clients import (
+    GENERATORS,
+    JUDGES,
     MODELS,
     ModelClient,
     ModelPrice,
@@ -89,8 +91,14 @@ def test_load_pricing_rejects_unknown_model_and_bad_schema(tmp_path):
 
 
 def test_repository_pricing_snapshot_covers_every_registered_model():
-    snapshot = load_pricing("configs/pricing_2026-09-03.json")
+    snapshot = load_pricing("configs/pricing_2026-09-10.json")
     assert set(snapshot.models) == set(MODELS)
+
+
+def test_legacy_pricing_snapshot_still_loads_for_frozen_runs():
+    """Runs from the first submission cite the 09-03 snapshot; it must keep loading."""
+    snapshot = load_pricing("configs/pricing_2026-09-03.json")
+    assert set(snapshot.models) < set(MODELS)
 
 
 def test_missing_price_is_an_error_not_zero():
@@ -144,3 +152,52 @@ def test_embed_batches_and_prices_tokens():
     assert result.vectors.shape == (3, 2)
     assert result.input_tokens == 3
     assert result.cost_usd == pytest.approx(3 * 1.0 / 1_000_000)
+
+
+OPENROUTER_ROSTER = {
+    # alias: (OpenRouter model id, vision)
+    "qwen3.7-flash": ("qwen/qwen3.7-flash", True),
+    "claude-sonnet-5": ("anthropic/claude-sonnet-5", True),
+    "claude-opus-5": ("anthropic/claude-opus-5", True),
+    "deepseek-v4-pro": ("deepseek/deepseek-v4-pro-0813", False),
+    "grok-4.3": ("x-ai/grok-4.3", True),
+}
+
+
+@pytest.mark.parametrize("alias", sorted(OPENROUTER_ROSTER))
+def test_openrouter_models_share_one_key_and_endpoint(alias):
+    spec = MODELS[alias]
+    model_id, vision = OPENROUTER_ROSTER[alias]
+    assert spec.model == model_id
+    assert spec.sdk == "openai"
+    assert spec.api_key_env == "OPENROUTER_API_KEY"
+    assert spec.base_url == "https://openrouter.ai/api/v1"
+    assert spec.vision is vision
+
+
+def test_fifth_generator_and_new_judges_are_registered_by_role():
+    assert "qwen3.7-flash" in GENERATORS
+    assert GENERATORS[:4] == (
+        "gpt4o-mini",
+        "gemini-flash-lite",
+        "llama4-maverick",
+        "llama4-scout",
+    ), "legacy generator order feeds table columns and must not move"
+    for judge in ("claude-sonnet-5", "claude-opus-5", "deepseek-v4-pro", "grok-4.3"):
+        assert judge in JUDGES
+
+
+def test_openrouter_provider_is_built_against_openrouter():
+    client = ModelClient(
+        _snapshot(), environ={"OPENROUTER_API_KEY": "or-key"}, sleep=lambda s: None
+    )
+    provider = client._provider("qwen3.7-flash")
+    assert str(provider.base_url).rstrip("/") == "https://openrouter.ai/api/v1"
+
+
+def test_openrouter_model_without_key_names_the_missing_variable():
+    client = ModelClient(
+        _snapshot(), environ={"OPENAI_API_KEY": "x"}, sleep=lambda s: None
+    )
+    with pytest.raises(ConfigurationError, match="OPENROUTER_API_KEY"):
+        client.api_key("claude-sonnet-5")
