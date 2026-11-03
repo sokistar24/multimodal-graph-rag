@@ -25,6 +25,24 @@ def test_dry_run_evaluate_reports_every_generator(capsys):
     assert "control:closed-book" in out
 
 
+def test_budget_flag_caps_a_run_and_leaves_its_config_identity(tmp_path, monkeypatch):
+    lean = json.loads(Path("configs/spiqa_native_visual_lean.json").read_text())
+    config = tmp_path / "lean.json"
+    config.write_text(
+        json.dumps({**lean, "corpus_dir": str(tmp_path), "image_dir": None})
+    )
+    runs = []
+    monkeypatch.setattr("multimodal_graph_rag.cli.ModelClient", lambda pricing: None)
+    monkeypatch.setattr(
+        "multimodal_graph_rag.cli.run_evaluation",
+        lambda settings, client, resume_trace=None: runs.append(settings),
+    )
+    args = ["evaluate", "--config", str(config), "--model", "llama4-scout"]
+    assert main([*args, "--budget-usd", "2.5"]) == 0
+    assert runs[0].budget_usd == 2.5
+    assert runs[0].experiment_hash == load_experiment_config(config).config_hash
+
+
 EXPERIMENT_CONFIGS = sorted(
     path
     for path in Path("configs").glob("*.json")

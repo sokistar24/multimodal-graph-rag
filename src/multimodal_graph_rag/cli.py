@@ -12,6 +12,7 @@ import csv
 import json
 import subprocess
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -296,6 +297,8 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
         settings = EvaluationSettings.from_config(
             config, model, pricing_captured_on=pricing.captured_on, limit=args.limit
         )
+        if args.budget_usd is not None:
+            settings = replace(settings, budget_usd=args.budget_usd)
         run_evaluation(
             settings, client, resume_trace=Path(args.resume) if args.resume else None
         )
@@ -786,6 +789,12 @@ def build_parser() -> argparse.ArgumentParser:
         "--limit", type=int, default=None, help="first N questions (pilot)"
     )
     evaluate.add_argument("--dry-run", action="store_true")
+    evaluate.add_argument(
+        "--budget-usd",
+        type=float,
+        default=None,
+        help="stop this generator's run past this spend; not part of its identity",
+    )
     evaluate.add_argument(
         "--resume",
         default=None,
