@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 import os
 import shutil
 from collections.abc import Mapping, Sequence
@@ -152,6 +153,7 @@ class EvaluationSettings:
     experiment_hash: str = ""
     budget_usd: float | None = None
     comparator_file: Path | None = None
+    judge_faithfulness: bool = True
     extra_identity: dict[str, object] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
@@ -208,6 +210,7 @@ class EvaluationSettings:
                 if config.comparator_retrievals
                 else None
             ),
+            judge_faithfulness=config.judge_faithfulness,
             extra_identity={
                 "graph_version": config.graph_version,
                 "prompt_version": config.prompt_version,
@@ -252,7 +255,7 @@ def _row_fields(
         f"{name}_em": values["em"],
         f"{name}_f1": round(values["f1"], 3),
         f"{name}_contains": values["contains"],
-        f"{name}_faith": int(values["faith"]),
+        f"{name}_faith": "" if math.isnan(values["faith"]) else int(values["faith"]),
         f"{name}_rec": round(values["recall"], 3),
         f"{name}_complete": values["complete"],
         f"{name}_mrr": round(values["mrr"], 3),
@@ -331,7 +334,11 @@ def _resume(
             record = by_question[question.id][name]
             values = {
                 **{
-                    metric: float(record["metrics"][metric])
+                    metric: (
+                        math.nan
+                        if record["metrics"][metric] is None
+                        else float(record["metrics"][metric])
+                    )
                     for metric in QUALITY_METRICS
                 },
                 "in_tok": record["input_tokens"],
@@ -440,19 +447,32 @@ def _identity_hash(
         identity["generator_max_tokens"] = max_tokens
     if regenerated_from is not None:
         identity["regenerated_from_max_tokens"] = regenerated_from
+    if not settings.judge_faithfulness:
+        identity["judge_faithfulness"] = False
     return content_hash(identity)
 
 
 def _scored(
-    output: SystemOutput, question: QuestionRecord, judges: Judges
-) -> tuple[dict[str, float], Verdict, Verdict]:
-    """Retrieval and answer scores of one output, with its two verdicts."""
+    output: SystemOutput,
+    question: QuestionRecord,
+    judges: Judges,
+    *,
+    judge_faithfulness: bool = True,
+) -> tuple[dict[str, float], Verdict, Verdict | None]:
+    """Retrieval and answer scores of one output, with its verdicts.
+
+    An unjudged faithfulness is NaN here and null in the trace, never a zero.
+    """
     recall, complete, mrr = _score_retrieval(output, question)
     answer = judges.answer(question.question, question.answer, output.result.text)
-    faith = judges.faithfulness(
-        output.result.text,
-        output.context,
-        image_paths=output.image_paths if question.is_visual else (),
+    faith = (
+        judges.faithfulness(
+            output.result.text,
+            output.context,
+            image_paths=output.image_paths if question.is_visual else (),
+        )
+        if judge_faithfulness
+        else None
     )
     values = {
         "recall": recall,
@@ -462,7 +482,7 @@ def _scored(
         "em": exact_match(output.result.text, question.answer),
         "f1": token_f1(output.result.text, question.answer),
         "contains": contains_reference(output.result.text, question.answer),
-        "faith": faith.value,
+        "faith": math.nan if faith is None else faith.value,
         "in_tok": output.result.input_tokens,
         "out_tok": output.result.output_tokens,
         "latency_ms": output.result.latency_ms,
@@ -475,7 +495,7 @@ def _run_record(
     output: SystemOutput,
     question: QuestionRecord,
     system: str,
-    scored: tuple[dict[str, float], Verdict, Verdict],
+    scored: tuple[dict[str, float], Verdict, Verdict | None],
     *,
     run_id: str,
     config_hash: str,
@@ -491,8 +511,15 @@ def _run_record(
         system=system,
         answer=output.result.text,
         evidence=output.evidence_bundle(settings.candidate_budget),
-        metrics={k: v for k, v in values.items() if k in QUALITY_METRICS},
-        raw_judges={"accuracy": answer.to_dict(), "faithfulness": faith.to_dict()},
+        metrics={
+            k: None if math.isnan(v) else v
+            for k, v in values.items()
+            if k in QUALITY_METRICS
+        },
+        raw_judges={
+            "accuracy": answer.to_dict(),
+            **({} if faith is None else {"faithfulness": faith.to_dict()}),
+        },
         input_tokens=output.result.input_tokens,
         output_tokens=output.result.output_tokens,
         latency_ms=output.result.latency_ms,
@@ -584,7 +611,12 @@ def _regenerate(
             output,
             question,
             record["system"],
-            _scored(output, question, judges),
+            _scored(
+                output,
+                question,
+                judges,
+                judge_faithfulness=settings.judge_faithfulness,
+            ),
             run_id=record["run_id"],
             config_hash=config_hash,
             settings=settings,
@@ -798,12 +830,19 @@ def run_evaluation(
             row: dict[str, object] = _question_row(question, settings.model)
             for name in systems:
                 output = SYSTEMS[name](question, context, use_pixels)
-                scored = _scored(output, question, judges)
+                scored = _scored(
+                    output,
+                    question,
+                    judges,
+                    judge_faithfulness=settings.judge_faithfulness,
+                )
                 values, answer, faith = scored
                 aggregate = aggregates[name]
                 for metric, value in values.items():
                     aggregate.totals[metric] += float(value)
-                judge_spend = answer.call.cost_usd + faith.call.cost_usd
+                judge_spend = answer.call.cost_usd + (
+                    0.0 if faith is None else faith.call.cost_usd
+                )
                 aggregate.judge_cost += judge_spend
                 spent += output.result.cost_usd + judge_spend
                 row.update(

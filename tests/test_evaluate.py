@@ -1,6 +1,6 @@
 import csv
 import json
-from dataclasses import replace
+from dataclasses import asdict, replace
 
 import pytest
 from conftest import FakeModelClient
@@ -33,7 +33,7 @@ from multimodal_graph_rag.retrieval.baselines import chunk_lexicon
 from multimodal_graph_rag.retrieval.comparators import write_retrievals
 from multimodal_graph_rag.retrieval.graph import default_cache_path, load_graph
 from multimodal_graph_rag.retrieval.text import TextIndex
-from multimodal_graph_rag.schemas import load_questions
+from multimodal_graph_rag.schemas import content_hash, load_questions
 
 pytest.importorskip("faiss")
 
@@ -234,6 +234,74 @@ def test_relevancy_is_no_longer_judged(
     assert "rel" not in header
     trace = json.loads(outputs.trace_path.read_text(encoding="utf-8").splitlines()[0])
     assert set(trace["raw_judges"]) == {"accuracy", "faithfulness"}
+
+
+def test_faithfulness_can_be_left_unjudged_and_is_never_a_zero(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    settings = _settings(
+        tmp_path,
+        corpus_dir,
+        question_file,
+        triple_cache,
+        ("baseline",),
+        judge_faithfulness=False,
+    )
+    outputs = run_evaluation(settings, fake_client)
+    assert not [user for _, user, _ in fake_client.calls if "FAITHFUL" in user]
+    judged = run_evaluation(
+        replace(settings, judge_faithfulness=True, results_dir=tmp_path / "judged"),
+        fake_client,
+    )
+    assert outputs.config_hash != judged.config_hash
+    records = [
+        json.loads(line)
+        for line in outputs.trace_path.read_text(encoding="utf-8").splitlines()
+    ]
+    assert all(record["metrics"]["faith"] is None for record in records)
+    assert all(set(record["raw_judges"]) == {"accuracy"} for record in records)
+    with outputs.summary_path.open(newline="", encoding="utf-8") as stream:
+        summary = next(csv.DictReader(stream))
+    assert summary["faith"] == "nan" and summary["acc"] == "1.0"
+    with outputs.detail_path.open(newline="", encoding="utf-8") as stream:
+        assert next(csv.DictReader(stream))["baseline_faith"] == ""
+
+
+def test_unjudged_faithfulness_survives_a_resume(
+    tmp_path, corpus_dir, question_file, triple_cache, fake_client
+):
+    settings = _settings(
+        tmp_path,
+        corpus_dir,
+        question_file,
+        triple_cache,
+        ("baseline",),
+        judge_faithfulness=False,
+    )
+    outputs = run_evaluation(settings, fake_client)
+    resumed = run_evaluation(settings, fake_client, resume_trace=outputs.trace_path)
+    with resumed.summary_path.open(newline="", encoding="utf-8") as stream:
+        assert next(csv.DictReader(stream))["faith"] == "nan"
+
+
+def test_config_hash_ignores_faithfulness_at_its_default():
+    base = {
+        "name": "x",
+        "corpus": "c",
+        "corpus_dir": "d",
+        "question_set": "q",
+        "systems": ("baseline",),
+        "generators": ("gpt4o-mini",),
+        "pricing_snapshot": "p",
+    }
+    plain = ExperimentConfig(**base)
+    identity = asdict(plain)
+    del identity["judge_faithfulness"]
+    assert plain.config_hash == content_hash(identity)
+    assert (
+        plain.config_hash
+        != ExperimentConfig(**base, judge_faithfulness=False).config_hash
+    )
 
 
 def test_budget_cap_aborts_the_run_and_keeps_partial_rows(

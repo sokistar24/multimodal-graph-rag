@@ -50,6 +50,7 @@ class ExperimentConfig:
     results_dir: str = "artifacts/runs"
     budget_usd: float | None = None
     comparator_retrievals: str | None = None
+    judge_faithfulness: bool = True
     metadata: Mapping[str, Any] = field(default_factory=dict)
     schema_version: int = 1
 
@@ -80,7 +81,11 @@ class ExperimentConfig:
 
     @property
     def config_hash(self) -> str:
-        return content_hash(asdict(self))
+        identity = asdict(self)
+        # Left out at the default, so the runs made before keep their identities.
+        if self.judge_faithfulness:
+            del identity["judge_faithfulness"]
+        return content_hash(identity)
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)

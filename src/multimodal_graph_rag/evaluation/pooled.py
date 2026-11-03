@@ -112,7 +112,8 @@ def load_outcomes(
                 arrays["f1"][i, j] = token_f1(answer, reference)
                 arrays["contains"][i, j] = contains_reference(answer, reference)
                 arrays["acc"][i, j] = float(row["metrics"]["acc"])
-                arrays["faith"][i, j] = float(row["metrics"]["faith"])
+                faith = row["metrics"]["faith"]
+                arrays["faith"][i, j] = np.nan if faith is None else float(faith)
                 arrays["complete"][i, j] = float(row["metrics"]["complete"])
                 stratum[i, j] = _stratum(row)
         values[system] = arrays
