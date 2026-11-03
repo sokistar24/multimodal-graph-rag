@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "revision-spiqa-native-caption-flagged-lean",
+  "corpus": "spiqa",
+  "corpus_dir": "spiqa_corpus",
+  "question_set": "data/questions/questions_spiqa_native_flagged.json",
+  "systems": ["baseline", "+multimodal"],
+  "generators": ["llama4-scout", "gpt-6-luna", "gemma-4-31b", "gemini-3.8-flash", "qwen3.8-max"],
+  "pricing_snapshot": "configs/pricing_2026-10-20.json",
+  "retrieval_method": "dense-plus-clip",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "gpt-6.1-sol",
+  "vision_judge": "gpt-6.1-sol",
+  "prompt_version": "evidence-attribution-v2",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "spiqa_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book"],
+  "judge_faithfulness": false,
+  "metadata": {
+    "research_questions": ["RQ3"],
+    "note": "The caption-flagged contrast for H3: text-only, pixels, closed-book. Oracle-image and caption mode can be added later as extra traces."
+  }
+}
