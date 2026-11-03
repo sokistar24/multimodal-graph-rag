@@ -19,10 +19,10 @@
   "bridge_hops": 1,
   "image_dir": "spiqa_images",
   "vision_mode": "pixels",
-  "controls": ["normal", "closed-book"],
+  "controls": ["normal", "closed-book", "oracle-image"],
   "judge_faithfulness": false,
   "metadata": {
     "research_questions": ["RQ3"],
-    "note": "The caption-flagged contrast for H3: text-only, pixels, closed-book. Oracle-image and caption mode can be added later as extra traces."
+    "note": "The caption-flagged contrast for H3: text-only, pixels, closed-book, and oracle-image, since CLIP ranks the gold crop first for only 12 of these 132 questions. Caption mode can be added later as extra traces."
   }
 }
