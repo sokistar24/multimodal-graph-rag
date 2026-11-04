@@ -48,6 +48,7 @@ from .evaluation.multimodal import (
     CAPTIONS,
     PIXELS,
     analyse,
+    apply_adjudication,
     gold_sent,
     merge_caption_arms,
     text_recoverable,
@@ -617,14 +618,25 @@ def cmd_multimodal_analysis(args: argparse.Namespace) -> int:
     screened_questions = load_questions(args.screened_questions)
     flagged_questions = load_questions(args.flagged_questions)
     obscure_questions = load_questions(args.publaynet_questions)
-    screened = merge_caption_arms(
-        load_outcomes(args.screened, screened_questions),
-        load_outcomes(args.captions, screened_questions),
-    )
+    pixels = load_outcomes(args.screened, screened_questions)
+    captions = load_outcomes(args.captions, screened_questions)
+    flagged = load_outcomes(args.flagged, flagged_questions)
+    obscure = load_outcomes(args.publaynet, obscure_questions)
+    if args.adjudicated:
+        changed = sum(
+            apply_adjudication(outcomes, traces)
+            for outcomes, traces in (
+                (pixels, args.screened),
+                (captions, args.captions),
+                (flagged, args.flagged),
+                (obscure, args.publaynet),
+            )
+        )
+        print(f"adjudication changed {changed} primary verdicts")
     report = analyse(
-        flagged=load_outcomes(args.flagged, flagged_questions),
-        screened=screened,
-        obscure=load_outcomes(args.publaynet, obscure_questions),
+        flagged=flagged,
+        screened=merge_caption_arms(pixels, captions),
+        obscure=obscure,
         recoverable_from_text=text_recoverable(args.integrity),
         flagged_sent=gold_sent(args.flagged, flagged_questions, PIXELS),
         screened_sent=gold_sent(args.screened, screened_questions, PIXELS),
@@ -979,6 +991,11 @@ def build_parser() -> argparse.ArgumentParser:
     multimodal.add_argument("--flagged-questions", required=True)
     multimodal.add_argument("--publaynet-questions", required=True)
     multimodal.add_argument("--integrity", required=True)
+    multimodal.add_argument(
+        "--adjudicated",
+        action="store_true",
+        help="use the adjudicator's verdict wherever the two judges disagreed",
+    )
     multimodal.add_argument("--iterations", type=int, default=10_000)
     multimodal.add_argument("--seed", type=int, default=20261022)
     multimodal.add_argument("--output", required=True)

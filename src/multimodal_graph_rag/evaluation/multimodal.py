@@ -28,7 +28,7 @@ import numpy as np
 from ..errors import ConfigurationError
 from ..schemas import QuestionRecord
 from .pooled import CONTROL_PREFIX, Outcomes, compare
-from .posthoc import gold_received, load_trace
+from .posthoc import JudgementStore, gold_received, judgements_path, load_trace
 from .statistics import holm_adjust
 
 BASELINE = "baseline"
@@ -38,6 +38,31 @@ CLOSED_BOOK = f"{CONTROL_PREFIX}closed-book"
 ORACLE_IMAGE = f"{CONTROL_PREFIX}oracle-image"
 ORACLE_CAPTION = f"{CONTROL_PREFIX}oracle-caption"
 CAPTION_ARMS = {PIXELS: CAPTIONS, ORACLE_IMAGE: ORACLE_CAPTION}
+
+
+def apply_adjudication(outcomes: Outcomes, traces: Iterable[str | Path]) -> int:
+    """Replace judge accuracy with the adjudicator's verdict wherever there is one.
+
+    The outcomes are changed in place. Returns how many verdicts were replaced,
+    counting only those that differ from the primary judge.
+    """
+    rows = {qid: i for i, qid in enumerate(outcomes.questions)}
+    changed = 0
+    for trace in traces:
+        records = load_trace(trace)
+        names = {name for record in records for name in record["model_versions"]}
+        if len(names) != 1:
+            raise ConfigurationError(f"{trace} holds answers of {sorted(names)}")
+        column = outcomes.generators.index(names.pop())
+        store = JudgementStore(judgements_path(trace))
+        for (qid, system), entries in store.values("adjudicate").items():
+            if qid not in rows:
+                continue
+            verdict = float(entries[0]["value"])
+            accuracy = outcomes.values[system]["acc"]
+            changed += accuracy[rows[qid], column] != verdict
+            accuracy[rows[qid], column] = verdict
+    return int(changed)
 
 
 def merge_caption_arms(pixels: Outcomes, captions: Outcomes) -> Outcomes:
@@ -316,6 +341,7 @@ __all__ = [
     "ORACLE_IMAGE",
     "PIXELS",
     "analyse",
+    "apply_adjudication",
     "by_gold_sent",
     "closed_book_recoverable",
     "filtering_change",

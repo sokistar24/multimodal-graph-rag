@@ -12,6 +12,7 @@ from multimodal_graph_rag.evaluation.multimodal import (
     ORACLE_CAPTION,
     ORACLE_IMAGE,
     PIXELS,
+    apply_adjudication,
     closed_book_recoverable,
     filtering_change,
     gain_difference,
@@ -149,6 +150,41 @@ def test_merging_refuses_a_caption_run_of_other_questions(screened, tmp_path):
     captions = load_outcomes(_caption_traces(tmp_path, fewer), fewer)
     with pytest.raises(ConfigurationError, match="different questions"):
         merge_caption_arms(pixels, captions)
+
+
+def test_adjudication_replaces_only_the_verdict_it_covers(screened):
+    _, questions, paths = screened
+    outcomes = load_outcomes(paths, questions)
+    target = paths[outcomes.generators.index("gen-b")]
+    judgements = target.with_name(target.name.replace("trace_", "judgements_", 1))
+    entries = [
+        # the primary judge said wrong here, so this one changes the outcome
+        (questions[4].id, "baseline", 1),
+        # the primary judge already said right here, so this one does not
+        (questions[0].id, PIXELS, 1),
+    ]
+    judgements.write_text(
+        "".join(
+            json.dumps(
+                {
+                    "key": f"{qid}|{system}",
+                    "question_id": qid,
+                    "system": system,
+                    "pass": "adjudicate",
+                    "value": value,
+                }
+            )
+            + "\n"
+            for qid, system, value in entries
+        ),
+        encoding="utf-8",
+    )
+    before = outcomes.values["baseline"]["acc"].sum()
+    assert apply_adjudication(outcomes, paths) == 1
+    assert outcomes.values["baseline"]["acc"].sum() == before + 1
+    column = outcomes.generators.index("gen-b")
+    assert outcomes.values["baseline"]["acc"][4, column] == 1
+    assert outcomes.values["baseline"]["acc"][4, 1 - column] == 0
 
 
 def test_restrict_keeps_only_the_named_questions(screened):
