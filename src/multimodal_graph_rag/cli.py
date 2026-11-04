@@ -44,6 +44,14 @@ from .evaluation.graph_grounding import (
     audit_triple_grounding,
     canonicalisation_collisions,
 )
+from .evaluation.multimodal import (
+    CAPTIONS,
+    PIXELS,
+    analyse,
+    gold_sent,
+    merge_caption_arms,
+    text_recoverable,
+)
 from .evaluation.pooled import adjust_family, compare, load_outcomes
 from .evaluation.posthoc import (
     PASSES,
@@ -605,6 +613,42 @@ def cmd_pooled_analysis(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_multimodal_analysis(args: argparse.Namespace) -> int:
+    screened_questions = load_questions(args.screened_questions)
+    flagged_questions = load_questions(args.flagged_questions)
+    obscure_questions = load_questions(args.publaynet_questions)
+    screened = merge_caption_arms(
+        load_outcomes(args.screened, screened_questions),
+        load_outcomes(args.captions, screened_questions),
+    )
+    report = analyse(
+        flagged=load_outcomes(args.flagged, flagged_questions),
+        screened=screened,
+        obscure=load_outcomes(args.publaynet, obscure_questions),
+        recoverable_from_text=text_recoverable(args.integrity),
+        flagged_sent=gold_sent(args.flagged, flagged_questions, PIXELS),
+        screened_sent=gold_sent(args.screened, screened_questions, PIXELS),
+        obscure_sent=gold_sent(args.publaynet, obscure_questions, PIXELS),
+        iterations=args.iterations,
+        seed=args.seed,
+    )
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=1), encoding="utf-8")
+    for name, column in report["columns"].items():
+        arms = "  ".join(
+            f"{system} {entry['acc']:.3f}" for system, entry in column["arms"].items()
+        )
+        print(f"{name} (n={column['n']}): {arms}")
+    for name, test in report["family"].items():
+        print(
+            f"  {name:<32} {test['delta']:+.3f} [{test['lower']:+.3f}, "
+            f"{test['upper']:+.3f}] p {test['p']:.4f} Holm {test['p_holm']:.4f}"
+        )
+    print(f"caption arm in the report as {CAPTIONS}; report -> {output}")
+    return 0
+
+
 def cmd_judge_calibration(args: argparse.Namespace) -> int:
     items = calibration_items(load_questions(args.questions))
     pricing = load_pricing(args.pricing)
@@ -922,6 +966,23 @@ def build_parser() -> argparse.ArgumentParser:
     pooled.add_argument("--seed", type=int, default=20261022)
     pooled.add_argument("--output", required=True)
     pooled.set_defaults(handler=cmd_pooled_analysis)
+
+    multimodal = commands.add_parser(
+        "multimodal-analysis",
+        help="the RQ3 table and the tests of H3, from the figure-set traces",
+    )
+    multimodal.add_argument("--screened", nargs="+", required=True)
+    multimodal.add_argument("--captions", nargs="+", required=True)
+    multimodal.add_argument("--flagged", nargs="+", required=True)
+    multimodal.add_argument("--publaynet", nargs="+", required=True)
+    multimodal.add_argument("--screened-questions", required=True)
+    multimodal.add_argument("--flagged-questions", required=True)
+    multimodal.add_argument("--publaynet-questions", required=True)
+    multimodal.add_argument("--integrity", required=True)
+    multimodal.add_argument("--iterations", type=int, default=10_000)
+    multimodal.add_argument("--seed", type=int, default=20261022)
+    multimodal.add_argument("--output", required=True)
+    multimodal.set_defaults(handler=cmd_multimodal_analysis)
 
     calibration = commands.add_parser(
         "judge-calibration",
