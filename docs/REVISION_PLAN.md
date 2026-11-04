@@ -941,3 +941,31 @@ Re-scoring those 58 replies as wrong moves no reported judge difference by
 more than 0.006. `rag judge-calibration` on the 200 HotpotQA questions
 (DeepSeek V4 Pro, $0.07): 0 of 200 references rejected and 0 of 200 decoys
 accepted (`artifacts/runs/calibration_hotpotqa_*.jsonl`).
+
+**Lean RQ3 runs (2026-11-03 to 2026-11-04, on the desktop).** Four generators
+(no Qwen), accuracy judged only: SPIQA screened pixels, flagged pixels, screened
+caption arms, and PubLayNet pixel-only figures, $11.18 by the records, no errors
+or empty answers. Traces are stamped 20261103_1958, 20261103_2228 to 2245, and
+20261104_0102 to 0103; `limit=5` smoke traces stamped 20261103_1935 to 1951 are
+not results. `rag multimodal-analysis` writes `artifacts/runs/multimodal_rq3.json`
+and, with `--adjudicated`, `multimodal_rq3_adjudicated.json`. Pixels minus
+text-only is +0.073 [+0.038, +0.110] on the screened set, +0.038 [+0.002, +0.078]
+on the flagged set, and +0.062 [+0.024, +0.106] on the 85 items left after
+removing text-recoverable and closed-book-recoverable ones, so H3 is not supported.
+`metrics.complete` counts the gold crop among the five scored, while pixels send
+one crop and captions three, so what a generator received comes from the evidence
+items: 25/150 screened, 12/132 flagged, 8/35 PubLayNet, and 34/150 for captions.
+
+**Second judge (2026-11-04).** DeepSeek V4 Pro on a stratified 20% of the figure
+sets (1,248 answers, 96.0%, kappa 0.91) and GPT-6.1 Sol on 20% of HotpotQA (2,600
+answers, 98.8%, kappa 0.97), with Claude Opus 5.5 on the 82 disagreements. Its
+verdicts move no HotpotQA judge difference by more than 0.004 and no multimodal
+test by more than 0.007, but the caption gain's Holm p goes from 0.03 to 0.06.
+The `--dry-run` price for an accuracy pass counts the context, which that pass
+does not send, so it ran about three times too high on HotpotQA. DeepSeek's records
+understate the account's charge ($0.75 recorded against $1.35 charged), which is
+not yet explained.
+
+**Not run, waiting for money (balance $0.86):** SPIQA sufficiency, triple
+precision, model review of model-authored questions, Qwen on the figure sets,
++both and shuffled, flagged caption arms, faithfulness on the figure sets, repeats.
