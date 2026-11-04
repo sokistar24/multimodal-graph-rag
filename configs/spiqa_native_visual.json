@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "revision-spiqa-native-human-visual",
+  "corpus": "spiqa",
+  "corpus_dir": "spiqa_corpus",
+  "question_set": "data/questions/questions_spiqa_native_primary.json",
+  "systems": ["baseline", "+multimodal", "+both"],
+  "generators": ["llama4-scout", "gpt-6-luna", "gemma-4-31b", "gemini-3.8-flash", "qwen3.8-max"],
+  "pricing_snapshot": "configs/pricing_2026-10-20.json",
+  "retrieval_method": "dense-plus-clip",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "gpt-6.1-sol",
+  "vision_judge": "gpt-6.1-sol",
+  "prompt_version": "evidence-attribution-v2",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "spiqa_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "shuffled", "oracle-image"],
+  "metadata": {
+    "research_questions": ["RQ3", "RQ4"],
+    "question_authorship": "human (SPIQA test-A curators), not model-authored",
+    "gold_provenance": "human figure-level: one crop per question",
+    "pool": "447 of 579 curated items pass the caption leakage screen; this set samples 150 of them at seed 20260903",
+    "contrast_set": "configs/spiqa_native_flagged.json runs the 132 flagged items under the same protocol",
+    "note": "run once with vision_mode=pixels and once with vision_mode=captions. The oracle-image arm supplies the gold crop with the baseline passages, separating image-retrieval failure from figure-reading failure. SPIQA is a public benchmark, so the closed-book control is required to quantify prior exposure rather than assume it away."
+  }
+}

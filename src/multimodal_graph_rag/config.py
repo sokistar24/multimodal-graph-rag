@@ -14,7 +14,14 @@ from .errors import ConfigurationError
 from .schemas import content_hash
 
 VISION_MODES = ("pixels", "captions")
-EVIDENCE_CONTROLS = ("normal", "closed-book", "shuffled", "oracle", "partial-gold")
+EVIDENCE_CONTROLS = (
+    "normal",
+    "closed-book",
+    "shuffled",
+    "oracle",
+    "partial-gold",
+    "oracle-image",
+)
 
 
 @dataclass(frozen=True)
@@ -41,6 +48,9 @@ class ExperimentConfig:
     controls: tuple[str, ...] = ("normal",)
     cache_dir: str = ".cache"
     results_dir: str = "artifacts/runs"
+    budget_usd: float | None = None
+    comparator_retrievals: str | None = None
+    judge_faithfulness: bool = True
     metadata: Mapping[str, Any] = field(default_factory=dict)
     schema_version: int = 1
 
@@ -62,6 +72,8 @@ class ExperimentConfig:
             raise ConfigurationError(f"unknown evidence controls: {unknown}")
         if not str(self.pricing_snapshot).strip():
             raise ConfigurationError("pricing_snapshot is required")
+        if self.budget_usd is not None and self.budget_usd <= 0:
+            raise ConfigurationError("budget_usd must be positive when set")
         if self.schema_version != 1:
             raise ConfigurationError(
                 f"unsupported config schema version: {self.schema_version}"
@@ -69,7 +81,11 @@ class ExperimentConfig:
 
     @property
     def config_hash(self) -> str:
-        return content_hash(asdict(self))
+        identity = asdict(self)
+        # Left out at the default, so the runs made before keep their identities.
+        if self.judge_faithfulness:
+            del identity["judge_faithfulness"]
+        return content_hash(identity)
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -84,6 +100,7 @@ class ExperimentConfig:
             ("question_set", self.question_set),
             ("image_dir", self.image_dir),
             ("pricing_snapshot", self.pricing_snapshot),
+            ("comparator_retrievals", self.comparator_retrievals),
         ):
             if value and not (base / value).exists():
                 missing.append(f"{label}: {value}")

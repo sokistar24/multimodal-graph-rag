@@ -213,10 +213,17 @@ class RunRecord:
     cost_usd: float = 0.0
     error: str | None = None
     model_versions: Mapping[str, str] = field(default_factory=dict)
+    # Set only on an answer generated again after reaching the generator cap:
+    # the caps involved and the replaced answer with its tokens, cost, and
+    # verdicts.
+    regeneration: Mapping[str, Any] | None = None
     schema_version: int = SCHEMA_VERSION
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        record = asdict(self)
+        if record["regeneration"] is None:
+            del record["regeneration"]
+        return record
 
     def write_jsonl(self, path: str | Path) -> None:
         destination = Path(path)

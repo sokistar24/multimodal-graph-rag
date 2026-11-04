@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "name": "revision-hotpotqa-comparison-graph",
+  "corpus": "hotpotqa",
+  "corpus_dir": "hotpotqa_corpus",
+  "question_set": "data/questions/questions_hotpotqa_comparison.json",
+  "systems": ["dense-top3", "baseline", "bm25", "hybrid-rrf", "+KG", "+KGret", "+lexical", "+random", "+HippoRAG"],
+  "generators": ["llama4-scout", "gpt-6-luna", "gemma-4-31b", "gemini-3.8-flash", "qwen3.8-max"],
+  "pricing_snapshot": "configs/pricing_2026-10-20.json",
+  "retrieval_method": "dense-plus-graph-expansion",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "deepseek-v4-pro",
+  "vision_judge": "gpt-6.1-sol",
+  "prompt_version": "evidence-attribution-v2",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 2,
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "shuffled", "oracle", "partial-gold"],
+  "comparator_retrievals": ".cache/hipporag/hotpotqa/retrievals_hotpotqa_comparison.json",
+  "metadata": {
+    "research_questions": ["RQ1", "RQ2", "RQ4"],
+    "minimum_questions": 100,
+    "bootstrap_iterations": 10000,
+    "multiplicity_correction": "holm",
+    "status": "every arm is built; the HippoRAG retrievals file and the paid runs are not yet produced",
+    "note": "same arms, hops, and seed as the bridge set (primary_revision.json), so H2 compares the two question types under one protocol"
+  }
+}

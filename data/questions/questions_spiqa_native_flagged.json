@@ -1,0 +1,3044 @@
+{
+  "schema_version": 1,
+  "source_file": "spiqa_gold_qa.json",
+  "question_count": 132,
+  "questions_sha256": "736119d8d5487086587e8b5685745528ca94869c7c34cf4cf7982443fcceacba",
+  "questions": [
+    {
+      "id": "0366d20729a6301e",
+      "question": "Which network architecture has the highest accuracy on the CIFAR-10 dataset?",
+      "answer": "DMRNet-Wide",
+      "gold_sources": [
+        "1611.07718v2-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.07718v2",
+        "spiqa_explanation": "The table shows the classification error rates for different network architectures on the CIFAR-10 dataset. The network with the lowest error rate is DMRNet-Wide (ours), which has an error rate of 19.00%.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "07348b2d11b733fa",
+      "question": "Which inference method consistently leads to the highest F1 score on the failure set across all three networks (Net3, Net4, and Net5)?",
+      "answer": "Beam search with a width of 9 consistently leads to the highest F1 score on the failure set across all three networks.",
+      "gold_sources": [
+        "1707.08608v3-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.08608v3",
+        "spiqa_explanation": "The table shows the F1 scores on the failure set for different inference methods and network architectures. By comparing the F1 scores within each network, we can see that Beam 9 consistently achieves the highest score, indicating better performance in identifying and correcting failures compared to other methods like Greedy or Beam search with smaller widths.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "0971469e38f24146",
+      "question": "Which method performs the best on the F-SRE1 test function?",
+      "answer": "ALOQ",
+      "gold_sources": [
+        "1605.07496v3-Figure10-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1605.07496v3",
+        "spiqa_explanation": "The figure shows that ALOQ has the highest expected function value for the F-SRE1 test function.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "0a8c74a7854647b1",
+      "question": "What does the induced schema Win <A4, B3, C2> represent?",
+      "answer": "The induced schema Win <A4, B3, C2> represents the fact that player A4 won tournament C2, defeating player B3.",
+      "gold_sources": [
+        "1707.01917v2-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.01917v2",
+        "spiqa_explanation": "The induced schema is shown in the bottom right corner of the figure. It is derived from the tri-partite graph, which shows the relationships between players (A), opponents (B), and tournaments (C). The schema Win <A4, B3, C2> indicates that there is a connection between player A4, opponent B3, and tournament C2, and that this connection represents a win for player A4.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "0cc65c930410ad92",
+      "question": "Do adversarial examples generated with the 2-keyword constraint maintain a similar syntactic structure to the original sentences?",
+      "answer": "No, adversarial examples generated with the 2-keyword constraint deviate significantly from the original syntactic structure.",
+      "gold_sources": [
+        "1803.01128v3-Table6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.01128v3",
+        "spiqa_explanation": "The table shows the perplexity scores of different types of adversarial examples. Perplexity measures how well a language model predicts a given text, with lower perplexity indicating better prediction and thus a more natural and expected syntactic structure. While the original sentences and those with non-overlap or 1-keyword constraints have relatively low perplexity scores, the 2-keyword examples show a dramatic increase in perplexity. This suggests that these examples deviate significantly from the original syntactic structure and are less predictable by the language model.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "0d6322ad4aa2687f",
+      "question": "Which method performed the best on the GRID dataset?",
+      "answer": "AMIE (Ours)",
+      "gold_sources": [
+        "1812.06589v2-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.06589v2",
+        "spiqa_explanation": "The table shows the results of different methods on the GRID dataset. AMIE (Ours) achieved the highest PSNR and SSIM values, and the lowest LMD value, indicating that it performed the best.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "1142647d007e0b04",
+      "question": "Which of the VSR models in the figure achieves the best balance of spatial detail and temporal coherence?",
+      "answer": "TecoGAN",
+      "gold_sources": [
+        "1811.09393v4-Figure14-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.09393v4",
+        "spiqa_explanation": "The figure shows that TecoGAN achieves the lowest LPIPS score (which measures spatial detail) and the lowest tLP score (which measures temporal coherence).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "1219d08e290f1fd5",
+      "question": "Which method achieves the highest Top-1 accuracy on the CUB-200-2011 dataset?",
+      "answer": "PC-DenseNet-161",
+      "gold_sources": [
+        "1705.08016v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1705.08016v3",
+        "spiqa_explanation": "The table shows the Top-1 accuracy for each method on the CUB-200-2011 dataset. PC-DenseNet-161 has the highest Top-1 accuracy of 86.87.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "12c324dd526c1f2b",
+      "question": "Which method has the fastest convergence and highest converged performance?",
+      "answer": "F-DSS",
+      "gold_sources": [
+        "1805.07567v2-Figure7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.07567v2",
+        "spiqa_explanation": "The F-DSS line (red dashed line) reaches the highest F-measure value first and also has the highest F-measure value at the end of the training process.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "1a34a18a98f2093e",
+      "question": "Which method achieves the highest accuracy on the Shootings dataset?",
+      "answer": "TFBA",
+      "gold_sources": [
+        "1707.01917v2-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.01917v2",
+        "spiqa_explanation": "The table shows the accuracy of different methods on different datasets. For the Shootings dataset, TFBA has the highest average accuracy of 0.76.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "1d0e4e608cae69e8",
+      "question": "Which model performs the best at SNR=0dB?",
+      "answer": "GPG-K",
+      "gold_sources": [
+        "1803.05776v2-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.05776v2",
+        "spiqa_explanation": "The NMSE for GPG-K is the lowest at SNR=0dB, as shown in Figure (c).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "1fb4ef9c28cec85d",
+      "question": "Which algorithm performs the best in terms of average memory ratio with respect to BP+RR for GMap 10%?",
+      "answer": "Delta-based BP+RR",
+      "gold_sources": [
+        "1803.02750v3-Figure10-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.02750v3",
+        "spiqa_explanation": "The figure shows that the bar for Delta-based BP+RR is the shortest for GMap 10%, indicating that it has the lowest average memory ratio with respect to BP+RR.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2054d083450ce465",
+      "question": "What is the role of OpenIE in Step 1 of TFBA?",
+      "answer": "OpenIE is used to extract tuples from the unlabeled text corpus. These tuples are then used to create the 3-mode tensors X1, X2, and X3.",
+      "gold_sources": [
+        "1707.01917v2-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.01917v2",
+        "spiqa_explanation": "The figure shows that OpenIE is used to process the unlabeled text corpus and produce tuples. These tuples are then used as input to the joint Tucker decomposition process, which produces the binary schemata.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2132e018df3f10b5",
+      "question": "Which digit has the highest average squared distance to other digits in the MNIST dataset?",
+      "answer": "Digit \"1\"",
+      "gold_sources": [
+        "1710.05654v2-Figure11-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.05654v2",
+        "spiqa_explanation": "The right plot shows the average squared distance for each digit. We can see that the bar for digit \"1\" is the highest, which means that on average, digit \"1\" is further away from other digits than any other digit.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "21db0a399972f85d",
+      "question": "Which method performs best on the CIFAR-10 dataset?",
+      "answer": "ITN (ResNet-32) with data augmentation performs best on the CIFAR-10 dataset with a testing error of 5.82%.",
+      "gold_sources": [
+        "1805.06447v3-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06447v3",
+        "spiqa_explanation": "The table shows the testing errors for different methods on the SVHN and CIFAR-10 datasets. We can see that ITN (ResNet-32) with data augmentation has the lowest testing error for the CIFAR-10 dataset.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "21f360664840f204",
+      "question": "Which model achieved the highest performance score on the Breakout game?",
+      "answer": "A3C-CTS",
+      "gold_sources": [
+        "1707.00524v2-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.00524v2",
+        "spiqa_explanation": "The table shows the performance scores for different models on various games. The highest score for the Breakout game is 473.93, which is achieved by the A3C-CTS model.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2221b301d687a57c",
+      "question": "Which dataset would be most suitable for training a learning-to-rank model with limited computational resources, and why?",
+      "answer": "Microsoft 10k would be the most suitable dataset for training with limited computational resources.",
+      "gold_sources": [
+        "1804.05936v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.05936v2",
+        "spiqa_explanation": "The table shows that Microsoft 10k has the smallest number of queries and documents compared to the other two datasets. This implies that training a model on this dataset would require less memory and processing power, making it a better choice when computational resources are limited.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2448d36bbc1c7bc2",
+      "question": "How does the average precision of TCM(256*memory) compare to the other two algorithms in the email-EuAll dataset?",
+      "answer": "The average precision of TCM(256*memory) is lower than the other two algorithms in the email-EuAll dataset.",
+      "gold_sources": [
+        "1809.01246v1-Figure9-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.01246v1",
+        "spiqa_explanation": "The figure shows the average precision of three algorithms for five different datasets. The average precision of TCM(256*memory) is shown as a blue line. In the email-EuAll dataset, the blue line is below the other two lines, indicating that the average precision of TCM(256*memory) is lower than the other two algorithms.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "24830767fbdf2d0b",
+      "question": "Which genre shows the **largest absolute improvement** in F1 score on the failure set after applying GBI for **both** syntactic parsing and SRL?",
+      "answer": "Pivot Corpus (PT) shows the largest absolute improvement in F1 score on the failure set after applying GBI for both syntactic parsing and SRL.",
+      "gold_sources": [
+        "1707.08608v3-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.08608v3",
+        "spiqa_explanation": "Looking at the \"F1 on failure set\" columns in Table 1, we can compare the \"before\" and \"after\" scores for each genre and task. \n\nFor syntactic parsing, PT improves by 4.4 points (75.8 - 71.4), which is the highest increase among all genres. \n\nSimilarly, for SRL, PT again shows the biggest improvement, with a 16.5 point increase (63.69 - 47.19) after applying GBI. \n\nTherefore, PT demonstrates the largest absolute improvement in both tasks based on the F1 scores on the failure set.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "248665276a69e931",
+      "question": "Which model performed the best on the Quora Question Pairs dataset?",
+      "answer": "AdaQA (two-way) + att.",
+      "gold_sources": [
+        "1709.08294v3-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1709.08294v3",
+        "spiqa_explanation": "The table shows the accuracy of different models on the Quora Question Pairs dataset. The AdaQA (two-way) + att. model has the highest accuracy of 0.8794.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2725f5c4b9569c6d",
+      "question": "Which dataset shows the greatest sensitivity to the choice of $\\power$?",
+      "answer": "RCV1",
+      "gold_sources": [
+        "1701.03077v10-Figure6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1701.03077v10",
+        "spiqa_explanation": "The RCV1 dataset shows the largest range of AMI values across the different values of $\\power$, indicating that the performance of the algorithm on this dataset is highly dependent on the choice of $\\power$.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "29c566bfd1253e98",
+      "question": "How does the performance of ChoiceNet compare to other methods under different noise settings on the CIFAR-10 dataset? Briefly explain the strengths and weaknesses of ChoiceNet.",
+      "answer": "ChoiceNet generally performs well compared to other methods, achieving the highest accuracy on both symmetric noise settings (sym-50% and sym-20%). However, it falls to second place under the Pair-45% asymmetric noise setting, indicating a weakness in handling this specific type of noise.",
+      "gold_sources": [
+        "1805.06431v4-Table14-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06431v4",
+        "spiqa_explanation": "Table 2 presents the test accuracies of various methods under different noise conditions. By comparing the values in the table, we can see that ChoiceNet outperforms all other methods on the two symmetric noise settings, demonstrating its strength in handling such noise. However, under the Pair-45% asymmetric noise setting, ChoiceNet is surpassed by Co-teaching. This suggests that ChoiceNet may struggle with accurately inferring label distributions when noise patterns become more complex and asymmetric. The passage further clarifies this weakness, explaining that the \"Cholesky Block\" component of ChoiceNet struggles under Pair-45% noise due to the specific way this noise type assigns labels.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "2c7300c059df029a",
+      "question": "Which combination of training procedure and thresholding metric consistently performs the best across both MNIST and CIFAR-10 datasets for all attack types?",
+      "answer": "RCE training combined with the K-density metric consistently performs the best across both MNIST and CIFAR-10 datasets for all attack types.",
+      "gold_sources": [
+        "1706.00633v4-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00633v4",
+        "spiqa_explanation": "Table 2 presents the AUC-scores of different combinations of training procedures (CE and RCE) and thresholding metrics (Confidence, non-ME, and K-density) for various attack types. By comparing the scores across rows and columns, we can identify the best performing combination. In this case, the entries marked with (*) represent the RCE training and K-density metric combination, and they consistently show the highest or near-highest AUC-scores for all attack types on both datasets.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "3002288998631db1",
+      "question": "Which of the methods generated the sharpest details?",
+      "answer": "TecoGAN",
+      "gold_sources": [
+        "1811.09393v4-Figure11-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.09393v4",
+        "spiqa_explanation": "The caption states that the TecoGAN model generates sharp details in both scenes.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "313dc719d6c65598",
+      "question": "Which method performs the best on the Branin function?",
+      "answer": "One Step ALOQ",
+      "gold_sources": [
+        "1605.07496v3-Figure7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1605.07496v3",
+        "spiqa_explanation": "The One Step ALOQ method has the lowest expected function value for the Branin function, which is indicated by the red line in Figure (a).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "364cb0fed0bcd04d",
+      "question": "Which model performs the best in terms of AUC on the MovieLens-1M dataset?",
+      "answer": "RippleNet*",
+      "gold_sources": [
+        "1803.03467v4-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.03467v4",
+        "spiqa_explanation": " The table shows the AUC and ACC values for different models on three datasets. The highest AUC value for the MovieLens-1M dataset is 0.921, which corresponds to the RippleNet* model.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "382779b7807ce7bb",
+      "question": "Which pooling method is the most accurate for the AFEW database?",
+      "answer": "W-ProjPooling",
+      "gold_sources": [
+        "1611.05742v3-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.05742v3",
+        "spiqa_explanation": "The accuracy of each pooling method for each database is shown in the bar graph in part (a) of the figure. The bar for W-ProjPooling for the AFEW database is the highest, indicating that it is the most accurate pooling method for that database.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "3adcdef83b7a084d",
+      "question": "Which dataset has a higher proportion of sentences containing multiple aspects: Rest14 or Rest15?",
+      "answer": "Rest14 has a higher proportion of sentences containing multiple aspects compared to Rest15.",
+      "gold_sources": [
+        "1812.10735v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.10735v2",
+        "spiqa_explanation": "While both datasets have a majority of single-aspect sentences, we can calculate the percentage of multi-aspect sentences in each dataset by dividing the total number of multi-aspect sentences by the total number of sentences. For Rest14, this is 482 (total multi-aspect) / 2535 (total sentences) = 19.01%. For Rest15, it is 309 (total multi-aspect) / 931 (total sentences) = 16.43%. Therefore, Rest14 has a slightly higher proportion of sentences with multiple aspects.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "3c3c266620ee764a",
+      "question": "What are the top 5 section recommendations for the Wikipedia article on Lausanne according to the category-section counts method?",
+      "answer": "The top 5 section recommendations for the Wikipedia article on Lausanne according to the category-section counts method are HISTORY, DEMOGRAPHICS, ECONOMY, EDUCATION, and POLITICS.",
+      "gold_sources": [
+        "1804.05995v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.05995v2",
+        "spiqa_explanation": "The table in the figure shows the top 5 section recommendations for the Wikipedia article on Lausanne according to four different methods. The category-section counts method is one of these methods. The top 5 recommendations for this method are listed in the third column of the table.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "3c65e71f853871b5",
+      "question": "Which method performs better in terms of classification accuracy?",
+      "answer": "ZDDA3",
+      "gold_sources": [
+        "1707.01922v5-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.01922v5",
+        "spiqa_explanation": "Figure (c) shows the difference in classification accuracy between ZDDA3 and naive fusion. In most cases, the difference is positive, which means that ZDDA3 performs better than naive fusion.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "3f8ad681adc372f9",
+      "question": "Which model performs best when the percentage of unseen entities in the response is low?",
+      "answer": "BoSsNet",
+      "gold_sources": [
+        "1805.01216v3-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.01216v3",
+        "spiqa_explanation": "The figure shows that the BoSsNet line is at the top when the percentage of unseen entities in the response is low.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4099bb62c53ec7c4",
+      "question": "How does the performance of the discriminator in the proposed approach compare to the conventional discriminator in AL? What evidence suggests this difference in performance?",
+      "answer": "The discriminator in the author's approach achieves higher accuracy (95.72%) compared to the conventional discriminator in AL (94.01%).",
+      "gold_sources": [
+        "1809.04276v2-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.04276v2",
+        "spiqa_explanation": "Table 1 explicitly shows the classification accuracy for both discriminators. The higher accuracy of the author's discriminator indicates its better ability to distinguish between human-generated and machine-generated responses. This supports the claim in the passage that the N-best response candidates used in the author's approach are helpful for the discriminator.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4175fb32c8c1f7c8",
+      "question": "Which of the following algorithms performs the best when trained via the CE?",
+      "answer": "C&W-hc",
+      "gold_sources": [
+        "1706.00633v4-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00633v4",
+        "spiqa_explanation": "The figure shows the error rates for different algorithms when trained via the CE and RCE. The C&W-hc algorithm has the lowest error rate when trained via the CE.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "422321548854726d",
+      "question": "Which model performs best on the Ubuntu dataset for text lengths between 60 and 90 words?",
+      "answer": "KEHNN",
+      "gold_sources": [
+        "1611.04684v1-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.04684v1",
+        "spiqa_explanation": "The table shows the accuracy of three models (LSTM, MV-LSTM, and KEHNN) on two datasets (QA and Ubuntu) for different text lengths. For text lengths between 60 and 90 words on the Ubuntu dataset, KEHNN has the highest accuracy of 0.785.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "44d16b94b806058f",
+      "question": "What is the range of values for the shape parameter α?",
+      "answer": "The range of values for the shape parameter α is from 0 to 2.",
+      "gold_sources": [
+        "1701.03077v10-Figure13-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1701.03077v10",
+        "spiqa_explanation": "The caption states that \"black is α = 0 and white is α = 2.\"",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "460d8e3c868730cc",
+      "question": "Which of the compared methods is most likely to be the safest?",
+      "answer": "ChoiceNet",
+      "gold_sources": [
+        "1805.06431v4-Figure8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06431v4",
+        "spiqa_explanation": "The trajectories of the different methods are shown in the figure. ChoiceNet's trajectory is the one that stays closest to the center of the lane and avoids the oncoming car.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4892a57ed1946dbb",
+      "question": "Which model performs best on the SICK 2014 dataset in terms of average Spearman and Pearson correlation?",
+      "answer": "C-PHRASE",
+      "gold_sources": [
+        "1703.02507v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1703.02507v3",
+        "spiqa_explanation": "The table shows the performance of different models on the SICK 2014 dataset in terms of Spearman and Pearson correlation. The C-PHRASE model has the highest average score of 63.67.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "49e44059dcd1d6aa",
+      "question": "How did the accuracy of the model change as the iterations progressed?",
+      "answer": "The accuracy of the model increased from 66.7% to 100% as the iterations progressed.",
+      "gold_sources": [
+        "1707.08608v3-Table9-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.08608v3",
+        "spiqa_explanation": "The table shows that the accuracy of the model increased from 66.7% to 100% as the iterations progressed.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4aca01673a6e5ea2",
+      "question": "Which translation system performs the best and how does its performance compare to Google Translate (GT)? Is the comparison with GT completely fair? Explain your answer.",
+      "answer": "According to Table 2, Moses achieves the highest BLEU scores among the listed translation systems (Moses, Nematus) across all language pairs. However, its performance still falls behind Google Translate (GT) in every case.\n\nThe comparison with GT might not be entirely fair because, as GT has the advantage of being trained on a significantly larger dataset. This suggests that GT's performance advantage might be partially due to its training data rather than solely its inherent capabilities.",
+      "gold_sources": [
+        "1704.04539v2-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1704.04539v2",
+        "spiqa_explanation": " Question: \n\nBased on Table 2 and the passage, which translation system performs the best and how does its performance compare to Google Translate (GT)? Is the comparison with GT completely fair? Explain your answer. \n\n## Answer: \n\nAccording to Table 2, Moses achieves the highest BLEU scores among the listed translation systems (Moses, Nematus) across all language pairs. However, its performance still falls behind Google Translate (GT) in every case. \n\nThe comparison with GT might not be entirely fair because, as mentioned in the passage, GT has the advantage of being trained on a significantly larger dataset. This suggests that GT's performance advantage might be partially due to its training data rather than solely its inherent capabilities.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4bbdcf93c6e68598",
+      "question": "How does HUMBI capture diverse appearance of human expressions?",
+      "answer": "HUMBI includes 772 distinctive subjects across gender, ethnicity, age, clothing style, and physical condition, which generates diverse appearance of human expressions.",
+      "gold_sources": [
+        "1812.00281v3-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.00281v3",
+        "spiqa_explanation": "The figure shows that HUMBI includes people of different genders, ethnicities, ages, clothing styles, and physical conditions. This diversity helps to capture a wide range of human expressions.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4c135ec55cfbf24a",
+      "question": "Which method has the highest overall accuracy?",
+      "answer": "UnCoRd-VG-E",
+      "gold_sources": [
+        "1811.08481v2-Table7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.08481v2",
+        "spiqa_explanation": "The table shows the overall accuracy for each method. UnCoRd-VG-E has the highest overall accuracy of 76.0.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4e160e63c9b15b17",
+      "question": "Which constraint has the most significant impact on the FIT values for the CMS data set when the target rank is 15?",
+      "answer": "The smoothness constraint on $\\M{U_k}$ has the most significant impact on the FIT values for the CMS data set when the target rank is 15.",
+      "gold_sources": [
+        "1803.04572v2-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.04572v2",
+        "spiqa_explanation": "From Figure 0, we can see that the FIT value for COPA (Smoothness on $\\M{U_k}$) is the highest among all the versions of COPA for the CMS data set when the target rank is 15. This indicates that the smoothness constraint on $\\M{U_k}$ has the most significant impact on the FIT values.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "4fb56083ffef1dc6",
+      "question": "How can the shortcuts in the Visual7W dataset be remedied?",
+      "answer": "The shortcuts in the Visual7W dataset can be remedied by creating alternative decoys that are more likely to be correct, based on either the image or the question alone. This forces the machine to consider all of the information together in order to select the correct answer.",
+      "gold_sources": [
+        "1704.07121v2-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1704.07121v2",
+        "spiqa_explanation": "The figure shows an example of how the shortcuts in the Visual7W dataset can be remedied. In the original dataset, the correct answer \"A train\" is much more likely to be chosen than the other decoy answers. However, by using the QU and IU procedures, alternative decoys can be created that are just as likely to be correct as the original answer. This forces the machine to consider all of the information together in order to select the correct answer. \n\nFigure type: Schematic",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "536ca6cf843abbd3",
+      "question": "Which method performs best in the 10 classes 1-shot multi-class classification problem?",
+      "answer": "VAGER + Voting",
+      "gold_sources": [
+        "1710.06177v2-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.06177v2",
+        "spiqa_explanation": "The figure shows the Top-1 Accuracy of different methods as the number of shots increases. VAGER + Voting has the highest Top-1 Accuracy for all numbers of shots.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "552fb09b21e346e5",
+      "question": "Based on the table, how does MTSA compare to the Bi-LSTM and Multi-CNN baselines in terms of performance and training time?",
+      "answer": "MTSA outperforms both Bi-LSTM and Multi-CNN baselines across all evaluation metrics (P, R, F1, and Comp.) on all three test sets (Development, WSJ Test, and Brown Test). While MTSA achieves the highest scores, its training time is comparable to Multi-head and Multi-CNN, and significantly faster than Bi-LSTM.",
+      "gold_sources": [
+        "1805.00912v4-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.00912v4",
+        "spiqa_explanation": "The table displays the performance of various SRL models on different test sets, along with their training times. By comparing the values in the MTSA row to those in the Bi-LSTM and Multi-CNN rows, we can see that MTSA consistently achieves higher scores across all metrics while maintaining a similar training time to Multi-CNN and a much faster training time than Bi-LSTM. This demonstrates the superior performance and efficiency of MTSA compared to these two baselines.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5894fc98d801aba3",
+      "question": "Which objective function resulted in a higher ratio of f2(x∗) > 0 for the MNIST dataset?",
+      "answer": "RCE",
+      "gold_sources": [
+        "1706.00633v4-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00633v4",
+        "spiqa_explanation": "The table shows that the ratio of f2(x∗) > 0 for RCE is 0.77, while the ratio for CE is 0.01.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "58d349f10bba5145",
+      "question": "What is the initial value of V2 in the interval [0.35, 0.67]?",
+      "answer": "0.35",
+      "gold_sources": [
+        "1705.02946v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1705.02946v3",
+        "spiqa_explanation": "The table shows the initial values of V1, V2, and V3 in different intervals. The value of V2 in the interval [0.35, 0.67] is shown in the second row and fourth column of the table.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "58e7dbb0f7ebdf7e",
+      "question": "Based on the ablation study, which modification to the Devon model architecture had the most significant negative impact on performance for the KITTI 2015 dataset?",
+      "answer": "Removing the normalization in the relation modules had the most significant negative impact on performance for the KITTI 2015 dataset.",
+      "gold_sources": [
+        "1802.07351v2-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1802.07351v2",
+        "spiqa_explanation": "Table 1 shows the results of various modifications to the Devon model architecture on different datasets. For the KITTI 2015 dataset, the \"Without norm\" configuration resulted in the highest end-point error of 15.64, which is considerably higher than the baseline model's error of 13.25. This indicates that removing the normalization significantly reduces the model's accuracy on this particular dataset.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5a9fc7a2bf728f91",
+      "question": "Which category of object is the least common in the dataset?",
+      "answer": "Train",
+      "gold_sources": [
+        "1805.04687v2-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.04687v2",
+        "spiqa_explanation": "The figure shows the number of instances for each category of object. The category with the lowest bar is \"Train,\" indicating that it is the least common.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5bf128ea9083530f",
+      "question": "Which model performed best on average across all tasks?",
+      "answer": "The Linear model performed best on average with a score of 70.0.",
+      "gold_sources": [
+        "1809.02731v3-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.02731v3",
+        "spiqa_explanation": "The table shows the performance of three models on seven different tasks. The average performance is shown in the last row of the table.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5c8641fc58def70b",
+      "question": "Which method has the lower testing error on the MNIST task?",
+      "answer": "ITN",
+      "gold_sources": [
+        "1805.06447v3-Table8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06447v3",
+        "spiqa_explanation": "The table shows that ITN has a testing error of 0.47% on the MNIST task, while ITN-NG has a testing error of 0.49%.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5d8b219f56db875a",
+      "question": "Which model performs the best when trained on 60% of the training data?",
+      "answer": "KAR",
+      "gold_sources": [
+        "1809.03449v3-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.03449v3",
+        "spiqa_explanation": "The figure shows that the F1 score for KAR is higher than the F1 score for SAN and QANet when trained on 60% of the training data.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5e0feb68ef50b513",
+      "question": "Which GAN model is able to generate the most realistic blinking motions?",
+      "answer": "TecoGAN",
+      "gold_sources": [
+        "1811.09393v4-Figure8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.09393v4",
+        "spiqa_explanation": "The caption states that our model, RecycleGAN, and STC-V2V are all able to generate correct blinking motions, but that our model outperforms the latter two in terms of coherent detail that is generated. This can be seen in the figure, where the blinking motions generated by our model are more realistic and less jerky than those generated by the other models.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "5ed12274a122ba4a",
+      "question": "What is the support value of the node \"ana=NAM\"?",
+      "answer": "2",
+      "gold_sources": [
+        "1708.00160v2-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1708.00160v2",
+        "spiqa_explanation": "The support value of a node is the number of transactions that contain the itemset represented by the node. In this case, the node \"ana=NAM\" has a support value of 2, which means that there are 2 transactions that contain the itemset \"ana=NAM\".",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "608ae5521f5cf545",
+      "question": "What is the probability of finding the pattern {head=F, ant=NAM} in the data?",
+      "answer": "1",
+      "gold_sources": [
+        "1708.00160v2-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1708.00160v2",
+        "spiqa_explanation": "The figure shows the conditional FP-Tree for the pattern {head=F, ant=NAM}. The numbers in parentheses next to each node represent the support of the itemset represented by the path from the root to that node. The support of the pattern {head=F, ant=NAM} is 1.0, which means that the pattern appears in all of the transactions in the data.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "62a72fc098bb7717",
+      "question": "How do the word embeddings learned by the Cap2Img model compare to the original GloVe embeddings in terms of semantic similarity?",
+      "answer": "The word embeddings learned by the Cap2Img model outperform the original GloVe embeddings in terms of semantic similarity.",
+      "gold_sources": [
+        "1707.06320v2-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.06320v2",
+        "spiqa_explanation": "Table 1 shows the Spearman correlation scores for different word embedding models on four standard semantic similarity benchmarks. A higher correlation score indicates better performance in capturing semantic similarity. Comparing the scores of Cap2Img and GloVe across all four benchmarks, we see that Cap2Img consistently achieves higher scores. This suggests that the grounded word projections learned by the Cap2Img model lead to word embeddings that better capture semantic relationships compared to the original GloVe embeddings.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "6651643731c4095e",
+      "question": "Which method achieves the lowest error rate on ILSVRC at 1/4 of the total cost?",
+      "answer": "MSDNNet38",
+      "gold_sources": [
+        "1708.06832v3-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1708.06832v3",
+        "spiqa_explanation": "The table in Figure (b) shows the error rates of different methods on ILSVRC at different fractions of the total cost. MSDNNet38 + AdaLoss has the lowest error rate of 28.0 at 1/4 of the total cost.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "68d7d0b47a4bf827",
+      "question": "Which method achieves lower approximation error when the compression factor is greater than 3?",
+      "answer": "Factorize-Recover",
+      "gold_sources": [
+        "1706.08146v3-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.08146v3",
+        "spiqa_explanation": "The figure shows that the blue line (Factorize-Recover) is below the orange line (Recover-Factorize) when the compression factor is greater than 3.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "69753372328d541f",
+      "question": "How does the performance of VAGER+Voting compare to other VAGER variants in the 1-shot and 20-shot settings?",
+      "answer": "VAGER+Voting consistently outperforms all other VAGER variants in both 1-shot and 20-shot settings, achieving the highest AUC and F1 scores.",
+      "gold_sources": [
+        "1710.06177v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.06177v2",
+        "spiqa_explanation": "Looking at the table, we can compare the bolded values for VAGER+Voting with the corresponding values for other VAGER variants. In both the 1-shot and 20-shot columns, VAGER+Voting has the highest AUC and F1 scores, demonstrating its superior performance compared to other variants. This suggests that the Voting strategy effectively combines the strengths of different components within the VAGER framework.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "6d2b94752b8dbd53",
+      "question": "How does the PP loss improve the temporal coherence of the video sequence?",
+      "answer": "The PP loss constrains the output sequence to be symmetric by reducing the L2 distance between corresponding frames in the forward and backward passes. This helps to reduce drifting artifacts and improve temporal coherence.",
+      "gold_sources": [
+        "1811.09393v4-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.09393v4",
+        "spiqa_explanation": " The figure shows how the PP loss works. The forward pass (Ping) and the backward pass (Pong) are shown in the figure. The PP loss reduces the L2 distance between corresponding frames in the forward and backward passes, which is shown by the red circles with a minus sign. This helps to reduce drifting artifacts and improve temporal coherence.\n\n**Figure type:** Schematic",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "708bb2c83cd2b7b1",
+      "question": "How does the alpha parameter affect recommendation accuracy for different sample sizes on the CLASS dataset?",
+      "answer": "The alpha parameter generally increases recommendation accuracy as the sample size increases. However, the effect of alpha varies depending on the loss function used. For cross-entropy loss, alpha has a relatively small effect on accuracy. For TOP1-max loss, alpha has a larger effect on accuracy, especially for smaller sample sizes. For BPR-max loss, alpha has a very large effect on accuracy, with higher values of alpha leading to much higher accuracy.",
+      "gold_sources": [
+        "1706.03847v3-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.03847v3",
+        "spiqa_explanation": "The figure shows the recall of the recommendation system for different values of alpha and different sample sizes. The recall is a measure of how well the system recommends relevant items. The figure shows that the recall generally increases as the sample size increases, and that the effect of alpha varies depending on the loss function used.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "75f2aba418f414e0",
+      "question": "Which method has the highest overall accuracy for answering questions about images on the 100 questions sampled from VQA v2 dataset?",
+      "answer": "UnCoRd-VG-E",
+      "gold_sources": [
+        "1811.08481v2-Table8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.08481v2",
+        "spiqa_explanation": "The table shows the accuracy of two methods for answering questions about images. The overall accuracy of UnCoRd-VG-E is 92.0, which is higher than the overall accuracy of Pythia (77.0).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "76fd9f0698fbe971",
+      "question": "Which method has the lowest average misclassification error for the cubechips image pair?",
+      "answer": "Multi-X",
+      "gold_sources": [
+        "1706.00827v2-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00827v2",
+        "spiqa_explanation": "The table shows the average and minimum misclassification errors for each method on each image pair. For the cubechips image pair, Multi-X has the lowest average misclassification error of 3.45%.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "81374a498915eeb8",
+      "question": "Which attack method is the most effective at reducing the accuracy of the Resnet-32 model on the MNIST dataset?",
+      "answer": "The most effective attack method at reducing the accuracy of the Resnet-32 model on the MNIST dataset is BIM/CE.",
+      "gold_sources": [
+        "1706.00633v4-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00633v4",
+        "spiqa_explanation": "The figure shows the classification accuracy of the Resnet-32 model on the MNIST dataset under different attack methods. BIM/CE achieves the lowest accuracy of all the methods, indicating that it is the most effective at reducing the accuracy of the model.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "8209d561812b2bc6",
+      "question": "How does the performance of the proposed model compare to other models when trained on the LDC2017T10 dataset, and what does this suggest about the effectiveness of incorporating syntax into the model?",
+      "answer": "When trained on the LDC2017T10 dataset, the proposed model achieves the highest BLEU scores on both Dev and Test sets compared to other models listed in the table. This suggests that incorporating syntax into the model significantly improves its performance in generating text from AMR representations.",
+      "gold_sources": [
+        "1804.07707v2-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.07707v2",
+        "spiqa_explanation": "Table 1 presents BLEU scores for different models trained on various datasets. Comparing the scores of \"Our model\" to other models trained on LDC2017T10 specifically allows us to isolate the impact of the proposed approach on the same data. The higher BLEU scores achieved by \"Our model\" indicate that incorporating syntax leads to better generation quality compared to models without this feature.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "8287303ed14dbce9",
+      "question": "Which graph shows the largest improvement in accuracy for the TCM(8*memory) method compared to the GSS(fsize=12) method?",
+      "answer": "The graph for the Caida-networkflow dataset shows the largest improvement in accuracy for the TCM(8*memory) method compared to the GSS(fsize=12) method.",
+      "gold_sources": [
+        "1809.01246v1-Figure8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.01246v1",
+        "spiqa_explanation": "The graph for the Caida-networkflow dataset shows the largest difference in the y-axis values between the two methods.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "82f6250cbcdf409f",
+      "question": "Explain the rationale behind using five deformable cost volumes with different hyperparameter settings in Devon's relation module.",
+      "answer": "The five deformable cost volumes in Devon's relation module are designed to capture multi-scale motion by combining dense correspondences near the image center with sparser correspondences in the periphery. This is achieved by using different neighborhood sizes (k) and dilation rates (r) for each cost volume, as shown in Table 1. Smaller neighborhood sizes and dilation rates result in denser correspondences, focusing on finer details and small displacements, while larger values capture broader context and larger motions.",
+      "gold_sources": [
+        "1802.07351v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1802.07351v2",
+        "spiqa_explanation": "Table 1 shows that the first four cost volumes share the same neighborhood size (k=5) but have increasing dilation rates (r = 1, 3, 8, 12). This suggests a focus on increasingly larger displacements while maintaining a relatively dense sampling. The fifth cost volume, however, uses a larger neighborhood size (k=9) and the largest dilation rate (r=20), indicating a focus on capturing sparse correspondences and large motions in the image periphery. This multi-scale approach aligns with the observation that small displacements are more frequent in natural videos and mimics the structure of the retina, which has higher resolution near the center and lower resolution in the periphery.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "8303dfbd8f2a9c93",
+      "question": "Which method has the lowest average misclassification error?",
+      "answer": "Multi-X",
+      "gold_sources": [
+        "1706.00827v2-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00827v2",
+        "spiqa_explanation": "The table shows the average and median misclassification errors for different methods. The lowest average misclassification error is for Multi-X, which has an average error of 9.72%.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "83a84bd8ab0bf7fa",
+      "question": "Which method produces higher contrast saliency maps, FLoss or Log-FLoss?",
+      "answer": "FLoss",
+      "gold_sources": [
+        "1805.07567v2-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.07567v2",
+        "spiqa_explanation": "The figure shows example saliency maps produced by FLoss and Log-FLoss. The FLoss maps have higher contrast than the Log-FLoss maps, as can be seen by the sharper edges and more distinct foreground objects.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "83f4af7813f4087d",
+      "question": "Which topology has the highest transmission rate for GMap 100%?",
+      "answer": "Mesh",
+      "gold_sources": [
+        "1803.02750v3-Figure8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.02750v3",
+        "spiqa_explanation": "The figure shows that the transmission rate for GMap 100% is higher for the mesh topology than for the tree topology. This can be seen by comparing the curves for the two topologies in the top right panel of the figure.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "845bebe88e3e4602",
+      "question": "Why does the Semantic self-supervision model perform better on ReferIt (mask) compared to ReferIt (bbox), and how does this relate to the difference in performance between Visual Genome and Flickr30k datasets?",
+      "answer": "The Semantic self-supervision model performs better on ReferIt (mask) compared to ReferIt (bbox) because mask-based annotations are considered more precise and accurate for measuring localization performance than bounding boxes. Masks tightly encompass the specific region referred to by the phrase, whereas bounding boxes can include extraneous areas. \n\nThis relates to the difference in performance between Visual Genome and Flickr30k because both Visual Genome and ReferIt (mask) contain phrases that refer to very specific regions or non-salient objects. Precise localization is crucial for achieving high accuracy on these datasets. Flickr30k, on the other hand, annotates all bounding boxes referring to a phrase, leading to potentially less precise localization requirements and generally higher performance across methods.",
+      "gold_sources": [
+        "1803.06506v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.06506v3",
+        "spiqa_explanation": "The table shows the accuracy of different models on various datasets. By comparing the performance of the Semantic self-supervision model on ReferIt (mask) and ReferIt (bbox), we can see the impact of annotation type on accuracy. Additionally, the passage highlights the importance of precise localization for datasets like Visual Genome and ReferIt, which explains the lower performance compared to Flickr30k.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "84a331ff892a60cc",
+      "question": "Which algorithm performs the best in the Joint Breakage experiment?",
+      "answer": "ALOQ",
+      "gold_sources": [
+        "1605.07496v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1605.07496v3",
+        "spiqa_explanation": "The table shows the quartiles of the expected cost of the final π̂∗ estimated by each algorithm across 20 independent runs for the Robotic Arm Simulator experiments. The lower the cost, the better the performance. In the Joint Breakage experiment, ALOQ has the lowest Q1, median, and Q2 values.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "89ae16ea1fe49c96",
+      "question": "How does the proposed method's attention map differ from the VGG16 feature map?",
+      "answer": "The attention map generated by proposed method is able to localize regions that were weak or non-existent in the activations of the input maps, while the VGG16 feature map simply amplifies the activations present in VGG16 channels.",
+      "gold_sources": [
+        "1803.06506v3-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.06506v3",
+        "spiqa_explanation": "The figure shows that the model's attention map is more focused on specific regions of the image, such as the boy in purple and white, the drawings on the umbrella, and the surfer's face. This suggests that the model is able to learn a phrase-dependent attention map that is more relevant to the task at hand.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "89ccb561f8141b08",
+      "question": "Which of the four methods (ResNet, DANN, CDAN-f, CDAN-fg) is most effective at separating the two classes of data points?",
+      "answer": "CDAN-fg",
+      "gold_sources": [
+        "1705.10667v4-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1705.10667v4",
+        "spiqa_explanation": "In the figure, we can see that CDAN-fg produces the clearest separation between the red and blue data points. The other methods show some overlap between the two classes, indicating that they are not as effective at separating them.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "8a73096f119ad497",
+      "question": "Which dataset has the highest AUC for all ripple set sizes?",
+      "answer": "MovieLens-1M",
+      "gold_sources": [
+        "1803.03467v4-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.03467v4",
+        "spiqa_explanation": " The table shows the AUC values for three datasets (MovieLens-1M, Book-Crossing, and Bing-News) for different ripple set sizes. The values in the MovieLens-1M row are consistently higher than the values in the other two rows, indicating that MovieLens-1M has the highest AUC for all ripple set sizes.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "94a3bbd3071a2b2f",
+      "question": "What is the relationship between the novel class and the top-3 most similar base classes?",
+      "answer": "The top-3 most similar base classes are the three classes that are most similar to the novel class, based on the embedding layer in a 5-shot setting.",
+      "gold_sources": [
+        "1710.06177v2-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.06177v2",
+        "spiqa_explanation": "The figure shows a table of images, with each row representing a different class. The first row shows the novel class, and the second row shows the top-3 most similar base classes. The images in the second row are similar to the images in the first row, which suggests that the top-3 most similar base classes are indeed similar to the novel class.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "97ddbe0a25f47a05",
+      "question": "Describe the relationship between the update threshold (Tu) and the performance of ITN (B-CNN) on the MNIST dataset.",
+      "answer": "The performance of ITN (B-CNN) on the MNIST dataset decreases as the update threshold (Tu) increases. This is evident from the increasing ITN error percentages as Tu goes from 1e-3 to 1e-1.",
+      "gold_sources": [
+        "1805.06447v3-Table7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06447v3",
+        "spiqa_explanation": "Table 1 explicitly shows the ITN error for various Tu values. As we move down the table, Tu increases, and correspondingly, the ITN error also increases. This trend indicates an inverse relationship between Tu and the performance of ITN. The passage further explains that this performance drop is due to the decrease in the quality of generated samples when the threshold is increased.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "9e067a9abc14e495",
+      "question": "On which dataset did the gRCC* algorithm achieve the largest relative improvement over the RCC algorithm, and by approximately how much did it improve?",
+      "answer": "The gRCC* algorithm achieved the largest relative improvement over the RCC algorithm on the YTF dataset, with a relative improvement of approximately 31.9%.",
+      "gold_sources": [
+        "1701.03077v10-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1701.03077v10",
+        "spiqa_explanation": "The table shows the AMI values for both gRCC* and RCC algorithms on various datasets. The \"Rel. Impr.\" column shows the relative improvement of gRCC* compared to RCC. By looking at this column, we can identify that the YTF dataset has the highest value (31.9%), indicating the most significant improvement achieved by gRCC*.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "a27ed6441e41e357",
+      "question": "Which model performed the best on the AddOneSent dataset?",
+      "answer": "KAR",
+      "gold_sources": [
+        "1809.03449v3-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.03449v3",
+        "spiqa_explanation": "The table shows that KAR achieved the highest F1 score of 72.3 on the AddOneSent dataset.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "a2f1c7f67ac608f2",
+      "question": "Which model performs the best for response selection, and how can we tell?",
+      "answer": "The KEHNN model performs the best for response selection. This is evident because it achieves the highest scores across all metrics (R$2$@1, R${10}$@1, R${10}$@2, and R${10}$@5) compared to all other models in the table.",
+      "gold_sources": [
+        "1611.04684v1-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.04684v1",
+        "spiqa_explanation": "Table 1 presents the performance of different models on the task of response selection. Each column represents a specific evaluation metric, and each row represents a different model. By comparing the values in each column, we can identify the model with the best performance for each metric. In this case, KEHNN consistently outperforms all other models, indicating its superior performance in response selection.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "a3e91c36b38cfc5e",
+      "question": "What is the effect of the sliding tendency of SepConv on the generated images?",
+      "answer": "The sliding tendency of SepConv will cause motion errors and high LMS.",
+      "gold_sources": [
+        "1809.00263v5-Figure13-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.00263v5",
+        "spiqa_explanation": "The figure shows the ground truth of the missing sequence and the generated images by different methods. The generated images by SepConv have a sliding tendency, which causes the person in the images to appear to be moving faster than they actually are. This is evident in the high LMS values for SepConv.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "a9ba30333f5b1d33",
+      "question": "What is the value of the learning rate α for the BAIR dataset?",
+      "answer": "0.0002",
+      "gold_sources": [
+        "1809.00263v5-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.00263v5",
+        "spiqa_explanation": "The table shows the values of the hyperparameters for training on different datasets. The value of α for the BAIR dataset is listed as 0.0002.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ab175e700c726e2c",
+      "question": "Which dataset has the most lane marking annotations?",
+      "answer": "BDD100K",
+      "gold_sources": [
+        "1805.04687v2-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.04687v2",
+        "spiqa_explanation": "The table shows that BDD100K has 100,000 lane marking annotations, which is more than any other dataset in the table.",
+        "caption_exact": true,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ac34197ea676348e",
+      "question": "Which method requires the fewest observations to spot an action in a video with 2.5% action coverage?",
+      "answer": "Action Search",
+      "gold_sources": [
+        "1706.04269v2-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.04269v2",
+        "spiqa_explanation": "The figure shows that the Action Search method (green bars) consistently requires fewer observations than the other two methods (blue and light blue bars) across all levels of action coverage. At 2.5% action coverage, the Action Search method requires about 120 observations on average, while the Direction Baseline and Random Baseline methods require about 150 and 175 observations, respectively.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b2635fae32c16ddd",
+      "question": "What are the differences between the results of the monocular 3D body prediction network trained with different dataset combinations?",
+      "answer": "The results of the monocular 3D body prediction network trained with different dataset combinations show that the Up3d+HUMBI dataset combination produces the most accurate results. This is evident in the images where the predicted 3D body poses are closer to the ground-truth poses than the other dataset combinations.",
+      "gold_sources": [
+        "1812.00281v3-Figure15-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.00281v3",
+        "spiqa_explanation": "The figure shows the results of the monocular 3D body prediction network trained with different dataset combinations. The first column shows the input images, the second column shows the ground-truth 3D body poses, and the third, fourth, and fifth columns show the predicted 3D body poses for the Up3d, HUMBI, and Up3d+HUMBI dataset combinations, respectively.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b289cffafe33826b",
+      "question": "What is the relationship between the number of Monte Carlo samples (N) and the translation performance of the BR-CSGAN model? Why is there a trade-off when choosing the value of N?",
+      "answer": "The table and passage show that the translation performance of the BR-CSGAN model generally improves as the number of Monte Carlo samples (N) increases. However, this improvement plateaus after N reaches a certain point (around 20 in this case).\n\nThere is a trade-off when choosing the value of N because increasing N also increases the computational complexity and training time. While a higher N leads to more accurate reward estimations and better performance, it also requires more computational resources and longer training times. Therefore, choosing the optimal N involves balancing the desired performance with the available computational resources and time constraints.",
+      "gold_sources": [
+        "1703.04887v4-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1703.04887v4",
+        "spiqa_explanation": "Table 2 presents the BLEU scores of the BR-CSGAN model with different N values. As N increases from 15 to 20, the BLEU scores consistently improve across all datasets. However, further increasing N to 25 and 30 shows minimal improvement, indicating a plateau in performance. The passage explains that this is because a higher N leads to more accurate reward estimations, guiding the model towards better performance. However, it also clarifies that higher N values require more sampling, significantly increasing computation time. Therefore, the choice of N involves a trade-off between accuracy and computational efficiency.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b45b87de2304e0cb",
+      "question": "What is the relationship between the $L_2$-norm of a word vector and its frequency?",
+      "answer": "The $L_2$-norm of a word vector is inversely proportional to its frequency.",
+      "gold_sources": [
+        "1703.02507v3-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1703.02507v3",
+        "spiqa_explanation": "The left figure in Figure 1 shows that the $L_2$-norm of a word vector decreases as the frequency of the word increases. This is consistent with Luhn's hypothesis, which states that mid-rank terms are the most significant to discriminate content.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b579923f64a6a53e",
+      "question": "Why did the authors choose to use a nonlinearity to curve α before fitting the cubic hermite spline?",
+      "answer": "The authors chose to use a nonlinearity to curve α before fitting the cubic hermite spline because it allows for increased knot density near α = 2 and decreased knot density when α > 4. This helps to better approximate the log partition function, which is difficult to evaluate for arbitrary inputs.",
+      "gold_sources": [
+        "1701.03077v10-Figure8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1701.03077v10",
+        "spiqa_explanation": "The top plot of the figure shows the nonlinearity that is used to curve α. The bottom plot shows the cubic hermite spline that is fit to the curved α. The dots in the bottom plot represent the knots that are used by the spline. It can be seen that the knots are more densely spaced near α = 2 and less densely spaced when α > 4. This is because the nonlinearity curves α in such a way that more knots are needed to accurately approximate the log partition function in the region where α is close to 2, and fewer knots are needed when α is greater than 4.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b6992bb4eb524c8c",
+      "question": "Which model, VAR or LSTNet, is better at capturing both daily and weekly repeating patterns in the data?",
+      "answer": "LSTNet",
+      "gold_sources": [
+        "1703.07015v3-Figure7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1703.07015v3",
+        "spiqa_explanation": "The figure shows that LSTNet is able to predict similar patterns for Fridays and Saturdays, and ones for Sundays and Mondays, while VAR is not. This suggests that LSTNet is better at capturing both daily and weekly repeating patterns in the data.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "b9c75cce4d9c2e86",
+      "question": "What is the purpose of the blank space labeled Z'5?",
+      "answer": "The blank space labeled Z'5 is used to complete the allocation of the original pieces.",
+      "gold_sources": [
+        "1603.00286v5-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1603.00286v5",
+        "spiqa_explanation": "The figure shows how the original pieces (labeled Z1-Z4) can be allocated to the blank space (labeled Z'5) in order to complete the puzzle.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "bb2ec6e2dd32170c",
+      "question": "Which type of word has the greatest difference in frequency of occurrence between MultiNLI and SNLI?",
+      "answer": "Negation (PTB)",
+      "gold_sources": [
+        "1704.05426v4-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1704.05426v4",
+        "spiqa_explanation": "The table shows the difference in frequency of occurrence between MultiNLI and SNLI for each type of word. The \"Diff.\" column shows that negation has the greatest difference, with a difference of 26.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "bc39ca22b8cc3b0e",
+      "question": "What is the most common type of scene in the dataset?",
+      "answer": "City Street",
+      "gold_sources": [
+        "1805.04687v2-Figure10-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.04687v2",
+        "spiqa_explanation": "The figure shows that City Street has the highest number of instances, with approximately 61,960 instances.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "bd95b79480f03b20",
+      "question": "Which method, AMIE or MINE, produces generated frames that are closer in distribution to the real frames?",
+      "answer": "MINE",
+      "gold_sources": [
+        "1812.06589v2-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.06589v2",
+        "spiqa_explanation": "The figure shows that the red dots, which represent the generated frames produced by MINE, are more closely clustered with the blue triangles, which represent the real frames, than the red dots produced by AMIE. This indicates that the MINE method produces generated frames that are closer in distribution to the real frames.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "bdf54a546811d5ff",
+      "question": "Which of the five methods tested had the lowest average misclassification error?",
+      "answer": "Multi-X",
+      "gold_sources": [
+        "1706.00827v2-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.00827v2",
+        "spiqa_explanation": "The table shows the average misclassification error for each method. Multi-X has the lowest average error of 2.97%.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "bea5e5e3c031b7f6",
+      "question": "Which dataset has the most concentrated distribution of gaze and head pose?",
+      "answer": "MPII-Gaze",
+      "gold_sources": [
+        "1812.00281v3-Figure6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.00281v3",
+        "spiqa_explanation": "The figure shows the distribution of gaze, head pose, and eye pose for four different datasets. The MPII-Gaze dataset has the most concentrated distribution of gaze and head pose, as the heatmap is more concentrated around the center.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "c03c930f18568e60",
+      "question": "Which network has the shortest average path length when L = 9?",
+      "answer": "DMRNet",
+      "gold_sources": [
+        "1611.07718v2-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.07718v2",
+        "spiqa_explanation": "The figure shows the distribution of path lengths for three networks. The average path length for each network is shown in the legend. When L = 9, DMRNet has the shortest average path length (8.0 ± 2.83).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "c0c8c66ebd034cb8",
+      "question": "What protocol has a higher radio duty cycle in the first 7 hours of the trial?",
+      "answer": "TCP",
+      "gold_sources": [
+        "1811.02721v3-Figure11-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.02721v3",
+        "spiqa_explanation": "The green line, which represents TCP, is higher than the blue line, which represents CoAP, for the first 7 hours of the trial.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "c4630e54ff5bd033",
+      "question": "What is the effect of increasing the value of β2 on the precision and recall of the model?",
+      "answer": "Increasing the value of β2 decreases the precision and increases the recall of the model.",
+      "gold_sources": [
+        "1805.07567v2-Figure6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.07567v2",
+        "spiqa_explanation": " \n\nThe figure shows that the precision curve (red) slopes downward as β2 increases, while the recall curve (green) slopes upward. This indicates that increasing β2 leads to a decrease in precision and an increase in recall.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "c8d5b64470a95c33",
+      "question": "Which model performed the best on the MSRP task for the Twitter dataset?",
+      "answer": "The Sent2Vec uni. + bi. model performed the best on the MSRP task for the Twitter dataset.",
+      "gold_sources": [
+        "1703.02507v3-Table6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1703.02507v3",
+        "spiqa_explanation": "The table shows the performance of different models on different downstream supervised evaluation tasks. The MSRP task is one of these tasks, and the Twitter dataset is one of the datasets used. The Sent2Vec uni. + bi. model achieved the highest score (72.4 / 80.6) on the MSRP task for the Twitter dataset.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ca23fe4fce0312aa",
+      "question": "Why do you think the performance of all models is generally lower on Rest15 compared to Rest14?",
+      "answer": "The performance of all models is generally lower on Rest15 because it has a larger number of aspect categories (13) compared to Rest14 (5). This increased complexity makes it more challenging for the models to accurately identify and classify the aspects.",
+      "gold_sources": [
+        "1812.10735v2-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.10735v2",
+        "spiqa_explanation": "The caption of Table 1 explicitly states the difference in the number of aspect categories between Rest14 and Rest15. Comparing the F1 scores across both datasets, we can observe a consistent decrease in performance for all models on Rest15. This suggests that the increased number of categories in Rest15 contributes to the overall decrease in performance.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "cea178d3c43c28b8",
+      "question": "Which dataset has the highest Recall@20 and MRR@20?",
+      "answer": "VIDXL has the highest Recall@20 and MRR@20.",
+      "gold_sources": [
+        "1706.03847v3-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.03847v3",
+        "spiqa_explanation": "The table shows the Recall@20 and MRR@20 for four different datasets. VIDXL has the highest values for both metrics.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "d24d0f8d7dcdafd9",
+      "question": "Which method generates the best moving objects?",
+      "answer": "SDVI",
+      "gold_sources": [
+        "1809.00263v5-Figure16-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.00263v5",
+        "spiqa_explanation": "The SDVI method is able to model the dynamic of the basketball video sequence correctly and generate better moving objects than SuperSloMo and SepConv. This can be seen in the figure, where the SDVI method is able to generate more realistic and accurate moving objects than the other two methods.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "d41513e22193161b",
+      "question": "Which topic is most likely to be associated with a pro-immigration stance?",
+      "answer": "\"english language city spanish community\"",
+      "gold_sources": [
+        "1705.09296v2-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1705.09296v2",
+        "spiqa_explanation": " The figure shows the probability of pro-immigration tone for each topic, and \"english language city spanish community\" has the highest probability (close to 1). This suggests that articles that discuss topics related to English language, city, Spanish community are more likely to have a pro-immigration stance.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "d6feb3b93d19354d",
+      "question": "Explain the difference between the features \"TF-IDF\" and \"BM25\".",
+      "answer": "Both TF-IDF and BM25 are features used to estimate the relevance of a document to a query. However, they differ in their underlying calculations.\n\nTF-IDF: This feature represents the average product of term frequency (TF) and inverse document frequency (IDF) for each query term within different document sections (URL, title, content, and whole document). TF measures how often a term appears in a specific document section, while IDF measures how important that term is across the entire document collection.\n\nBM25: This feature utilizes the BM25 ranking function, which is a probabilistic model that considers term frequency, document length, and average document length to estimate relevance. While it also considers term frequency like TF-IDF, it incorporates additional factors to improve the weighting scheme.",
+      "gold_sources": [
+        "1804.05938v2-Table2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.05938v2",
+        "spiqa_explanation": "Table 1 provides a summary of the ranking features extracted for the experiments. It explicitly mentions that TF-IDF is based on the average TF*IDF value, while BM25 utilizes the BM25 ranking function. This distinction highlights the different approaches used by each feature to assess document relevance.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "d7374085ac29b1ae",
+      "question": "Which of the three models, KAR, SAN, or QANet (without data augmentation), performs the best on AddSent when trained on the full training set?",
+      "answer": "KAR",
+      "gold_sources": [
+        "1809.03449v3-Figure3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1809.03449v3",
+        "spiqa_explanation": "The figure shows the F1 score of each model on AddSent for different proportions of the training set. At 100% of the training set, KAR has the highest F1 score.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "d9a9f74c48e5912a",
+      "question": "How does the performance of the \"Conv. Self-Correction\" method compare to other methods when using 30% of the training examples as $\\F$ and the remaining as $\\W$ on the Cityscapes validation set?",
+      "answer": "The \"Conv. Self-Correction\" method achieves the highest mIOU score of 79.46 compared to other methods listed in the table under the same data split condition.",
+      "gold_sources": [
+        "1811.07073v3-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.07073v3",
+        "spiqa_explanation": "Table 1 presents the mIOU scores for various methods under different data split scenarios. When focusing on the rows where $F=914$ and $W=2061$ (representing the 30% split), we can directly compare the mIOU scores of all listed methods. The \"Conv. Self-Correction\" method clearly shows the highest score, indicating its superior performance in this specific setting.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "da28040b3ca86c9b",
+      "question": "Which model performs the best on CIFAR100 and ILSVRC datasets?",
+      "answer": "EANN with AdaLoss performs the best on both CIFAR100 and ILSVRC datasets.",
+      "gold_sources": [
+        "1708.06832v3-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1708.06832v3",
+        "spiqa_explanation": "This can be seen in Figure (a) and (b), where EANN with AdaLoss consistently has the lowest error rate compared to other models.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "db5d69b20a9a64e5",
+      "question": "How does the training loss of DMRNet compare to that of ResNet on the CIFAR-10 dataset with L = 30?",
+      "answer": "The training loss of DMRNet is lower than that of ResNet on the CIFAR-10 dataset with L = 30.",
+      "gold_sources": [
+        "1611.07718v2-Figure7-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1611.07718v2",
+        "spiqa_explanation": "The plot in Figure (a) shows that the training loss of DMRNet (dashed red line) is consistently lower than that of ResNet (dashed blue line) throughout the training process.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "dbc4b541957fd8de",
+      "question": "How do the initial conditions of the simulations vary?",
+      "answer": "The initial conditions of the simulations vary in two dimensions: the position of the liquid drop along the x-axis (α1) and the size of the drop (α2).",
+      "gold_sources": [
+        "1704.07854v4-Figure13-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1704.07854v4",
+        "spiqa_explanation": "The left image shows a grid of simulations with different initial conditions. The x-axis represents the position of the drop, and the y-axis represents the size of the drop.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "dc6ca3b450459edc",
+      "question": "What is the upper bound on the query complexity for finding an ε-perfect allocation with minimum cuts for 3 or more players?",
+      "answer": "O(n^3 / ε)",
+      "gold_sources": [
+        "1705.02946v3-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1705.02946v3",
+        "spiqa_explanation": "The upper bound for ε-perfect allocations with minimum cuts is shown in the third row of the table. For n ≥ 3 players, the upper bound is O(n^3 / ε).",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ddf4a8266f01dbe3",
+      "question": "What is the effect of increasing the budget in FLOPS on the test Top-1 error rate for the three different training strategies?",
+      "answer": "The test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies.",
+      "gold_sources": [
+        "1708.06832v3-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1708.06832v3",
+        "spiqa_explanation": "The figure shows that the test Top-1 error rate decreases as the budget in FLOPS increases for all three training strategies. This is because increasing the budget in FLOPS allows the models to train for longer and learn more complex features.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "de8a813412023198",
+      "question": "Why did Seq2Seq and Mem2Seq models perform poorly when the percentage of unseen entities in the knowledge base (KB) increased?",
+      "answer": "Seq2Seq and Mem2Seq models performed poorly because they struggled to capture the semantic representations of unseen entities. This means they couldn't understand the meaning and relationships of new restaurants introduced in the KB. As a result, they were unable to accurately identify the correct restaurant and provide its address when faced with unseen entities.",
+      "gold_sources": [
+        "1805.01216v3-Table4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.01216v3",
+        "spiqa_explanation": "The table shows an example where the user requests the address of an \"overpriced\" Thai restaurant in Bangkok. While the correct restaurant is \"r\\_bangkok\\_overpriced\\_thai\\_8\", both Seq2Seq and Mem2Seq models incorrectly provided the address of \"r\\_bangkok\\_overpriced\\_thai\\_4\". This error likely occurred because these models couldn't distinguish between the unseen restaurants in the KB due to their inability to grasp their semantic representations. This example illustrates the general trend observed in Figure 4a and 4b, where the performance of these models declined significantly with increasing unseen entities.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "df5d32f49024df56",
+      "question": "How many hops are there between the Hamilton and the Internet?",
+      "answer": "5 hops",
+      "gold_sources": [
+        "1811.02721v3-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.02721v3",
+        "spiqa_explanation": "The caption states that the figure shows a snapshot of uplink routes in an OpenThread topology at a transmission power of -8 dBm (5 hops). This means that there are 5 hops between the Hamilton and the Internet.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "e1651f7c8f1099c2",
+      "question": "Which loss type performs best when the concept batch size is 5k?",
+      "answer": "Independent and common concept",
+      "gold_sources": [
+        "1803.06506v3-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.06506v3",
+        "spiqa_explanation": "The table shows that the independent and common concept loss type has the highest value (29.89) when the concept batch size is 5k.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "e2a2875c6759085e",
+      "question": "Which model performs the best in terms of Entity F1 score when the percentage of unseen entities in the response is low?",
+      "answer": "BoSsNet",
+      "gold_sources": [
+        "1805.01216v3-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.01216v3",
+        "spiqa_explanation": "The plot shows that the BoSsNet line is the highest for both CamRest and SMD datasets when the percentage of unseen entities is low.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "e41675a3b8b7d34a",
+      "question": "Which method is the fastest for computing a graph with a small average node degree?",
+      "answer": "The proposed method in this paper (k=5) is the fastest for computing a graph with a small average node degree.",
+      "gold_sources": [
+        "1710.05654v2-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.05654v2",
+        "spiqa_explanation": "The figure on the right shows that the method in this paper (k=5) has the lowest time complexity for computing a graph with a small average node degree.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": true
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "e567bb68d9277749",
+      "question": "Which method performs the best when the number of shots is 50?",
+      "answer": "VAGER+Voting",
+      "gold_sources": [
+        "1710.06177v2-Figure2-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1710.06177v2",
+        "spiqa_explanation": "The blue line, which represents VAGER+Voting, has the highest AUC value when the number of shots is 50.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "e58c91517ca5d875",
+      "question": "How does the processing time of SRU compare to that of cuDNN LSTM and word-level convolution with filter widths k=2 and k=3?",
+      "answer": "The processing time of SRU is significantly faster than that of cuDNN LSTM and word-level convolution with filter widths k=2 and k=3.",
+      "gold_sources": [
+        "1709.02755v5-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1709.02755v5",
+        "spiqa_explanation": "The figure shows the average processing time of a batch of 32 samples using different architectures. The x-axis shows the number of tokens per sequence (l) and feature dimension (d), and the y-axis shows the processing time in milliseconds. The figure shows that SRU has a lower processing time than the other architectures across all values of l and d.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ec1cd4716731e9b9",
+      "question": "Which framework has the lowest total communication cost for MNIST?",
+      "answer": "FALCON",
+      "gold_sources": [
+        "1811.08257v1-Table5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.08257v1",
+        "spiqa_explanation": "The table shows that FALCON has the lowest total communication cost for MNIST, with a total of 92.5 MB.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ecfafc4fe911b042",
+      "question": "Which task-oriented dialog system performs the best when the percentage of unseen information in the KB is high?",
+      "answer": "BoSsNet",
+      "gold_sources": [
+        "1805.01216v3-Figure1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.01216v3",
+        "spiqa_explanation": "The figure shows that BoSsNet has the highest BLEU score across all percentages of unseen information in the KB. This suggests that BoSsNet is more robust to changes in the KB than the other systems.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ed085533b34edd04",
+      "question": "Which training data configuration resulted in the lowest prediction error for both UP-3D and HUMBI test sets?",
+      "answer": "Training with UP-3D + HUMBI resulted in the lowest prediction error for both UP-3D and HUMBI test sets.",
+      "gold_sources": [
+        "1812.00281v3-Table8-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.00281v3",
+        "spiqa_explanation": "Table 1 shows the mean error of 3D body mesh prediction for different combinations of training and testing data. For both UP-3D and HUMBI test sets, the lowest error values (**18.4±13.8** and **12.5±8.4** respectively) are observed when the model is trained with **UP-3D + HUMBI**. This suggests that combining both datasets during training leads to better generalization and lower prediction errors compared to using either dataset alone.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "eecb1cb8b9900e96",
+      "question": "Which game has the highest code loss in phase 2?",
+      "answer": "Pacman",
+      "gold_sources": [
+        "1707.00524v2-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1707.00524v2",
+        "spiqa_explanation": "The figure shows the code loss for different games in phase 1 and phase 2. The height of the bars represents the code loss. In phase 2, the bar for Pacman is the highest, indicating that it has the highest code loss.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f09f32ae6eecaaa1",
+      "question": "What is the role of the 3D ConvNet in the distance-based place discretization process?",
+      "answer": "The 3D ConvNet is used to extract features from the input images. These features are then used to generate place-based feature descriptions.",
+      "gold_sources": [
+        "1804.01429v3-Figure5-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.01429v3",
+        "spiqa_explanation": "The figure shows that the 3D ConvNet is applied to the input images to extract features. These features are then concatenated and fed into another 3D ConvNet to generate place-based feature descriptions.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f0edd36bbacdd0f3",
+      "question": "What is the performance of GRU4Rec relative to the baseline in terms of watch time?",
+      "answer": "GRU4Rec has a slightly higher performance than the baseline in terms of watch time.",
+      "gold_sources": [
+        "1706.03847v3-Figure6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1706.03847v3",
+        "spiqa_explanation": "The bar for GRU4Rec in the \"Watch time\" category is slightly higher than the bar for the baseline.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f14bb3e513849faf",
+      "question": "What is the purpose of the decoder in the 3D mesh prediction pipeline?",
+      "answer": "The decoder is responsible for generating the final 3D mesh from the intermediate representations produced by the regression network.",
+      "gold_sources": [
+        "1812.00281v3-Figure12-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1812.00281v3",
+        "spiqa_explanation": "The figure shows that the decoder takes the outputs of the regression network (Output 1 and Output 2) as input and produces the final 3D mesh. This suggests that the decoder performs some sort of post-processing or refinement on the intermediate representations to generate the final output.",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f17cc1392d05ac13",
+      "question": "What are the key differences between Seq2Sick and existing attack methods on RNN-based models?",
+      "answer": "Seq2Sick differs from existing attack methods in two key aspects:\n\n1. Search Strategy: While previous methods primarily rely on greedy search, which becomes increasingly inefficient for longer sequences, Seq2Sick employs group lasso regularization and projected gradient descent with gradient regularization. This allows for simultaneous searching of all replacement positions, leading to improved efficiency.\n\n2. Targeted Attack Type: Existing methods focus on targeting specific classes or binary classifications, while Seq2Sick introduces a novel \"keyword\" target type, allowing attacks to be directed towards specific keywords within the generated sequence.",
+      "gold_sources": [
+        "1803.01128v3-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.01128v3",
+        "spiqa_explanation": "Table 1 provides a comparative overview of different attack methods, highlighting their characteristics in terms of gradient-based approach, word-level RNN usage, sequential output, and targeted attack type. By analyzing this information in conjunction with the passage's emphasis on Seq2Sick's unique search strategy and keyword targeting capability, we can identify the key differences between this method and existing approaches.",
+        "caption_exact": false,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": true,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f2cbbf5ba1e77968",
+      "question": "Which of the following methods has the best performance?",
+      "answer": "LambdaMART",
+      "gold_sources": [
+        "1804.05936v2-Figure4-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1804.05936v2",
+        "spiqa_explanation": "LambdaMART consistently has the lowest ERR@10 values in all the figures, regardless of the hyper-parameter being tested.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "f8a44fc9cc739ba5",
+      "question": "Which method achieved the lowest testing error on the miniImageNet dataset?",
+      "answer": "ITTN (ResNet-32) (w/ DA) achieved the lowest testing error on the miniImageNet dataset with an error rate of 29.65%.",
+      "gold_sources": [
+        "1805.06447v3-Table6-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1805.06447v3",
+        "spiqa_explanation": "The table shows the testing errors of different methods on the miniImageNet dataset. The method with the lowest error rate is ITTN (ResNet-32) (w/ DA).",
+        "caption_exact": false,
+        "caption_numeric": true,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "fadaa4235d2c5577",
+      "question": "Which operation has the lowest online time?",
+      "answer": "ReLU",
+      "gold_sources": [
+        "1811.08257v1-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.08257v1",
+        "spiqa_explanation": "The online time for ReLU is 4.20 ms, which is the lowest value in the \"online\" column of the table.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "fc8a27f3ba9e220b",
+      "question": "Which dataset has the largest number of clinical visits per patient?",
+      "answer": "CMS",
+      "gold_sources": [
+        "1803.04572v2-Table3-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1803.04572v2",
+        "spiqa_explanation": "The table shows that the maximum number of clinical visits for the CMS dataset is 1500, which is larger than the maximum number of clinical visits for the CHOA dataset (857).",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "fca52dcc9378b30a",
+      "question": "Which model performed the best on the test data?",
+      "answer": "P-FC",
+      "gold_sources": [
+        "1906.06589v3-Table10-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1906.06589v3",
+        "spiqa_explanation": "The table shows that P-FC achieved the highest test accuracy (Atest) of 74.1.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": false,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    },
+    {
+      "id": "ffc4378b4276aa13",
+      "question": "What is the sample complexity lower bound for recovering a tree-structured sparse signal using standard compressed sensing?",
+      "answer": "Ω(s)",
+      "gold_sources": [
+        "1811.06635v1-Table1-1.png"
+      ],
+      "question_type": "figure_native",
+      "construction_method": "spiqa_native_human",
+      "evidence_requirement": "visual",
+      "graph_seeded": false,
+      "leakage_status": "flagged_for_human_review",
+      "metadata": {
+        "paper_id": "1811.06635v1",
+        "spiqa_explanation": "The table in the figure shows the sample complexity lower and upper bounds for different sparsity structures and compressed sensing methods. For standard compressed sensing and a tree-structured sparsity model, the lower bound is Ω(s), where s is the signal sparsity.",
+        "caption_exact": true,
+        "caption_numeric": false,
+        "author_caption_exact": true,
+        "author_caption_numeric": false,
+        "names_its_modality": false
+      },
+      "schema_version": 1
+    }
+  ]
+}

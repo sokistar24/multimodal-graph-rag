@@ -64,14 +64,23 @@ def chunk_key(text: str) -> str:
 
 
 def parse_triples(raw: str) -> list[tuple[str, str, str]]:
-    """Parse the extractor's reply; malformed output is an explicit error."""
+    """Parse the extractor's reply; malformed output is an explicit error.
+
+    A complete list followed only by stray closing brackets (gpt-4o-mini
+    sometimes appends a ``}``) is accepted as that list; anything malformed
+    inside the list is still an error.
+    """
     cleaned = raw.strip().replace("```json", "").replace("```", "").strip()
     try:
-        parsed = json.loads(cleaned)
+        parsed, end = json.JSONDecoder().raw_decode(cleaned)
     except json.JSONDecodeError as exc:
         raise InvalidModelOutputError(
             f"triple extractor returned invalid JSON: {cleaned[:120]!r}"
         ) from exc
+    if cleaned[end:].strip(" \t\r\n]}"):
+        raise InvalidModelOutputError(
+            f"triple extractor returned text after the JSON: {cleaned[end:][:60]!r}"
+        )
     if not isinstance(parsed, list):
         raise InvalidModelOutputError("triple extractor did not return a JSON list")
     triples = []

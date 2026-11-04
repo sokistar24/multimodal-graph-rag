@@ -96,26 +96,35 @@ class TextIndex:
     def source_names(self) -> set[str]:
         return set(self.sources)
 
-    def search_vector(self, query_vector: np.ndarray, k: int) -> list[Passage]:
+    def search_positions(
+        self, query_vector: np.ndarray, k: int
+    ) -> list[tuple[int, float]]:
+        """Chunk positions and similarities of the top ``k`` chunks, best first."""
         if k < 1:
             raise ConfigurationError("k must be at least 1")
         query = normalise_rows(np.asarray(query_vector).reshape(1, -1))
         scores, indices = self.index.search(query, min(k, self.size))
-        passages = []
-        for rank, (score, position) in enumerate(
-            zip(scores[0], indices[0], strict=True), 1
-        ):
-            if position < 0:
-                continue
-            passages.append(
-                Passage(
-                    source=self.sources[position],
-                    text=self.chunks[position],
-                    score=float(score),
-                    rank=rank,
-                )
+        return [
+            (int(position), float(score))
+            for score, position in zip(scores[0], indices[0], strict=True)
+            if position >= 0
+        ]
+
+    def passage_at(self, position: int, score: float, rank: int) -> Passage:
+        return Passage(
+            source=self.sources[position],
+            text=self.chunks[position],
+            score=score,
+            rank=rank,
+        )
+
+    def search_vector(self, query_vector: np.ndarray, k: int) -> list[Passage]:
+        return [
+            self.passage_at(position, score, rank)
+            for rank, (position, score) in enumerate(
+                self.search_positions(query_vector, k), 1
             )
-        return passages
+        ]
 
     def retrieve(self, query: str, client: ModelClient, k: int) -> list[Passage]:
         embedded = client.embed([query], model=self.metadata.embedding_model)

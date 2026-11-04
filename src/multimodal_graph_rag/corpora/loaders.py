@@ -55,14 +55,23 @@ def load_file(path: str | Path) -> str:
 
 
 def corpus_files(corpus_dir: str | Path) -> list[Path]:
-    """Sorted corpus documents; raises if the directory is missing or empty."""
+    """Corpus documents sorted by file name; raises if the directory is missing
+    or empty.
+
+    The key is the name string, not the path, because Windows paths compare
+    case-insensitively, which would give a different order (and so a different
+    corpus fingerprint and chunk order) on Windows than on Linux.
+    """
     directory = Path(corpus_dir)
     if not directory.is_dir():
         raise ConfigurationError(f"corpus directory does not exist: {directory}")
     files = sorted(
-        path
-        for path in directory.iterdir()
-        if path.is_file() and path.suffix.lower() in SUPPORTED_SUFFIXES
+        (
+            path
+            for path in directory.iterdir()
+            if path.is_file() and path.suffix.lower() in SUPPORTED_SUFFIXES
+        ),
+        key=lambda path: path.name,
     )
     if not files:
         raise ConfigurationError(f"corpus directory holds no documents: {directory}")

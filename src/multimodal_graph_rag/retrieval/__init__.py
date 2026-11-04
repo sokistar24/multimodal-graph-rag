@@ -2,8 +2,12 @@
 
 from .baselines import (
     BM25Index,
+    ExpandedRetrieval,
+    bm25_passages,
+    chunk_lexicon,
+    hybrid_passages,
     lexical_entity_expansion,
-    matched_random_expansion,
+    random_padding,
     reciprocal_rank_fusion,
 )
 from .graph import KnowledgeGraph, Triple, build_triples, load_graph
@@ -19,16 +23,20 @@ from .text import Passage, TextIndex
 __all__ = [
     "BM25Index",
     "BridgedRetrieval",
+    "ExpandedRetrieval",
     "KnowledgeGraph",
     "Passage",
     "TextIndex",
     "Triple",
+    "bm25_passages",
     "bridge_pages",
     "bridge_report",
     "build_triples",
+    "chunk_lexicon",
+    "hybrid_passages",
     "lexical_entity_expansion",
     "load_graph",
-    "matched_random_expansion",
+    "random_padding",
     "reciprocal_rank_fusion",
     "retrieval_metrics",
     "retrieve_with_bridge",

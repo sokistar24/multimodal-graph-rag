@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "name": "revision-spiqa-native-caption-flagged",
+  "corpus": "spiqa",
+  "corpus_dir": "spiqa_corpus",
+  "question_set": "data/questions/questions_spiqa_native_flagged.json",
+  "systems": ["baseline", "+multimodal", "+both"],
+  "generators": ["llama4-scout", "gpt-6-luna", "gemma-4-31b", "gemini-3.8-flash", "qwen3.8-max"],
+  "pricing_snapshot": "configs/pricing_2026-10-20.json",
+  "retrieval_method": "dense-plus-clip",
+  "candidate_budget": 5,
+  "graph_version": "legacy-v1",
+  "visual_retriever": "clip-vit-b32",
+  "judge": "gpt-6.1-sol",
+  "vision_judge": "gpt-6.1-sol",
+  "prompt_version": "evidence-attribution-v2",
+  "seed": 20260903,
+  "repetition": 1,
+  "bridge_hops": 1,
+  "image_dir": "spiqa_images",
+  "vision_mode": "pixels",
+  "controls": ["normal", "closed-book", "shuffled", "oracle-image"],
+  "metadata": {
+    "research_questions": ["RQ3"],
+    "question_authorship": "human (SPIQA test-A curators), not model-authored",
+    "pool": "the 132 of 579 curated items the caption leakage screen flagged in either caption channel; every one, not a sample",
+    "role": "contrast set for the screened primary set (spiqa_native_visual.json): how much of the multimodal gain the leakage screen removes",
+    "note": "run once with vision_mode=pixels and once with vision_mode=captions, as for the primary set"
+  }
+}

@@ -11,6 +11,7 @@ class EvidenceControl(StrEnum):
     SHUFFLED = "shuffled"
     ORACLE = "oracle"
     PARTIAL_GOLD = "partial-gold"
+    ORACLE_IMAGE = "oracle-image"
 
     @property
     def system_name(self) -> str:

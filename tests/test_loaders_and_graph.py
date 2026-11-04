@@ -40,12 +40,30 @@ def test_missing_or_empty_corpus_is_an_error(tmp_path):
         corpus_files(tmp_path / "empty")
 
 
+def test_corpus_files_sort_by_case_sensitive_name_on_every_platform(tmp_path):
+    # Windows path order would give a.txt, b.txt, C.txt; Linux and the name
+    # string give C.txt first.
+    for name in ("b.txt", "C.txt", "a.txt"):
+        (tmp_path / name).write_text("text", encoding="utf-8")
+    assert [path.name for path in corpus_files(tmp_path)] == ["C.txt", "a.txt", "b.txt"]
+
+
 def test_parse_triples_rejects_malformed_output():
     assert parse_triples('```json\n[["a","b","c"],["x","y"]]\n```') == [("a", "b", "c")]
     with pytest.raises(InvalidModelOutputError):
         parse_triples("not json")
     with pytest.raises(InvalidModelOutputError):
         parse_triples('{"a": 1}')
+
+
+def test_parse_triples_tolerates_only_stray_closing_brackets():
+    assert parse_triples('[["a","b","c"]]}') == [("a", "b", "c")]
+    with pytest.raises(InvalidModelOutputError):
+        parse_triples('[["a","b","c"]] and more')
+    with pytest.raises(InvalidModelOutputError):
+        parse_triples('[["a","b","c"]] [["x","y","z"]]')
+    with pytest.raises(InvalidModelOutputError):
+        parse_triples('[["a","b",""" ""]]')
 
 
 def test_corrupt_cache_and_missing_chunks_are_explicit(tmp_path, corpus_dir):
